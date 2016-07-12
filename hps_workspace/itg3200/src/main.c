@@ -1,16 +1,7 @@
 #include <stdio.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include <sys/ioctl.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <linux/i2c-dev.h>
+
 
 #include "i2c.h"
-
 #include "itg3200.h"
 
 
@@ -23,6 +14,15 @@ int main(int argc, char *argv[]){
 		printf("Init I2C 100kHz successful\n");
 	}
 
+	uint8_t version;
+	version = read_version_itg();
+
+	printf("Version: %d\n", version);
+
+	uint16_t temp;
+	temp = read_temp_itg();
+
+	printf("Temperatur: %d", temp);
 
 	return 0;
 	

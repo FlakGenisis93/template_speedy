@@ -27,8 +27,7 @@ int main() {
 	void *virtual_base;
 	volatile uint32_t *hps_saber = NULL;
 	int fd;
-	//uint32_t daten, i;
-	//char daten_reg[2048];
+
 
 
 	// map the address space for the LED registers into user space so we can interact with them.
@@ -48,37 +47,6 @@ int main() {
 	}
 
 	hps_saber = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + MOTOR_MODUL_BASE ) & (uint32_t)( HW_REGS_MASK ) );
-
-	/*//Init Lasermodul
-	daten = init_laser(hps_laser);
-	if ( daten != 0) {
-		printf("Fehler bei Initzialisierung\n");
-	} else {
-		printf("Init OK\n");
-	}
-
-	//Schreiben ins Befehlsregister
-	alt_write_word(hps_laser, 2);
-
-	//Pruefen des Befehlsregisters
-	daten = alt_read_word( hps_laser + REG_R_BEFEHL);
-	printf("Befehlsregister = %i\n", daten);
-
-	//Loeschen des Befhelsregisters
-	alt_write_word(hps_laser, 0);
-
-	//Speicher lesen
-	for(i = 0; i < 2048; i++){
-
-		//Zelle waehlen
-		alt_write_word(hps_laser + REG_W_ZELLE , i);
-		//Zelle lesen
-		daten_reg[i] = alt_read_word( hps_laser );
-
-		}*/
-
-	uint16_t distance[2048];
-	doMeasurement(hps_laser, &distance);
 
 
 	if( munmap( virtual_base, HW_REGS_SPAN ) != 0 ) {

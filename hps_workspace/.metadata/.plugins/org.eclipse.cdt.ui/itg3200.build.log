@@ -1,0 +1,15 @@
+16:38:43 **** Incremental Build of configuration Debug for project itg3200 ****
+make all 
+'Building file: ../src/itg3200.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\itg3200\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/itg3200.d" -MT"src/itg3200.d" -o "src/itg3200.o" "../src/itg3200.c"
+'Finished building: ../src/itg3200.c'
+' '
+'Building target: itg3200'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "itg3200"  ./src/itg3200.o ./src/main.o  ./actuators/i2c.o   
+'Finished building target: itg3200'
+' '
+
+16:38:44 Build Finished (took 941ms)
+

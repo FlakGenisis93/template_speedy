@@ -5,7 +5,7 @@
 
 #define ADDR_TPA81		0x68
 
-uint8_t read_version_srf08(void);
+uint8_t read_version_tpa81(void);
 uint8_t read_umgebungs_temp(void);
 uint8_t read_pixel_temp(uint8_t pixel, uint8_t data_tpa[]);
 

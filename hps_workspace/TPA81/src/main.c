@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
 	}
 
 	uint8_t version;
-	version = read_version_srf08();
+	version = read_version_tpa81();
 	printf("Version: %d\n", version);
 
 	uint8_t temp;

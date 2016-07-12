@@ -1,0 +1,116 @@
+16:04:28 **** Build of configuration Debug for project saber ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:18:0:
+../src/motor_modul.h: In function 'getGyro_result':
+../src/motor_modul.h:55:8: error: 'Gyro_ZOUT_HIGH' undeclared (first use in this function)
+   scmd=Gyro_ZOUT_HIGH;
+        ^
+../src/motor_modul.h:55:8: note: each undeclared identifier is reported only once for each function it appears in
+../src/motor_modul.h:56:3: warning: implicit declaration of function 'os_i2c_Transceive' [-Wimplicit-function-declaration]
+   i2c_status = os_i2c_Transceive(I2C_CHAN0, I2C_Gyro, &scmd, 1, &val, 1);
+   ^
+../src/motor_modul.h:56:34: error: 'I2C_CHAN0' undeclared (first use in this function)
+   i2c_status = os_i2c_Transceive(I2C_CHAN0, I2C_Gyro, &scmd, 1, &val, 1);
+                                  ^
+../src/motor_modul.h:56:45: error: 'I2C_Gyro' undeclared (first use in this function)
+   i2c_status = os_i2c_Transceive(I2C_CHAN0, I2C_Gyro, &scmd, 1, &val, 1);
+                                             ^
+../src/motor_modul.h:58:8: error: 'Gyro_ZOUT_LOW' undeclared (first use in this function)
+   scmd=Gyro_ZOUT_LOW;
+        ^
+../src/motor_modul.h:50:11: warning: variable 'i2c_status' set but not used [-Wunused-but-set-variable]
+   uint8_t i2c_status;
+           ^
+../src/motor_modul.h: In function 'drive':
+../src/motor_modul.h:82:2: warning: implicit declaration of function 'IOWR' [-Wimplicit-function-declaration]
+  IOWR(MOTOR_MODUL_0_BASE,0,speed);  //speed
+  ^
+../src/motor_modul.h:82:7: error: 'MOTOR_MODUL_0_BASE' undeclared (first use in this function)
+  IOWR(MOTOR_MODUL_0_BASE,0,speed);  //speed
+       ^
+../src/motor_modul.h:87:3: warning: implicit declaration of function 'OSTimeDlyHMSM' [-Wimplicit-function-declaration]
+   OSTimeDlyHMSM(0, 0, 0, 100);
+   ^
+../src/motor_modul.h:88:3: warning: implicit declaration of function 'IORD' [-Wimplicit-function-declaration]
+   done_flag = IORD(MOTOR_MODUL_0_BASE,0); //done_flag lesen
+   ^
+../src/motor_modul.h: In function 'drive_turn':
+../src/motor_modul.h:106:7: error: 'MOTOR_MODUL_0_BASE' undeclared (first use in this function)
+  IOWR(MOTOR_MODUL_0_BASE,0,speed);   //speed
+       ^
+../src/motor_modul.h: In function 'drive_turn_w_offset':
+../src/motor_modul.h:161:7: error: 'MOTOR_MODUL_0_BASE' undeclared (first use in this function)
+  IOWR(MOTOR_MODUL_0_BASE,0,speed);   //speed
+       ^
+In file included from ../src/main.c:18:0:
+../src/motor_modul.h: In function 'curve':
+../src/motor_modul.h:185:11: error: 'MOTOR_MODUL_0_BASE' undeclared (first use in this function)
+      IOWR(MOTOR_MODUL_0_BASE,0,25);   //transmit       Geschwindigkeit: 25
+           ^
+../src/motor_modul.h: In function 'send_driveback':
+../src/motor_modul.h:193:11: error: 'MOTOR_MODUL_0_BASE' undeclared (first use in this function)
+      IOWR(MOTOR_MODUL_0_BASE,0,25); //transmit //25 geht!!!!!!!!!!! Geschwindigkeit: 25
+           ^
+../src/motor_modul.h: In function 'drive_test':
+../src/motor_modul.h:205:8: error: 'MOTOR_MODUL_0_BASE' undeclared (first use in this function)
+   IOWR(MOTOR_MODUL_0_BASE,0,speed);  //speed
+        ^
+../src/motor_modul.h: In function 'gyro_test':
+../src/motor_modul.h:213:3: error: unknown type name 'Gyro_Result_t'
+   Gyro_Result_t gyroResult;
+   ^
+../src/motor_modul.h:217:3: warning: implicit declaration of function 'getGyro_Result' [-Wimplicit-function-declaration]
+   i2c_status = getGyro_Result(&gyroResult);
+   ^
+../src/motor_modul.h:224:57: error: request for member 'XYZ' in something not a structure or union
+   sprintf((char *)&txt[0],"Z:%4d   %4d T:%4d",gyroResult.XYZ[2],gyroResult.XYZ[2],gyroResult.temperature);
+                                                         ^
+../src/motor_modul.h:224:75: error: request for member 'XYZ' in something not a structure or union
+   sprintf((char *)&txt[0],"Z:%4d   %4d T:%4d",gyroResult.XYZ[2],gyroResult.XYZ[2],gyroResult.temperature);
+                                                                           ^
+../src/motor_modul.h:224:93: error: request for member 'temperature' in something not a structure or union
+   sprintf((char *)&txt[0],"Z:%4d   %4d T:%4d",gyroResult.XYZ[2],gyroResult.XYZ[2],gyroResult.temperature);
+                                                                                             ^
+../src/motor_modul.h:225:3: warning: implicit declaration of function 'LCDwrite' [-Wimplicit-function-declaration]
+   LCDwrite(&txt[0],20);
+   ^
+../src/motor_modul.h:214:11: warning: variable 'i2c_status' set but not used [-Wunused-but-set-variable]
+   uint8_t i2c_status;
+           ^
+../src/motor_modul.h: In function 'drive_regler':
+../src/motor_modul.h:241:7: error: 'MOTOR_MODUL_0_BASE' undeclared (first use in this function)
+  IOWR(MOTOR_MODUL_0_BASE,0,speed);  //speed
+       ^
+../src/motor_modul.h: In function 'drive_in_steps':
+../src/motor_modul.h:273:7: error: 'MOTOR_MODUL_0_BASE' undeclared (first use in this function)
+  IOWR(MOTOR_MODUL_0_BASE,0,speed);   //speed
+       ^
+../src/motor_modul.h:267:9: warning: unused variable 'count' [-Wunused-variable]
+  int8_t count = 0;
+         ^
+../src/motor_modul.h: In function 'drive_curve_steps':
+../src/motor_modul.h:309:7: error: 'MOTOR_MODUL_0_BASE' undeclared (first use in this function)
+  IOWR(MOTOR_MODUL_0_BASE,0,speed);   //speed
+       ^
+../src/motor_modul.h: In function 'drive_curve_steps_test':
+../src/motor_modul.h:373:7: error: 'MOTOR_MODUL_0_BASE' undeclared (first use in this function)
+  IOWR(MOTOR_MODUL_0_BASE,0,speed);   //speed
+       ^
+../src/main.c: In function 'main':
+../src/main.c:81:2: warning: implicit declaration of function 'doMeasurement' [-Wimplicit-function-declaration]
+  doMeasurement(hps_laser, &distance);
+  ^
+../src/main.c:81:16: error: 'hps_laser' undeclared (first use in this function)
+  doMeasurement(hps_laser, &distance);
+                ^
+../src/main.c:28:21: warning: variable 'hps_saber' set but not used [-Wunused-but-set-variable]
+  volatile uint32_t *hps_saber = NULL;
+                     ^
+src/subdir.mk:18: recipe for target 'src/main.o' failed
+make: *** [src/main.o] Error 1
+
+16:04:29 Build Finished (took 488ms)
+
