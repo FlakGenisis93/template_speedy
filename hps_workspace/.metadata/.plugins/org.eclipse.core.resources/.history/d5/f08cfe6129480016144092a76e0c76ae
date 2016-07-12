@@ -1,0 +1,17 @@
+#include "hmc6343.h"
+
+uint8_t post_heading_data(){
+
+	uint8_t data = 0x50;
+
+	if(write_i2c(I2C_2, ADDR_HMC, &data, 1) == 1)
+		return 0;
+
+	return -1;
+}
+
+
+uint8_t read_data_hmc(){
+
+	return -1;
+}

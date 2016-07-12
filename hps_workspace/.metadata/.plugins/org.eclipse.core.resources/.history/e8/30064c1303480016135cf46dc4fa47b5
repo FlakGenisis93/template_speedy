@@ -1,0 +1,6 @@
+#ifndef TPA81_H_
+#define TPA81_H_
+
+#include "i2c.h"
+
+#endif /* TPA81_H_ */

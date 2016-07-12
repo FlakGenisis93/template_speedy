@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Tue Jul 05 10:34:44 2016
+Quartus Prime Version : 16.0.1 Build 218 06/01/2016 SJ Standard Edition
+Revision Name : soc_system
+Top-level Entity Name : toplevel_hps_speedy
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A until Partition Merge
+Total registers : N/A until Partition Merge
+Total pins : N/A until Partition Merge
+Total virtual pins : N/A until Partition Merge
+Total block memory bits : N/A until Partition Merge
+Total DSP Blocks : N/A until Partition Merge
+Total HSSI RX PCSs : N/A until Partition Merge
+Total HSSI PMA RX Deserializers : N/A until Partition Merge
+Total HSSI TX PCSs : N/A until Partition Merge
+Total HSSI PMA TX Serializers : N/A until Partition Merge
+Total PLLs : N/A until Partition Merge
+Total DLLs : N/A until Partition Merge

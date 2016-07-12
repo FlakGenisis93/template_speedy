@@ -1,0 +1,12 @@
+#include "hmc6343.h"
+
+uint8_t write_to_hmc(){
+
+	return -1;
+}
+
+
+uint8_t read_data_hmc(){
+
+	return -1;
+}

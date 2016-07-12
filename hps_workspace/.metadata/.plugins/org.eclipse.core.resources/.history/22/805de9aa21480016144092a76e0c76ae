@@ -1,0 +1,58 @@
+#include "max11613.h"
+
+uint8_t write_setup_byte(){
+
+	//bit 0	- Don't care
+	//bit 1 - RST_n
+	//bit 2 - BIP/UNI_n
+	//bit 3 - CLK
+	//Config SEL fuer external Ref
+	//bit 4 - SEL0		- x
+	//bit 5 - SEL1		- 1
+	//bit 6 - SEL2		- 0
+	//bit 7 - REG		- 1 = Setup Byte
+
+	uint8_t data = 0b10100010;
+
+	if(write_i2c(I2C_1, ADDR_MAX11613, &data, 1) == 1)
+		return 0;
+
+	return -1;
+
+}
+
+uint8_t write_config_byte(uint8_t channel){
+
+	//bit 0	- SFL/DIF_n
+	//bit 1 - CS0
+	//bit 2 - CS1
+	//bit 3 - CS2
+	//bit 4 - CS3
+	//bit 5 - SCAN0
+	//bit 6 - SCAN1
+	//bit 7 - REG		- 0 = Config Byte
+
+	uint8_t data;
+
+	switch (channel){
+
+		case 1:
+			data = 0b00000001;
+			break;
+		case 2:
+			data = 0b00000011;
+			break;
+		case 3:
+			data = 0b00000101;
+			break;
+		case 4:
+			data = 0b00000111;
+			break;
+	}
+
+	if(write_i2c(I2C_1, ADDR_MAX11613, &data, 1) == 1)
+		return 0;
+
+	return -1;
+
+}

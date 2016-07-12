@@ -1,0 +1,121 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LED[0]",
+					"strict" : false
+				},
+				{
+					"name" : "TAKT",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_UART_XBEE_TXD",
+					"strict" : false
+				},
+				{
+					"name" : "UART_SABER",
+					"strict" : false
+				},
+				{
+					"name" : "UART_LASER_TXD",
+					"strict" : false
+				},
+				{
+					"name" : "DRIVE_LED[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DRIVE_LED[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[7]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[0]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[1]",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_UART1_RX",
+					"strict" : false
+				},
+				{
+					"name" : "ENCODER_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ENCODER_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ENCODER_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ENCODER_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_UART_XBEE_RXD",
+					"strict" : false
+				},
+				{
+					"name" : "UART_LASER_RXD",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_CLK1_50",
+					"strict" : false
+				},
+				{
+					"name" : "SW[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[3]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

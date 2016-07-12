@@ -1,0 +1,18 @@
+#include "max11613.h"
+
+uint8_t write_setup_byte(){
+
+	uint8_t data = 0b10000010;
+
+
+	write_i2c(I2C_1, ADDR_TPA81, &data, 1);
+
+	return -1;
+
+}
+
+uint8_t write_config_byte(){
+
+	return -1;
+
+}

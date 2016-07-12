@@ -1,0 +1,49 @@
+#include "tpa81.h"
+
+uint8_t read_version_srf08(void){
+
+	uint8_t version = 0;
+
+	uint8_t cmd_reg_0 = {0};
+
+	write_i2c(I2C_1, ADDR_TPA81, &cmd_reg_0, 1);
+
+	read_i2c(I2C_1, ADDR_TPA81, &version, 1);
+
+	return version;
+}
+
+uint8_t read_umgebungs_temp(void){
+
+	uint8_t version = 0;
+
+	uint8_t cmd_reg_1 = {1};
+
+	write_i2c(I2C_1, ADDR_TPA81, &cmd_reg_1, 1);
+
+	read_i2c(I2C_1, ADDR_TPA81, &version, 1);
+
+	return version;
+}
+
+uint8_t read_pixel_temp(uint8_t pixel){
+
+	uint8_t command[] = {0x0, 0x50};
+
+	if(write_i2c(I2C_1, adresse_srf, command, 2) == 2)
+		return 0;
+
+	return 1;
+
+}
+
+uint8_t read_all_pixel_temp(uint8_t adresse_srf){
+
+	uint8_t command[] = {0x0, 0x50};
+
+	if(write_i2c(I2C_1, adresse_srf, command, 2) == 2)
+		return 0;
+
+	return 1;
+
+}

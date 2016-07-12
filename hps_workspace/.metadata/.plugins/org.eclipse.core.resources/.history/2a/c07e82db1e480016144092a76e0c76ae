@@ -1,0 +1,11 @@
+#include "max11613.h"
+
+uint8_t write_setup_byte(){
+
+
+}
+
+uint8_t write_config_byte(){
+
+
+}
