@@ -1,4 +1,4 @@
-ConnectionManager.savedConnections=<?xml version\="1.0" encoding\="UTF-8"?>\n<connections>\n\t<connection current\="no" mode\="debug" type\="com.arm.debugger.launcher2">tpa_debug</connection>\n\t<connection current\="no" mode\="debug" type\="com.arm.debugger.launcher2">max_debug</connection>\n\t<connection current\="yes" mode\="debug" type\="com.arm.debugger.launcher2">hmc_debug</connection>\n</connections>\n
+ConnectionManager.savedConnections=<?xml version\="1.0" encoding\="UTF-8"?>\n<connections>\n\t<connection current\="no" mode\="debug" type\="com.arm.debugger.launcher2">tpa_debug</connection>\n\t<connection current\="no" mode\="debug" type\="com.arm.debugger.launcher2">max_debug</connection>\n\t<connection current\="no" mode\="debug" type\="com.arm.debugger.launcher2">hmc_debug</connection>\n\t<connection current\="yes" mode\="debug" type\="com.arm.debugger.launcher2">itg_debug</connection>\n</connections>\n
 PreferredTargetHasBeenSet=true
 debugger.perspective.switch.preference.launch=always
 eclipse.preferences.version=1

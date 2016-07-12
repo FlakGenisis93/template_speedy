@@ -24,19 +24,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: hmc6343
+all: itg3200
 
 # Tool invocations
-hmc6343: $(OBJS) $(USER_OBJS)
+itg3200: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-	arm-linux-gnueabihf-gcc  -o "hmc6343" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-linux-gnueabihf-gcc  -o "itg3200" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES) $(OBJS) $(C_DEPS) hmc6343 
+	-$(RM) $(EXECUTABLES) $(OBJS) $(C_DEPS) itg3200 
 	-@echo ' '
 
 .PHONY: all clean dependents

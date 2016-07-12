@@ -1,6 +1,6 @@
 #include "tpa81.h"
 
-uint8_t read_version_srf08(void){
+uint8_t read_version_tpa81(void){
 
 	uint8_t version = 0;
 

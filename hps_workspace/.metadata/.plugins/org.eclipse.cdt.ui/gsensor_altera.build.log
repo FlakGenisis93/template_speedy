@@ -1,0 +1,20 @@
+16:04:18 **** Build of configuration Debug for project gsensor_altera ****
+make all 
+'Building file: ../src/ADXL345.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ADXL345.d" -MT"src/ADXL345.d" -o "src/ADXL345.o" "../src/ADXL345.c"
+'Finished building: ../src/ADXL345.c'
+' '
+'Building file: ../src/gesonsor_nano.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/gesonsor_nano.d" -MT"src/gesonsor_nano.d" -o "src/gesonsor_nano.o" "../src/gesonsor_nano.c"
+'Finished building: ../src/gesonsor_nano.c'
+' '
+'Building target: gsensor_altera'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "gsensor_altera"  ./src/ADXL345.o ./src/gesonsor_nano.o   
+'Finished building target: gsensor_altera'
+' '
+
+16:04:19 Build Finished (took 1s.40ms)
+

@@ -1,6 +1,5 @@
 #include "ADXL345.h"
-#include <stdint.h>
-#include <stdbool.h>
+
 
 // api for register access, defined in main.c
 bool ADXL345_REG_WRITE(int file, uint8_t address, uint8_t value);

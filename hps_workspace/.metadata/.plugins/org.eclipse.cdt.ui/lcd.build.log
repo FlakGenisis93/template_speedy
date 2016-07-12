@@ -1,0 +1,25 @@
+16:04:24 **** Build of configuration Debug for project lcd ****
+make all 
+'Building file: ../src/lcd.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/lcd.d" -MT"src/lcd.d" -o "src/lcd.o" "../src/lcd.c"
+'Finished building: ../src/lcd.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../actuators/i2c.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"actuators/i2c.d" -MT"actuators/i2c.d" -o "actuators/i2c.o" "../actuators/i2c.c"
+'Finished building: ../actuators/i2c.c'
+' '
+'Building target: lcd'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "lcd"  ./src/lcd.o ./src/main.o  ./actuators/i2c.o   
+'Finished building target: lcd'
+' '
+
+16:04:26 Build Finished (took 1s.543ms)
+
