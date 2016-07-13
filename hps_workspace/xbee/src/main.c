@@ -9,12 +9,14 @@
 
 int main(void){
 
-	uint8_t data[] = {0x48, 0x49}; //Hi
-	uint16_t addresse = 0x0401;
+	uint8_t data[] = {0x48, 0x49}; 	//ASCI Zeichen in HEX fuer - Hi
+	uint16_t addresse = 0x0401;		//HEX Adresse des anderen XBee-Moduls	
 
 
+	//Senden per XBee
 	xbee_tx(addresse, data, sizeof(data));
 
+	//Empfangen per XBee
 	//xbee_rx();
 
 	return 0;
