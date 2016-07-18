@@ -1,14 +1,14 @@
 /**
   *******************************************************************************************************************
-  * @file      	xbee.h
+  * @file      	srf08.c
   * @author    	B. Eng. Urban Conrad
   * @version   	V1.0
-  * @date      	13.07.2016
+  * @date      	14.07.2016
   * @copyright 	2009 - 2016 UniBw M - ETTI - Institut 4
-  * @brief   	Header functions to control Xbee modul
+  * @brief   	Functions to control SRF08 modul
   *******************************************************************************************************************
   * @par History:
-  *  @details V1.0.0 13.07.2016 Urban Conrad
+  *  @details V1.0.0 14.07.2016 Urban Conrad
   *           - Initial version
   *******************************************************************************************************************
   */
