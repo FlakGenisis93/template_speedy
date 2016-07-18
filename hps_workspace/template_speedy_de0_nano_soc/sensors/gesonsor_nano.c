@@ -1,4 +1,9 @@
-#include "gsensor_nano.h"
+#include <string.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+#include "ADXL345.h"
 
 #define ADXL345_REG_DEVID       0x00
 
@@ -51,14 +56,16 @@ bool ADXL345_REG_MULTI_READ(int file, uint8_t readaddr,uint8_t readdata[], uint8
 
 
 
-uint8_t hps_gsensor_messen(uint8_t messungen){
+int main(int argc, char *argv[]){
 	
 	uint8_t id;
 	bool bSuccess;
 	const int mg_per_digi = 4;
 	uint16_t szXYZ[3];
-	int cnt = 0;
-
+	int cnt=0, max_cnt=0;
+	
+	if(argc)
+		max_cnt = argc;
 
     // configure accelerometer as +-2g and start measure
     bSuccess = ADXL345_Init();
@@ -70,7 +77,7 @@ uint8_t hps_gsensor_messen(uint8_t messungen){
     }        
     
     
-    while(bSuccess && (cnt < messungen)){
+    while(bSuccess && (max_cnt == 0 || cnt < max_cnt)){
         if (ADXL345_IsDataReady()){
             bSuccess = ADXL345_XYZ_Read(szXYZ);
             if (bSuccess){
@@ -85,6 +92,8 @@ uint8_t hps_gsensor_messen(uint8_t messungen){
     
     if (!bSuccess)
         printf("Failed to access accelerometer\r\n");
+			
+	printf("gsensor, bye!\r\n");
 
 	return 0;
 	

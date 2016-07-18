@@ -13,68 +13,54 @@
   *******************************************************************************************************************
   */
   
-#ifndef MAX11613_H_
-#define MAX11613_H_
+#ifndef ITG3200_H_
+#define ITG3200_H_
 
 //	I	N	C	L	U	D	E	S
 
 #include <stdint.h>
+
 #include "i2c.h"
 
 //	D	E	F	I	N	E	S
 
-#define ADDR_MAX11613	0x34
+#define ADDR_ITG	0x69
 
 //	F	U	N	K	T	I	O	N	E	N
 
 /**
  *******************************************************************************************************************
  *
- *	@brief		uint8_t write_setup_byte(void)
+ *	@brief		uint8_t read_version_itg(void)
  *
- *	@details	Diese Funktion schreibt das setup byte
+ *	@details	Diese Funktion liest die Version des ITG3200 Moduls aus
  *
  *	@param		void
  *
- *	@retval		0	Alles ok
+ *	@retval		x	Version
  *				-1	Fehler beim schreiben auf I2C
+ *				-2	Fehler beim lesen auf I2C
  *
  *******************************************************************************************************************/
  
-uint8_t write_setup_byte(void);
+uint8_t read_version_itg(void);
 
 /**
  *******************************************************************************************************************
  *
- *	@brief		uint8_t write_config_byte(void)
+ *	@brief		uint16_t read_temp_itg(void)
  *
- *	@details	Diese Funktion schreibt das config byte
+ *	@details	Diese Funktion liest die Temperatur des ITG3200 Moduls aus
  *
  *	@param		void
  *
- *	@retval		0	Alles ok
+ *	@retval		x	Temperatur
  *				-1	Fehler beim schreiben auf I2C
+ *				-2	Fehler beim lesen auf I2C
  *
  *******************************************************************************************************************/
  
-uint8_t write_config_byte(void);
+uint16_t read_temp_itg(void);
 
-/**
- *******************************************************************************************************************
- *
- *	@brief		uint8_t read_data_max11613(uint8_t bytes, uint8_t data_max[])
- *
- *	@details	Diese Funktion schreibt das config byte
- *
- *	@param		uint8_t bytes			Bytes die gelesen werden, muss gerade sein
- *	@param		uint8_t data_max[]		Array zum soeichern der Daten
- *
- *	@retval		x	Bytes read
- *				-1	Fehler beim lesen auf I2C
- *				-2	bytes ist nicht gerade
- *
- *******************************************************************************************************************/
- 
-uint8_t read_data_max11613(uint8_t bytes, uint8_t data_max[]);
 
-#endif /* MAX11613_H_ */
+#endif /* ITG3200_H_ */

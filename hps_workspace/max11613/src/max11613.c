@@ -1,4 +1,23 @@
+/**
+  *******************************************************************************************************************
+  * @file      	max11613.c
+  * @author    	B. Eng. Urban Conrad
+  * @version   	V1.0
+  * @date      	18.07.2016
+  * @copyright 	2009 - 2016 UniBw M - ETTI - Institut 4
+  * @brief   	Functions to control max11613 modul
+  *******************************************************************************************************************
+  * @par History:
+  *  @details V1.0.0 18.07.2016 Urban Conrad
+  *           - Initial version
+  *******************************************************************************************************************
+  */
+  
+//	I	N	C	L	U	D	E	S
+
 #include "max11613.h"
+
+//	F	U	N	K	T	I	O	N	E	N
 
 uint8_t write_setup_byte(void){
 
@@ -16,6 +35,7 @@ uint8_t write_setup_byte(void){
 
 	uint8_t data = 0b10100010;
 
+	//Schreiben auf I2C Bus
 	if(write_i2c(I2C_2, ADDR_MAX11613, &data, 1) == 1)
 		return 0;
 
@@ -42,6 +62,7 @@ uint8_t write_config_byte(void){
 
 	uint8_t data = 0b00000101;
 
+	//Schreiben auf I2C Bus
 	if(write_i2c(I2C_2, ADDR_MAX11613, &data, 1) == 1)
 		return 0;
 
@@ -53,11 +74,14 @@ uint8_t read_data_max11613(uint8_t bytes, uint8_t data_max[]){
 
 	uint8_t bytes_read;
 
+	//Bytes muss eine gerade Zahl sein
 	if( (bytes % 2) != 0  )
 		return -2;
 
+	//Lesen von I2C Bus
 	bytes_read = read_i2c(I2C_2, ADDR_MAX11613, data_max, bytes);
 
+	//byte die gelesen worden muessen den geforderten entsprechen
 	if(bytes_read == bytes)
 		return bytes_read;
 
