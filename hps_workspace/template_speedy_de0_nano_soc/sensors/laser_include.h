@@ -9,7 +9,7 @@
 #include <soc_cv_av/socal/socal.h>
 #include <soc_cv_av/socal/hps.h>
 
-#include "../src/hps_0.h"
+#include "hps_0.h"
 #include "hwlib.h"
 #include "time.h"
 #include "laser.h"
