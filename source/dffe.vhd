@@ -1,8 +1,14 @@
---Universitaet der Bundeswehr
---Conrad Urban
---ETTI 12
+--------------------------------------------------------------------------------
+--! Conrad Urban B.Eng.
+--! Universitaet der Bundeswehr - Muenchen
+--
+--! @file dffe.vhd
+--! @brief design of an D Flip Flop
+--------------------------------------------------------------------------------
 
-LIBRARY ieee;
+--! Use standart library
+library IEEE;
+--! Use logic elements
 USE ieee.std_logic_1164.all;
 USE ieee.std_logic_unsigned.all;
 
