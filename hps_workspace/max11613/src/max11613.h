@@ -27,8 +27,54 @@
 
 //	F	U	N	K	T	I	O	N	E	N
 
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint8_t write_setup_byte(void)
+ *
+ *	@details	Diese Funktion schreibt das setup byte
+ *
+ *	@param		void
+ *
+ *	@retval		0	Alles ok
+ *				-1	Fehler beim schreiben auf I2C
+ *
+ *******************************************************************************************************************/
+ 
 uint8_t write_setup_byte(void);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint8_t write_config_byte(void)
+ *
+ *	@details	Diese Funktion schreibt das config byte
+ *
+ *	@param		void
+ *
+ *	@retval		0	Alles ok
+ *				-1	Fehler beim schreiben auf I2C
+ *
+ *******************************************************************************************************************/
+ 
 uint8_t write_config_byte(void);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint8_t read_data_max11613(uint8_t bytes, uint8_t data_max[])
+ *
+ *	@details	Diese Funktion schreibt das config byte
+ *
+ *	@param		uint8_t bytes			Bytes die gelesen werden, muss gerade sein
+ *	@param		uint8_t data_max[]		Array zum soeichern der Daten
+ *
+ *	@retval		x	Bytes read
+ *				-1	Fehler beim lesen auf I2C
+ *				-2	bytes ist nicht gerade
+ *
+ *******************************************************************************************************************/
+ 
 uint8_t read_data_max11613(uint8_t bytes, uint8_t data_max[]);
 
 #endif /* MAX11613_H_ */
