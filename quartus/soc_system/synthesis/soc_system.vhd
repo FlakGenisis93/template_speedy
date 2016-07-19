@@ -111,7 +111,7 @@ entity soc_system is
 end entity soc_system;
 
 architecture rtl of soc_system is
-	component interface_motor_modul is
+	component interface_motor_modul_mm is
 		generic (
 			REG1_cntBits : integer := 8;
 			REG2_cntBits : integer := 16;
@@ -131,7 +131,7 @@ architecture rtl of soc_system is
 			uart_out             : out std_logic;                                        -- uart_out
 			LED_DriveStatus      : out std_logic_vector(1 downto 0)                      -- led_drivestatus_out
 		);
-	end component interface_motor_modul;
+	end component interface_motor_modul_mm;
 
 	component soc_system_button_pio is
 		port (
@@ -1054,7 +1054,7 @@ architecture rtl of soc_system is
 
 begin
 
-	motor_modul : component interface_motor_modul
+	motor_modul : component interface_motor_modul_mm
 		generic map (
 			REG1_cntBits => 8,
 			REG2_cntBits => 16,

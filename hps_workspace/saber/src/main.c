@@ -15,7 +15,7 @@
 
 #include "hps_0.h"
 #include "hwlib.h"
-#include "motor_modul.h"
+#include "motor_modul_mm.h"
 
 #define HW_REGS_BASE 	( ALT_STM_OFST )
 #define HW_REGS_SPAN 	( 0x04000000 )
@@ -28,10 +28,6 @@ int main() {
 	volatile uint32_t *hps_saber = NULL;
 	int fd;
 
-
-
-	// map the address space for the LED registers into user space so we can interact with them.
-	// we'll actually map in the entire CSR span of the HPS since we want to access various registers within that span
 
 	if( ( fd = open( "/dev/mem", ( O_RDWR | O_SYNC ) ) ) == -1 ) {
 		printf( "ERROR: could not open \"/dev/mem\"...\n" );

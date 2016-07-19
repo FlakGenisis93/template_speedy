@@ -1,8 +1,0 @@
-#ifndef TPA81_H_
-#define TPA81_H_
-
-#include "i2c.h"
-
-#define ADDR_TPA81		0x68
-
-#endif /* TPA81_H_ */

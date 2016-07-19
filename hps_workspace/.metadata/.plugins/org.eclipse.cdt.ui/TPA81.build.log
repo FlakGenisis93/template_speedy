@@ -1,20 +1,6 @@
-16:05:52 **** Incremental Build of configuration Debug for project TPA81 ****
+16:00:00 **** Incremental Build of configuration Debug for project TPA81 ****
 make all 
-'Building file: ../src/main.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\TPA81\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/tpa81.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\TPA81\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/tpa81.d" -MT"src/tpa81.d" -o "src/tpa81.o" "../src/tpa81.c"
-'Finished building: ../src/tpa81.c'
-' '
-'Building target: TPA81'
-'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "TPA81"  ./src/main.o ./src/tpa81.o  ./actuators/i2c.o   
-'Finished building target: TPA81'
-' '
+make: Nothing to be done for 'all'.
 
-16:05:53 Build Finished (took 1s.91ms)
+16:00:00 Build Finished (took 445ms)
 

@@ -1,7 +1,0 @@
-#ifndef MAX11613_H_
-#define MAX11613_H_
-
-#include "i2c.h"
-
-
-#endif /* MAX11613_H_ */

@@ -31,7 +31,7 @@ uint8_t read_version_srf08(uint8_t adresse_srf){
 		return -1;
 
 	//Lesen der Versionsnummer
-	read_i2c(I2C_1, adresse_srf, &version, 1) != 1)
+	if(read_i2c(I2C_1, adresse_srf, &version, 1) != 1)
 		return -1;
 
 	//Rueckgabe der Verison

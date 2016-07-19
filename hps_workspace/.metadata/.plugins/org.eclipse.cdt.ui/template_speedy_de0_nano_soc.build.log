@@ -1,6 +1,40 @@
-16:07:02 **** Incremental Build of configuration Debug for project template_speedy_de0_nano_soc ****
+16:00:09 **** Incremental Build of configuration Debug for project template_speedy_de0_nano_soc ****
 make all 
-make: Nothing to be done for 'all'.
+'Building file: ../sensors/itg3200.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -Dsoc_cv_av -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\actuators" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\src" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\sensors" -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"sensors/itg3200.d" -MT"sensors/itg3200.d" -o "sensors/itg3200.o" "../sensors/itg3200.c"
+'Finished building: ../sensors/itg3200.c'
+' '
+'Building file: ../sensors/srf08.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -Dsoc_cv_av -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\actuators" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\src" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\sensors" -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"sensors/srf08.d" -MT"sensors/srf08.d" -o "sensors/srf08.o" "../sensors/srf08.c"
+'Finished building: ../sensors/srf08.c'
+' '
+'Building file: ../sensors/tpa81.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -Dsoc_cv_av -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\actuators" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\src" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\sensors" -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"sensors/tpa81.d" -MT"sensors/tpa81.d" -o "sensors/tpa81.o" "../sensors/tpa81.c"
+'Finished building: ../sensors/tpa81.c'
+' '
+'Building file: ../actuators/i2c.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -Dsoc_cv_av -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\actuators" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\src" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\sensors" -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"actuators/i2c.d" -MT"actuators/i2c.d" -o "actuators/i2c.o" "../actuators/i2c.c"
+'Finished building: ../actuators/i2c.c'
+' '
+'Building file: ../actuators/lcd.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -Dsoc_cv_av -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\actuators" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\src" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\sensors" -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"actuators/lcd.d" -MT"actuators/lcd.d" -o "actuators/lcd.o" "../actuators/lcd.c"
+'Finished building: ../actuators/lcd.c'
+' '
+'Building file: ../actuators/xbee.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -Dsoc_cv_av -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\actuators" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\src" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\sensors" -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"actuators/xbee.d" -MT"actuators/xbee.d" -o "actuators/xbee.o" "../actuators/xbee.c"
+'Finished building: ../actuators/xbee.c'
+' '
+'Building target: template_speedy_de0_nano_soc'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "template_speedy_de0_nano_soc"  ./src/main.o  ./sensors/ADXL345.o ./sensors/gesonsor_nano.o ./sensors/hmc6343.o ./sensors/itg3200.o ./sensors/laser.o ./sensors/max11613.o ./sensors/srf08.o ./sensors/tpa81.o  ./actuators/i2c.o ./actuators/lcd.o ./actuators/xbee.o   
+'Finished building target: template_speedy_de0_nano_soc'
+' '
 
-16:07:03 Build Finished (took 638ms)
+16:00:12 Build Finished (took 3s.51ms)
 

@@ -1,6 +1,6 @@
-16:04:29 **** Build of configuration Debug for project srf ****
+16:00:08 **** Incremental Build of configuration Debug for project srf ****
 make all 
 make: Nothing to be done for 'all'.
 
-16:04:30 Build Finished (took 487ms)
+16:00:09 Build Finished (took 441ms)
 
