@@ -2,7 +2,7 @@ set_global_assignment -entity "soc_system" -library "soc_system" -name IP_TOOL_N
 set_global_assignment -entity "soc_system" -library "soc_system" -name IP_TOOL_VERSION "16.0"
 set_global_assignment -entity "soc_system" -library "soc_system" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "soc_system" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../soc_system.sopcinfo"]
-set_global_assignment -entity "soc_system" -library "soc_system" -name SLD_INFO "QSYS_NAME soc_system HAS_SOPCINFO 1 GENERATION_ID 1467637239"
+set_global_assignment -entity "soc_system" -library "soc_system" -name SLD_INFO "QSYS_NAME soc_system HAS_SOPCINFO 1 GENERATION_ID 1468933369"
 set_global_assignment -library "soc_system" -name MISC_FILE [file join $::quartus(qip_path) "../soc_system.cmp"]
 set_global_assignment -library "soc_system" -name SLD_FILE [file join $::quartus(qip_path) "soc_system.regmap"]
 set_global_assignment -library "soc_system" -name MISC_FILE [file join $::quartus(qip_path) "../../H"]
@@ -18,7 +18,7 @@ set_global_assignment -entity "soc_system" -library "soc_system" -name IP_COMPON
 set_global_assignment -entity "soc_system" -library "soc_system" -name IP_COMPONENT_REPORT_HIERARCHY "On"
 set_global_assignment -entity "soc_system" -library "soc_system" -name IP_COMPONENT_INTERNAL "Off"
 set_global_assignment -entity "soc_system" -library "soc_system" -name IP_COMPONENT_VERSION "MS4w"
-set_global_assignment -entity "soc_system" -library "soc_system" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQ2NzYzNzIzOQ==::QXV0byBHRU5FUkFUSU9OX0lE"
+set_global_assignment -entity "soc_system" -library "soc_system" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQ2ODkzMzM2OQ==::QXV0byBHRU5FUkFUSU9OX0lE"
 set_global_assignment -entity "soc_system" -library "soc_system" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfRkFNSUxZ::Q3ljbG9uZSBW::QXV0byBERVZJQ0VfRkFNSUxZ"
 set_global_assignment -entity "soc_system" -library "soc_system" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0U=::NUNTRU1BNFUyM0M2::QXV0byBERVZJQ0U="
 set_global_assignment -entity "soc_system" -library "soc_system" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfU1BFRURHUkFERQ==::Ng==::QXV0byBERVZJQ0VfU1BFRURHUkFERQ=="
@@ -7305,12 +7305,14 @@ set_global_assignment -entity "soc_system_button_pio" -library "soc_system" -nam
 set_global_assignment -entity "soc_system_button_pio" -library "soc_system" -name IP_COMPONENT_PARAMETER "ZGVyaXZlZF9lZGdlX3R5cGU=::RkFMTElORw==::ZGVyaXZlZF9lZGdlX3R5cGU="
 set_global_assignment -entity "soc_system_button_pio" -library "soc_system" -name IP_COMPONENT_PARAMETER "ZGVyaXZlZF9pcnFfdHlwZQ==::RURHRQ==::ZGVyaXZlZF9pcnFfdHlwZQ=="
 set_global_assignment -entity "soc_system_button_pio" -library "soc_system" -name IP_COMPONENT_PARAMETER "ZGVyaXZlZF9oYXNfaXJx::dHJ1ZQ==::ZGVyaXZlZF9oYXNfaXJx"
-set_global_assignment -entity "interface_motor_modul" -library "soc_system" -name IP_COMPONENT_NAME "aW50ZXJmYWNlX21vdG9yX21vZHVs"
-set_global_assignment -entity "interface_motor_modul" -library "soc_system" -name IP_COMPONENT_DISPLAY_NAME "TW90b3JfTW9kdWw="
-set_global_assignment -entity "interface_motor_modul" -library "soc_system" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
-set_global_assignment -entity "interface_motor_modul" -library "soc_system" -name IP_COMPONENT_INTERNAL "Off"
-set_global_assignment -entity "interface_motor_modul" -library "soc_system" -name IP_COMPONENT_AUTHOR "RmxvcmlhbiBLbHVnZQ=="
-set_global_assignment -entity "interface_motor_modul" -library "soc_system" -name IP_COMPONENT_VERSION "MS4w"
+set_global_assignment -entity "interface_motor_modul_mm" -library "soc_system" -name IP_COMPONENT_NAME "aW50ZXJmYWNlX21vdG9yX21vZHVsX21t"
+set_global_assignment -entity "interface_motor_modul_mm" -library "soc_system" -name IP_COMPONENT_DISPLAY_NAME "TW90b3JfTW9kdWw="
+set_global_assignment -entity "interface_motor_modul_mm" -library "soc_system" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "interface_motor_modul_mm" -library "soc_system" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "interface_motor_modul_mm" -library "soc_system" -name IP_COMPONENT_VERSION "MS4w"
+set_global_assignment -entity "interface_motor_modul_mm" -library "soc_system" -name IP_COMPONENT_PARAMETER "UkVHMV9jbnRCaXRz::OA==::UkVHMV9jbnRCaXRz"
+set_global_assignment -entity "interface_motor_modul_mm" -library "soc_system" -name IP_COMPONENT_PARAMETER "UkVHMl9jbnRCaXRz::MTY=::UkVHMl9jbnRCaXRz"
+set_global_assignment -entity "interface_motor_modul_mm" -library "soc_system" -name IP_COMPONENT_PARAMETER "UkVHM19jbnRCaXRz::Mw==::UkVHM19jbnRCaXRz"
 
 set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "soc_system.vhd"]
 set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "soc_system_rst_controller.vhd"]
@@ -7470,13 +7472,13 @@ set_global_assignment -library "soc_system" -name SDC_FILE [file join $::quartus
 set_global_assignment -library "soc_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/soc_system_fifoed_avalon_uart.v"]
 set_global_assignment -library "soc_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/soc_system_dipsw_pio.v"]
 set_global_assignment -library "soc_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/soc_system_button_pio.v"]
-set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/interface_motor_modul.vhd"]
-set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/baud_gen_k.vhd"]
-set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/encoder_motor.vhd"]
-set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/motor_modul.vhd"]
-set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/pid_regler.vhd"]
-set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/uart_send_k.vhd"]
-set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/winkel_modul.vhd"]
+set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/baud_gen_mm.vhd"]
+set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/encoder_motor_mm.vhd"]
+set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/interface_motor_modul_mm.vhd"]
+set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/motor_modul_mm.vhd"]
+set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/pid_regler_mm.vhd"]
+set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/uart_send_mm.vhd"]
+set_global_assignment -library "soc_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/winkel_modul_mm.vhd"]
 
 set_global_assignment -entity "altera_reset_controller" -library "soc_system" -name IP_TOOL_NAME "altera_reset_controller"
 set_global_assignment -entity "altera_reset_controller" -library "soc_system" -name IP_TOOL_VERSION "16.0"

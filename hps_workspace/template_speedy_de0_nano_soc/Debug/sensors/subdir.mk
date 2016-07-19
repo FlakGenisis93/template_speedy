@@ -7,6 +7,7 @@ C_SRCS += \
 ../sensors/ADXL345.c \
 ../sensors/gesonsor_nano.c \
 ../sensors/hmc6343.c \
+../sensors/itg3200.c \
 ../sensors/laser.c \
 ../sensors/max11613.c \
 ../sensors/srf08.c \
@@ -16,6 +17,7 @@ OBJS += \
 ./sensors/ADXL345.o \
 ./sensors/gesonsor_nano.o \
 ./sensors/hmc6343.o \
+./sensors/itg3200.o \
 ./sensors/laser.o \
 ./sensors/max11613.o \
 ./sensors/srf08.o \
@@ -25,6 +27,7 @@ C_DEPS += \
 ./sensors/ADXL345.d \
 ./sensors/gesonsor_nano.d \
 ./sensors/hmc6343.d \
+./sensors/itg3200.d \
 ./sensors/laser.d \
 ./sensors/max11613.d \
 ./sensors/srf08.d \

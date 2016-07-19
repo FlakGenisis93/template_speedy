@@ -1132,7 +1132,7 @@ endmodule
 //--num_control_reg_bits=16
 //--num_status_reg_bits=15
 //--parity=N
-//--project_info=HASH(0x75a6148)
+//--project_info=HASH(0x75b60f8)
 //--relativepath=1
 //--rx_IRQ_Threshold=1
 //--rx_fifo_LE=0

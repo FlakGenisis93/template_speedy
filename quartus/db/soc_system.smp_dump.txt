@@ -46,7 +46,14 @@ state.READ_DATA_WAIT 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1
 state.READ_SEND_ISSUE 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 state.READ_SEND_WAIT 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 
-State Machine - |toplevel_hps_speedy|soc_system:hps|interface_motor_modul:motor_modul|motor_modul:inst_motor_modul|state_s
+State Machine - |toplevel_hps_speedy|soc_system:hps|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:onchip_memory2_0_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |toplevel_hps_speedy|soc_system:hps|interface_motor_modul_mm:motor_modul|motor_modul_mm:inst_motor_modul_mm|state_s
 Name state_s.curve2_st state_s.curve1_st state_s.turn_st state_s.drive_st state_s.get_cmd_st 
 state_s.get_cmd_st 0 0 0 0 0 
 state_s.drive_st 0 0 0 1 1 
@@ -54,7 +61,7 @@ state_s.turn_st 0 0 1 0 1
 state_s.curve1_st 0 1 0 0 1 
 state_s.curve2_st 1 0 0 0 1 
 
-State Machine - |toplevel_hps_speedy|soc_system:hps|interface_motor_modul:motor_modul|state_s
+State Machine - |toplevel_hps_speedy|soc_system:hps|interface_motor_modul_mm:motor_modul|state_s
 Name state_s.send_to_next_level_st state_s.read_cmd_st state_s.get_cmd_st 
 state_s.get_cmd_st 0 0 0 
 state_s.read_cmd_st 0 1 1 
@@ -104,14 +111,27 @@ state.ST_COMP_TRANS 1 0 0 1
 state.ST_UNCOMP_TRANS 1 0 1 0 
 state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
 
-State Machine - |toplevel_hps_speedy|soc_system:hps|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:onchip_memory2_0_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+State Machine - |toplevel_hps_speedy|soc_system:hps|interface_motor_modul_mm:motor_modul|motor_modul_mm:inst_motor_modul_mm|uart_send_mm:inst_uart_send_mm|state_s
+Name state_s.done_st state_s.sending_st state_s.idle_st 
+state_s.idle_st 0 0 0 
+state_s.sending_st 0 1 1 
+state_s.done_st 1 0 1 
+
+State Machine - |toplevel_hps_speedy|soc_system:hps|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:button_pio_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
 Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
 state.ST_IDLE 0 0 0 0 
 state.ST_COMP_TRANS 1 0 0 1 
 state.ST_UNCOMP_TRANS 1 0 1 0 
 state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
 
-State Machine - |toplevel_hps_speedy|soc_system:hps|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:button_pio_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+State Machine - |toplevel_hps_speedy|soc_system:hps|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:led_pio_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |toplevel_hps_speedy|soc_system:hps|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:dipsw_pio_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
 Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
 state.ST_IDLE 0 0 0 0 
 state.ST_COMP_TRANS 1 0 0 1 
@@ -129,26 +149,6 @@ Name state_s.done_st state_s.receiving_st state_s.idle_st
 state_s.idle_st 0 0 0 
 state_s.receiving_st 0 1 1 
 state_s.done_st 1 0 1 
-
-State Machine - |toplevel_hps_speedy|soc_system:hps|interface_motor_modul:motor_modul|motor_modul:inst_motor_modul|uart_send_k:inst_uart_send|state_s
-Name state_s.done_st state_s.sending_st state_s.idle_st 
-state_s.idle_st 0 0 0 
-state_s.sending_st 0 1 1 
-state_s.done_st 1 0 1 
-
-State Machine - |toplevel_hps_speedy|soc_system:hps|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:led_pio_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
-Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
-state.ST_IDLE 0 0 0 0 
-state.ST_COMP_TRANS 1 0 0 1 
-state.ST_UNCOMP_TRANS 1 0 1 0 
-state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
-
-State Machine - |toplevel_hps_speedy|soc_system:hps|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:dipsw_pio_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
-Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
-state.ST_IDLE 0 0 0 0 
-state.ST_COMP_TRANS 1 0 0 1 
-state.ST_UNCOMP_TRANS 1 0 1 0 
-state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
 
 State Machine - |toplevel_hps_speedy|soc_system:hps|soc_system_fpga_only_master:fpga_only_master|altera_avalon_st_jtag_interface:jtag_phy_embedded_in_jtag_master|altera_jtag_dc_streaming:normal.jtag_dc_streaming|altera_jtag_streaming:jtag_streaming|read_state
 Name read_state.ST_HEADER read_state.ST_READ_DATA read_state.ST_PADDED 

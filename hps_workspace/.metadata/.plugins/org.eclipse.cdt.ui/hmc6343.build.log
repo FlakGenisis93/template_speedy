@@ -1,15 +1,6 @@
-16:04:20 **** Incremental Build of configuration Debug for project hmc6343 ****
+16:00:02 **** Incremental Build of configuration Debug for project hmc6343 ****
 make all 
-'Building file: ../src/hmc6343.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\hmc6343\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/hmc6343.d" -MT"src/hmc6343.d" -o "src/hmc6343.o" "../src/hmc6343.c"
-'Finished building: ../src/hmc6343.c'
-' '
-'Building target: hmc6343'
-'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "hmc6343"  ./src/hmc6343.o ./src/main.o  ./actuators/i2c.o   
-'Finished building target: hmc6343'
-' '
+make: Nothing to be done for 'all'.
 
-16:04:20 Build Finished (took 841ms)
+16:00:03 Build Finished (took 438ms)
 

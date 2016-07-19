@@ -10,7 +10,7 @@
    <name preferredWidth="179" />
   </columns>
  </systemtable>
- <library expandedCategories="Project/ETTI4,Library,Project" />
+ <library expandedCategories="Project,Library,Project/ETTI4" />
  <window width="1936" height="1056" x="1912" y="-8" />
  <hdlexample language="VHDL" />
  <generation synthesis="VHDL" />
