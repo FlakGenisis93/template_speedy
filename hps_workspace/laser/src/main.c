@@ -5,9 +5,7 @@
 
 int main(void) {
 
-	uint16_t distance[ARRAY_LENGHT];
-
-	doMeasurement_laser(distance);
+	doMeasurement_laser();
 
 	return( 0 );
 }

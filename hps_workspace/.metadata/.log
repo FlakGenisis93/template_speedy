@@ -9664,3 +9664,1767 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.core.resources 4 1 2016-07-25 11:26:03.132
+!MESSAGE Problems occurred refreshing resources
+!SUBENTRY 1 org.eclipse.core.resources 4 1 2016-07-25 11:26:03.132
+!MESSAGE Problem finding next change, code: 995
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:30:31.995
+!MESSAGE Unable to connect to max_debug. Failed target configuration:
+Failed to start gdbserver: port 5000 is already in use
+!STACK 0
+com.arm.debug.control.target.TargetControllerException: Failed target configuration:
+Failed to start gdbserver: port 5000 is already in use
+	at com.arm.debug.control.target.AbstractTargetController.runTargetControlProcess(AbstractTargetController.java:249)
+	at com.arm.debug.control.target.RSEGDBTargetController.configureTarget(RSEGDBTargetController.java:90)
+	at com.arm.debug.control.target.RSEGDBTargetController.doTargetSetup(RSEGDBTargetController.java:48)
+	at com.arm.debug.control.target.AbstractTargetController.setupTarget(AbstractTargetController.java:76)
+	at com.arm.debug.control.target.RSEGDBTargetController.setupTarget(RSEGDBTargetController.java:1)
+	at com.arm.debug.control.ConnectionController.doPreDebugServiceInitialization(ConnectionController.java:623)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:533)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:30:40.515
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\max11613\Debug\max11613 are already loaded at offset 0x00000000
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\max11613\Debug\max11613 are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	... 16 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:30:40.519
+!MESSAGE Symbols for image H:\Git\template_speedy\hps_workspace\max11613\Debug\max11613 are already loaded at offset 0x00000000
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\max11613\Debug\max11613 are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-104
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy29.addSymbolFile(Unknown Source)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:23)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:30:48.437
+!MESSAGE Failed to set software breakpoint
+!STACK 0
+com.arm.debug.interpreter.ds.DSException: Failed to set a breakpoint
+	at com.arm.debug.interpreter.ds.commands.breakpoints.AbstractBreakFindCommand.execute(AbstractBreakFindCommand.java:154)
+	at com.arm.debug.interpreter.ds.commands.breakpoints.AbstractBreakFindCommand.execute(AbstractBreakFindCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.execute(ConnectionEventManager.java:488)
+	at com.arm.debug.core.engine.connection.Connection.execute(Connection.java:342)
+	at com.arm.debug.interpreter.ds.DSInterpreter.executeCommand(DSInterpreter.java:380)
+	at com.arm.debug.interpreter.ds.DSInterpreter.execute(DSInterpreter.java:430)
+	at com.arm.debug.interpreter.ds.DSInterpreter.executeLine(DSInterpreter.java:229)
+	at com.arm.debug.service.DebugServiceProvider.executeAndHandleErrors(DebugServiceProvider.java:65)
+	at com.arm.debug.service.breakpoints.BreakpointService$3.run(BreakpointService.java:302)
+	at com.arm.debug.service.breakpoints.BreakpointService$3.run(BreakpointService.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.toggleBreakpoint(Commands.java:495)
+	at com.arm.debug.views.breakpoints.BreakpointController.toggleBreakpoint(BreakpointController.java:948)
+	at com.arm.debug.views.breakpoints.ToggleBreakpointsTarget.toggleLineBreakpoints(ToggleBreakpointsTarget.java:136)
+	at org.eclipse.debug.ui.actions.ToggleBreakpointAction.doIt(ToggleBreakpointAction.java:127)
+	at org.eclipse.debug.ui.actions.ToggleBreakpointAction.runWithEvent(ToggleBreakpointAction.java:92)
+	at org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate.runWithEvent(RulerToggleBreakpointActionDelegate.java:128)
+	at org.eclipse.ui.internal.handlers.ActionDelegateHandlerProxy.execute(ActionDelegateHandlerProxy.java:291)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:499)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:508)
+	at org.eclipse.ui.actions.ContributedAction.runWithEvent(ContributedAction.java:192)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$14.triggerAction(AbstractTextEditor.java:3082)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$14.mouseDoubleClick(AbstractTextEditor.java:3108)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:196)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+	at com.arm.workbench.Hook.run(Hook.java:438)
+Caused by: com.arm.debug.core.interfaces.breakpoints.BreakpointException: Unable to create breakpoint at 0x000085CA
+	at com.arm.debug.targetaccess.device.BreakpointSupport.setSoftwareBreakpoint(BreakpointSupport.java:496)
+	at com.arm.debug.targetaccess.device.BreakpointSupport.set(BreakpointSupport.java:396)
+	at com.arm.debug.targetaccess.device.TargetDeviceClientSynchronizer.set(TargetDeviceClientSynchronizer.java:520)
+	at com.arm.debug.core.engine.breakpoints.BreakpointImpl.enableOnHardware(BreakpointImpl.java:145)
+	at com.arm.debug.core.engine.breakpoints.BreakpointImpl.enable(BreakpointImpl.java:103)
+	at com.arm.debug.core.engine.breakpoints.UserAddressBreakpoint.enableInternalBreakpoint(UserAddressBreakpoint.java:175)
+	at com.arm.debug.core.engine.breakpoints.UserAddressBreakpoint.enable(UserAddressBreakpoint.java:105)
+	at com.arm.debug.core.engine.breakpoints.AbstractUserBreakpoint.doBpAction(AbstractUserBreakpoint.java:328)
+	at com.arm.debug.core.engine.breakpoints.AbstractUserBreakpoint.access$0(AbstractUserBreakpoint.java:325)
+	at com.arm.debug.core.engine.breakpoints.AbstractUserBreakpoint$1.doAction(AbstractUserBreakpoint.java:290)
+	at com.arm.debug.core.engine.breakpoints.AbstractUserBreakpoint$1.doAction(AbstractUserBreakpoint.java:1)
+	at com.arm.debug.core.engine.breakpoints.ProgressMonitoredCompoundTask.execute(ProgressMonitoredCompoundTask.java:46)
+	at com.arm.debug.core.engine.breakpoints.AbstractUserBreakpoint.performCompoundBreakpointAction(AbstractUserBreakpoint.java:294)
+	at com.arm.debug.core.engine.breakpoints.AbstractUserBreakpoint.enable(AbstractUserBreakpoint.java:359)
+	at com.arm.debug.interpreter.ds.commands.breakpoints.BreakCommand.performActionOnAddresses(BreakCommand.java:121)
+	at com.arm.debug.interpreter.ds.commands.breakpoints.AbstractBreakFindCommand.execute(AbstractBreakFindCommand.java:135)
+	at com.arm.debug.interpreter.ds.commands.breakpoints.AbstractBreakFindCommand.execute(AbstractBreakFindCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.execute(ConnectionEventManager.java:488)
+	at com.arm.debug.core.engine.connection.Connection.execute(Connection.java:342)
+	at com.arm.debug.interpreter.ds.DSInterpreter.executeCommand(DSInterpreter.java:380)
+	at com.arm.debug.interpreter.ds.DSInterpreter.execute(DSInterpreter.java:430)
+	at com.arm.debug.interpreter.ds.DSInterpreter.executeLine(DSInterpreter.java:229)
+	at com.arm.debug.service.DebugServiceProvider.executeAndHandleErrors(DebugServiceProvider.java:65)
+	at com.arm.debug.service.breakpoints.BreakpointService$3.run(BreakpointService.java:302)
+	at com.arm.debug.service.breakpoints.BreakpointService$3.run(BreakpointService.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+Caused by: com.arm.debug.dtsl.nativelayer.NativeException: Failed to set software breakpoint
+	at com.arm.debug.dtsl.components.Device.setSWBreak(Device.java:684)
+	at com.arm.debug.targetaccess.device.BreakpointSupport.setSoftwareBreakpoint(BreakpointSupport.java:488)
+	... 30 more
+Caused by: com.arm.rddi.RDDIException: Failed to set software breakpoint
+	at com.arm.rddi.RDDI.checkResult(RDDI.java:1709)
+	at com.arm.rddi.RDDI.access$1(RDDI.java:1696)
+	at com.arm.rddi.RDDI$Debug.setSWBreak(RDDI.java:751)
+	at com.arm.debug.dtsl.components.Device.setSWBreak(Device.java:682)
+	... 31 more
+Asynchronously called from thread Worker-105
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy33.toggleBreakpoint(Unknown Source)
+	at com.arm.debug.api.commands.ToggleBreakpoint.execute(ToggleBreakpoint.java:72)
+	at com.arm.debug.api.commands.ToggleBreakpoint.execute(ToggleBreakpoint.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 11:30:50.168
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:36:26.274
+!MESSAGE Unable to connect to laser_debug. Failed target configuration:
+Failed to start gdbserver: port 5000 is already in use
+!STACK 0
+com.arm.debug.control.target.TargetControllerException: Failed target configuration:
+Failed to start gdbserver: port 5000 is already in use
+	at com.arm.debug.control.target.AbstractTargetController.runTargetControlProcess(AbstractTargetController.java:249)
+	at com.arm.debug.control.target.RSEGDBTargetController.configureTarget(RSEGDBTargetController.java:90)
+	at com.arm.debug.control.target.RSEGDBTargetController.doTargetSetup(RSEGDBTargetController.java:48)
+	at com.arm.debug.control.target.AbstractTargetController.setupTarget(AbstractTargetController.java:76)
+	at com.arm.debug.control.target.RSEGDBTargetController.setupTarget(RSEGDBTargetController.java:1)
+	at com.arm.debug.control.ConnectionController.doPreDebugServiceInitialization(ConnectionController.java:623)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:533)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:36:45.490
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	... 16 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:36:45.508
+!MESSAGE Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-109
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy29.addSymbolFile(Unknown Source)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:23)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:39:32.793
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	... 16 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:39:32.793
+!MESSAGE Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-101
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy29.addSymbolFile(Unknown Source)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:23)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:42:36.167
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	... 16 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:42:36.170
+!MESSAGE Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-113
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy29.addSymbolFile(Unknown Source)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:23)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:44:53.530
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	... 16 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:44:53.530
+!MESSAGE Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-114
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy29.addSymbolFile(Unknown Source)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:23)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:45:54.637
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	... 16 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:45:54.637
+!MESSAGE Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\laser\Debug\laser are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-106
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy29.addSymbolFile(Unknown Source)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:23)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 11:46:02.374
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 11:46:08.313
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.ui.views.properties.tabbed 4 4 2016-07-25 11:46:54.902
+!MESSAGE Contributor org.eclipse.ui.navigator.ProjectExplorer cannot be created.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.ui.navigator.resources" was unable to instantiate class "org.eclipse.ui.internal.navigator.resources.workbench.TabbedPropertySheetTitleProvider".
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:186)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyRegistry.<init>(TabbedPropertyRegistry.java:129)
+	at org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyRegistryFactory.createRegistry(TabbedPropertyRegistryFactory.java:74)
+	at org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage.initContributor(TabbedPropertySheetPage.java:406)
+	at org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage.<init>(TabbedPropertySheetPage.java:295)
+	at org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage.<init>(TabbedPropertySheetPage.java:274)
+	at org.eclipse.ui.internal.navigator.resources.workbench.TabbedPropertySheetAdapterFactory.getAdapter(TabbedPropertySheetAdapterFactory.java:38)
+	at org.eclipse.core.internal.adapter.AdapterFactoryProxy.getAdapter(AdapterFactoryProxy.java:82)
+	at org.eclipse.core.internal.runtime.AdapterManager.getAdapter(AdapterManager.java:295)
+	at org.eclipse.ui.part.WorkbenchPart.getAdapter(WorkbenchPart.java:155)
+	at org.eclipse.ui.navigator.CommonNavigator.getAdapter(CommonNavigator.java:453)
+	at org.eclipse.ui.internal.views.ViewsPlugin.getAdapter(ViewsPlugin.java:103)
+	at org.eclipse.ui.views.properties.PropertySheet.doCreatePage(PropertySheet.java:207)
+	at org.eclipse.ui.part.PageBookView.createPage(PageBookView.java:422)
+	at org.eclipse.ui.part.PageBookView.partActivated(PageBookView.java:768)
+	at org.eclipse.ui.views.properties.PropertySheet.partActivated(PropertySheet.java:325)
+	at org.eclipse.ui.part.PageBookView.showBootstrapPart(PageBookView.java:959)
+	at org.eclipse.ui.part.PageBookView.createPartControl(PageBookView.java:506)
+	at org.eclipse.ui.views.properties.PropertySheet.createPartControl(PropertySheet.java:157)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.createPartControl(CompatibilityPart.java:141)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityView.createPartControl(CompatibilityView.java:155)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:327)
+	at sun.reflect.GeneratedMethodAccessor143.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:888)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:869)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:120)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:337)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:258)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:104)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:73)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:55)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:127)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:983)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:662)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$6.run(PartRenderingEngine.java:547)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:531)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ElementReferenceRenderer.createWidget(ElementReferenceRenderer.java:69)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:983)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:662)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.showTab(StackRenderer.java:1246)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:103)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:678)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveRenderer.processContents(PerspectiveRenderer.java:49)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:103)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer$1.handleEvent(LazyStackRenderer.java:69)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:218)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:81)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:59)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:135)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:1)
+	at org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher$16.widgetSelected(PerspectiveSwitcher.java:622)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+	at com.arm.workbench.Hook.run(Hook.java:438)
+Caused by: java.lang.NullPointerException
+	at org.eclipse.ui.internal.navigator.resources.workbench.TabbedPropertySheetTitleProvider.<init>(TabbedPropertySheetTitleProvider.java:56)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at java.lang.Class.newInstance(Class.java:442)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:184)
+	... 133 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2016-07-25 11:46:54.902
+!MESSAGE Plug-in "org.eclipse.ui.navigator.resources" was unable to instantiate class "org.eclipse.ui.internal.navigator.resources.workbench.TabbedPropertySheetTitleProvider".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.ui.internal.navigator.resources.workbench.TabbedPropertySheetTitleProvider.<init>(TabbedPropertySheetTitleProvider.java:56)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at java.lang.Class.newInstance(Class.java:442)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:184)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyRegistry.<init>(TabbedPropertyRegistry.java:129)
+	at org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyRegistryFactory.createRegistry(TabbedPropertyRegistryFactory.java:74)
+	at org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage.initContributor(TabbedPropertySheetPage.java:406)
+	at org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage.<init>(TabbedPropertySheetPage.java:295)
+	at org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage.<init>(TabbedPropertySheetPage.java:274)
+	at org.eclipse.ui.internal.navigator.resources.workbench.TabbedPropertySheetAdapterFactory.getAdapter(TabbedPropertySheetAdapterFactory.java:38)
+	at org.eclipse.core.internal.adapter.AdapterFactoryProxy.getAdapter(AdapterFactoryProxy.java:82)
+	at org.eclipse.core.internal.runtime.AdapterManager.getAdapter(AdapterManager.java:295)
+	at org.eclipse.ui.part.WorkbenchPart.getAdapter(WorkbenchPart.java:155)
+	at org.eclipse.ui.navigator.CommonNavigator.getAdapter(CommonNavigator.java:453)
+	at org.eclipse.ui.internal.views.ViewsPlugin.getAdapter(ViewsPlugin.java:103)
+	at org.eclipse.ui.views.properties.PropertySheet.doCreatePage(PropertySheet.java:207)
+	at org.eclipse.ui.part.PageBookView.createPage(PageBookView.java:422)
+	at org.eclipse.ui.part.PageBookView.partActivated(PageBookView.java:768)
+	at org.eclipse.ui.views.properties.PropertySheet.partActivated(PropertySheet.java:325)
+	at org.eclipse.ui.part.PageBookView.showBootstrapPart(PageBookView.java:959)
+	at org.eclipse.ui.part.PageBookView.createPartControl(PageBookView.java:506)
+	at org.eclipse.ui.views.properties.PropertySheet.createPartControl(PropertySheet.java:157)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.createPartControl(CompatibilityPart.java:141)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityView.createPartControl(CompatibilityView.java:155)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:327)
+	at sun.reflect.GeneratedMethodAccessor143.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:888)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:869)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:120)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:337)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:258)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:104)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:73)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:55)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:127)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:983)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:662)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$6.run(PartRenderingEngine.java:547)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:531)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ElementReferenceRenderer.createWidget(ElementReferenceRenderer.java:69)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:983)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:662)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.showTab(StackRenderer.java:1246)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:103)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:678)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveRenderer.processContents(PerspectiveRenderer.java:49)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:103)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer$1.handleEvent(LazyStackRenderer.java:69)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:218)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:81)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:59)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:135)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:1)
+	at org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher$16.widgetSelected(PerspectiveSwitcher.java:622)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+	at com.arm.workbench.Hook.run(Hook.java:438)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:47:47.371
+!MESSAGE Unable to connect to srf_debug. Failed target configuration:
+Failed to start gdbserver: port 5000 is already in use
+!STACK 0
+com.arm.debug.control.target.TargetControllerException: Failed target configuration:
+Failed to start gdbserver: port 5000 is already in use
+	at com.arm.debug.control.target.AbstractTargetController.runTargetControlProcess(AbstractTargetController.java:249)
+	at com.arm.debug.control.target.RSEGDBTargetController.configureTarget(RSEGDBTargetController.java:90)
+	at com.arm.debug.control.target.RSEGDBTargetController.doTargetSetup(RSEGDBTargetController.java:48)
+	at com.arm.debug.control.target.AbstractTargetController.setupTarget(AbstractTargetController.java:76)
+	at com.arm.debug.control.target.RSEGDBTargetController.setupTarget(RSEGDBTargetController.java:1)
+	at com.arm.debug.control.ConnectionController.doPreDebugServiceInitialization(ConnectionController.java:623)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:533)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:47:57.526
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	... 15 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:47:57.526
+!MESSAGE Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-114
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy29.addSymbolFile(Unknown Source)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:23)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:51:03.645
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	... 16 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 11:51:03.661
+!MESSAGE Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-115
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy29.addSymbolFile(Unknown Source)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:23)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 11:51:17.769
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 11:51:28.502
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 11:51:33.970
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 11:51:39.049
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 11:51:50.644
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.core.resources 4 1 2016-07-25 12:55:11.716
+!MESSAGE Problems occurred refreshing resources
+!SUBENTRY 1 org.eclipse.core.resources 4 1 2016-07-25 12:55:11.716
+!MESSAGE Problem finding next change, code: 995
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:38:59.697
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:39:19.446
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:39:25.149
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:39:31.321
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:39:56.853
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:44:28.438
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:44:46.454
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:44:51.672
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:45:15.844
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:45:28.453
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:45:32.844
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:45:42.624
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:45:51.374
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:46:01.468
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:46:07.438
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:46:12.483
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:47:18.342
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:48:30.744
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 13:48:45.338
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	... 16 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 13:48:45.338
+!MESSAGE Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\srf\Debug\srf are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-126
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy29.addSymbolFile(Unknown Source)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:23)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:49:27.383
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:49:53.243
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:52:04.504
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:52:35.191
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:52:55.769
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:53:08.083
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:53:18.347
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:53:50.252
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:53:56.550
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.commons.eclipse 4 0 2016-07-25 13:54:04.903
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at com.arm.debug.views.control.actions.CoreThreadToggleAction.currentThreadChanged(CoreThreadToggleAction.java:115)
+	at com.arm.debug.control.UXThreadModel$3.run(UXThreadModel.java:189)
+	at com.arm.commons.eclipse.utility.task.Task.run(Task.java:141)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 14:00:32.851
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\TPA81\Debug\TPA81 are already loaded at offset 0x00000000
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\TPA81\Debug\TPA81 are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	... 15 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 14:00:32.867
+!MESSAGE Symbols for image H:\Git\template_speedy\hps_workspace\TPA81\Debug\TPA81 are already loaded at offset 0x00000000
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\TPA81\Debug\TPA81 are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-140
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy29.addSymbolFile(Unknown Source)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:23)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

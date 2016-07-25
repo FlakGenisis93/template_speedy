@@ -250,7 +250,7 @@ uint8_t doMeasurement(volatile uint32_t *base_addr, uint16_t *distance)
 			//hier Array beschreiben.
 			fillArrayDistances(base_addr, begin, end, distance);
 			//Daten muessen in Array geschrieben werden, darum warten
-			usleep(1*1000*1000);
+			//usleep(500*1000);
 			printDistances2(distance);
 
 			return 0;
@@ -268,7 +268,7 @@ uint8_t doMeasurement(volatile uint32_t *base_addr, uint16_t *distance)
 
 }
 
-uint8_t doMeasurement_laser(uint16_t *distance){
+uint8_t doMeasurement_laser(){
 
 	void *virtual_base;
 	volatile uint32_t *hps_laser = NULL;
@@ -293,8 +293,8 @@ uint8_t doMeasurement_laser(uint16_t *distance){
 
 	hps_laser = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + LASER_BASE ) & (uint32_t)( HW_REGS_MASK ) );
 
+	uint16_t distance[ARRAY_LENGHT];
 	doMeasurement(hps_laser, distance);
-
 
 	if( munmap( virtual_base, HW_REGS_SPAN ) != 0 ) {
 		printf( "ERROR: munmap() failed...\n" );
