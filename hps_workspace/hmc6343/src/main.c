@@ -30,6 +30,12 @@ int main(int argc, char *argv[]){
 
 	read_data_hmc(daten);
 
+	uint16_t serial;
+
+	serial = read_serial_hmc();
+
+	printf("Serialnr.: %d", serial);
+
 	return 0;
 	
 }

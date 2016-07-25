@@ -5,37 +5,37 @@
 <stringAttribute key="ANDROID_APP_DIR" value=""/>
 <stringAttribute key="ANDROID_PROCESS_NAME" value=""/>
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data Model" value="373267"/>
-<mapEntry key="*list global low level symbols" value="776202"/>
-<mapEntry key="*loading values from target" value="1758237"/>
-<mapEntry key="*updating variables" value="810431"/>
-<mapEntry key="AddEventObserver" value="562833"/>
-<mapEntry key="Evaluate" value="853391"/>
-<mapEntry key="Retrieving globals list" value="1803633"/>
-<mapEntry key="add-symbol-file" value="8210767"/>
-<mapEntry key="break" value="6117375"/>
-<mapEntry key="continue" value="5844684"/>
-<mapEntry key="directory" value="1224177"/>
-<mapEntry key="disassemble" value="25514483"/>
-<mapEntry key="file" value="28594503"/>
-<mapEntry key="get capabilities" value="104622"/>
-<mapEntry key="get cwd" value="118311"/>
-<mapEntry key="get execution addresss" value="170317"/>
-<mapEntry key="get source lines" value="134181"/>
-<mapEntry key="initialize command help" value="32307004"/>
-<mapEntry key="list breakpoints" value="397222"/>
-<mapEntry key="list instruction sets" value="210222"/>
-<mapEntry key="list signals" value="163289"/>
-<mapEntry key="list watchpoints" value="237233"/>
-<mapEntry key="reload-symbol-file" value="12248135"/>
-<mapEntry key="remove" value="709316"/>
-<mapEntry key="set CWD" value="2683266"/>
-<mapEntry key="set breakpoint properties" value="7537812"/>
-<mapEntry key="set debug-from" value="522714"/>
-<mapEntry key="start" value="47051240"/>
-<mapEntry key="step" value="30032478"/>
-<mapEntry key="toggleBreakpoint" value="5686145"/>
-<mapEntry key="waitForTargetToStop" value="40412416"/>
+<mapEntry key="*Fetching Data Model" value="172343"/>
+<mapEntry key="*list global low level symbols" value="1267515"/>
+<mapEntry key="*loading values from target" value="2136167"/>
+<mapEntry key="*updating variables" value="701651"/>
+<mapEntry key="AddEventObserver" value="2050340"/>
+<mapEntry key="Evaluate" value="579441"/>
+<mapEntry key="Retrieving globals list" value="1314764"/>
+<mapEntry key="add-symbol-file" value="7541439"/>
+<mapEntry key="break" value="4802699"/>
+<mapEntry key="continue" value="5774033"/>
+<mapEntry key="directory" value="1141013"/>
+<mapEntry key="disassemble" value="18969479"/>
+<mapEntry key="file" value="27877978"/>
+<mapEntry key="get capabilities" value="102987"/>
+<mapEntry key="get cwd" value="160722"/>
+<mapEntry key="get execution addresss" value="190386"/>
+<mapEntry key="get source lines" value="561580"/>
+<mapEntry key="initialize command help" value="28141248"/>
+<mapEntry key="list breakpoints" value="320518"/>
+<mapEntry key="list instruction sets" value="271012"/>
+<mapEntry key="list signals" value="182153"/>
+<mapEntry key="list watchpoints" value="237906"/>
+<mapEntry key="reload-symbol-file" value="14714152"/>
+<mapEntry key="remove" value="867586"/>
+<mapEntry key="set CWD" value="3890343"/>
+<mapEntry key="set breakpoint properties" value="5194231"/>
+<mapEntry key="set debug-from" value="453995"/>
+<mapEntry key="start" value="49341077"/>
+<mapEntry key="step" value="23376878"/>
+<mapEntry key="toggleBreakpoint" value="5193348"/>
+<mapEntry key="waitForTargetToStop" value="38995928"/>
 </mapAttribute>
 <listAttribute key="DEBUG_TAB."/>
 <stringAttribute key="DEBUG_TAB..RESOURCES.0.TYPE" value="SOURCE_DIR"/>
@@ -193,6 +193,50 @@
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Unsigned Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/hmc6343/src/main.c::main::daten[1]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Signed Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/hmc6343/src/main.c::main::daten[2]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Signed Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/hmc6343/src/main.c::main::daten[3]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Signed Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/hmc6343/src/main.c::main::daten[4]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Signed Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/hmc6343/src/main.c::main::daten[5]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Signed Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/hmc6343/src/main.c::main::daten[0]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Signed Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/hmc6343/src/main.c::main::daten"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Signed Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/hmc6343/src/hmc6343.c::read_serial_hmc::serial_nr"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Binary"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/hmc6343/src/hmc6343.c::read_serial_hmc::serial[0]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Binary"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/hmc6343/src/hmc6343.c::read_serial_hmc::serial[1]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Binary"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/hmc6343/src/hmc6343.c::read_serial_hmc::serial"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Binary"/>
 </listAttribute>
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>

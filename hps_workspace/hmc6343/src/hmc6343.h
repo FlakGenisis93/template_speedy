@@ -65,7 +65,7 @@ uint8_t post_heading_data(void);
  *
  *	@details	Diese Funktion liest die Daten des HMC aus
  *
- *	@param		uint8_t data_hmc[]	Pointer fuer Datenmin 6 Felder groß
+ *	@param		uint8_t data_hmc[]	Pointer fuer Daten min 6 Felder groß
  *
  *	@retval		x	Bytes read
  *				1	Fehler beim lesen auf I2C
@@ -73,5 +73,22 @@ uint8_t post_heading_data(void);
  *******************************************************************************************************************/
  
 uint8_t read_data_hmc(uint8_t data_hmc[]);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint16_t read_serial_hmc(void)
+ *
+ *	@details	Diese Funktion liest die Seriennummer aus
+ *
+ *	@param		void
+ *
+ *	@retval		x	Serialnr.
+ *				0	Fehler beim schreiben auf I2C
+ *				1	Fehler beim lesen auf I2C
+ *
+ *******************************************************************************************************************/
+
+uint16_t read_serial_hmc(void);
 
 #endif /* HMC6343_H_ */

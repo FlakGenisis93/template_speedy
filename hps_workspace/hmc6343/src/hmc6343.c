@@ -50,3 +50,25 @@ uint8_t read_data_hmc(uint8_t data_hmc[]){
 	return 1;
 
 }
+
+uint16_t read_serial_hmc(void){
+
+	uint8_t data_reg = 0x06;
+	uint8_t bytes_read;
+	uint8_t serial[2];
+	uint16_t serial_nr;
+
+	if(write_i2c(I2C_2, ADDR_HMC, &data_reg, 1) != 1)
+		return 0;
+
+	bytes_read = read_i2c(I2C_2, ADDR_HMC, serial, 2);
+
+	serial_nr = serial[0];
+	serial_nr = serial_nr | ( serial[1] << 8);
+
+	if(bytes_read == 2)
+		return serial_nr;
+
+	return 1;
+
+}
