@@ -31,6 +31,8 @@
  */
 
 #include "motor_modul_mm.h"
+#include "ADXL345.h"
+
 
 /**
   * @brief		int16_t getGyro_result()
@@ -39,17 +41,24 @@
   * @retval		int16_t result, Wert vom Gyro
   */
 int16_t getGyro_result(){
-  uint8_t i2c_status;
-  uint8_t scmd;
-  uint8_t val;
-  int16_t result = 0; //uint16_t result;
 
-  scmd=Gyro_ZOUT_HIGH;
+  int16_t result = 0; //uint16_t result;
+  bool bSuccess;
+
+  // configure accelerometer as +-2g and start measure
+  bSuccess = ADXL345_Init();
+  if (!bSuccess)
+	  return -1;
+
+  result = ADXL345_Z_Read();
+
+ /* scmd=Gyro_ZOUT_HIGH;
   i2c_status = os_i2c_Transceive(I2C_CHAN0, I2C_Gyro, &scmd, 1, &val, 1);
   result=(((int)val)<<8);
   scmd=Gyro_ZOUT_LOW;
   i2c_status |= os_i2c_Transceive(I2C_CHAN0, I2C_Gyro, &scmd, 1, &val, 1);
-  result+=(int)val;
+  result+=(int)val;*/
+
   result=(int16_t)(result/14.375);
 
   return result; // grad/sec
@@ -66,7 +75,7 @@ int16_t getGyro_result(){
   * 			int16_t distance:	Distanz die zurueckgelegt werden soll(+/-)
   * @retval		None
   */
-void drive(uint8_t speed, int16_t distance){
+void drive(volatile uint32_t *base_addr, uint8_t speed, int16_t distance){
 	uint32_t done_flag = 0;
 
 	if(distance < 0){
@@ -74,13 +83,13 @@ void drive(uint8_t speed, int16_t distance){
 		distance = distance + 32768;
 	}
 
-	SET_SPEED(speed); 		//speed
-	SET_DISTANCE(distance);	//distance !+/-!
-	START_DRIVE(); 			//command
+	SET_SPEED(base_addr, speed); 		//speed
+	SET_DISTANCE(base_addr, distance);	//distance !+/-!
+	START_DRIVE(base_addr); 					//command
 
 	while(1){
-		OSTimeDlyHMSM(0, 0, 0, 100);
-		done_flag = GET_DONE_FLAG(); //done_flag lesen
+		usleep(100*1000);
+		done_flag = GET_DONE_FLAG(base_addr); //done_flag lesen
 		if(done_flag == 1){
 			break;
 		}
@@ -98,7 +107,7 @@ void drive(uint8_t speed, int16_t distance){
   * 			int16_t angle:	Winkel der gedreht werden soll(+ ->rechts/- ->links)
   * @retval		None
   */
-void drive_turn(uint8_t speed, int16_t angle){
+void drive_turn(volatile uint32_t *base_addr, uint8_t speed, int16_t angle){
 	int16_t gyro_result;
 	uint32_t done_flag = 0;
 
@@ -107,17 +116,17 @@ void drive_turn(uint8_t speed, int16_t angle){
 		angle = angle + 32768;
 	}
 
-	SET_SPEED(speed); 	//speed
-	SET_ANGLE(angle);	//angle !+/-!
-	START_TURN(); 		//command
+	SET_SPEED(base_addr, speed); 	//speed
+	SET_ANGLE(base_addr, angle);		//angle !+/-!
+	START_TURN(base_addr); 			//command
 
 	while(1){
-		OSTimeDlyHMSM(0, 0, 0, 100);
+		usleep(100*1000);
 		gyro_result = getGyro_result();
 		if (gyro_result < 0){
 			gyro_result = gyro_result *-1;
 		}
-		SET_GYRO(gyro_result); //transmit
+		SET_GYRO(base_addr, gyro_result); //transmit
 
 		done_flag = GET_DONE_FLAG(); //done_flag lesen
 		if(done_flag == 1){
@@ -148,7 +157,7 @@ int16_t get_turn_offset(){
 		}
 		gyro_offset = gyro_offset + gyro_result;
 		count++;
-		OSTimeDlyHMSM(0, 0, 0, 100);
+		usleep(100*1000);
 	}
 	if (gyro_offset >= 5){
 		gyro_offset = gyro_offset / 5;
@@ -170,7 +179,7 @@ int16_t get_turn_offset(){
   * 			int16_t angle:	Winkel der gedreht werden soll(+ ->rechts/- ->links)
   * @retval		None
   */
-void drive_turn_w_offset(uint8_t speed, int16_t angle){
+void drive_turn_w_offset(volatile uint32_t *base_addr, uint8_t speed, int16_t angle){
 	int16_t gyro_result;
 	int16_t offset;
 	uint32_t done_flag = 0;
@@ -180,17 +189,17 @@ void drive_turn_w_offset(uint8_t speed, int16_t angle){
 		angle = angle + 32768;
 	}
 
-	SET_SPEED(speed);	//speed
-	SET_ANGLE(angle);	//angle !+/-!
-	START_TURN();		//command
+	SET_SPEED(base_addr, speed);	//speed
+	SET_ANGLE(base_addr, angle);	//angle !+/-!
+	START_TURN(base_addr);		//command
 
 	while(1){
-		OSTimeDlyHMSM(0, 0, 0, 100);
+		usleep(100*1000);
 		gyro_result = getGyro_result();
 		if (gyro_result < 0){
 			gyro_result = gyro_result *-1;
 		}
-		SET_GYRO(gyro_result-offset); //transmit
+		SET_GYRO(base_addr, gyro_result-offset); //transmit
 
 		done_flag = GET_DONE_FLAG(); //done_flag lesen
 		if(done_flag == 1){
@@ -215,7 +224,7 @@ void drive_turn_w_offset(uint8_t speed, int16_t angle){
   * 			int16_t resolution:	Teilschritte auf dem Kreis der Kurve
   * @retval		None
   */
-void drive_curve_steps(int16_t angle, uint8_t speed, int16_t radius, int16_t resolution){
+void drive_curve_steps(volatile uint32_t *base_addr, int16_t angle, uint8_t speed, int16_t radius, int16_t resolution){
 
 	int16_t gyro_result;
 	int16_t offset;
@@ -223,9 +232,9 @@ void drive_curve_steps(int16_t angle, uint8_t speed, int16_t radius, int16_t res
 	//int16_t angle = 180; //momentan noch FIX
 	int16_t circle_part_m1 = 0;
 	int16_t circle_part_m2 = 0;
-
-	int16_t winkel_part;
-	int16_t winkel_sum;
+	///////DEBUG/////
+	//int16_t winkel_part;
+	//int16_t winkel_sum;
 
 	int8_t turn = 0;//0-inital 1-right 2-left
 
@@ -254,21 +263,21 @@ void drive_curve_steps(int16_t angle, uint8_t speed, int16_t radius, int16_t res
 
 	offset = get_turn_offset();
 
-	SET_SPEED(speed);
-	SET_ANGLE(angle);
-	SET_RADIUS(radius);
-	SET_RESOLUTION(resolution);
-	SET_CIRC_PART_M1(circle_part_m1);
-	SET_CIRC_PART_M2(circle_part_m2);
-	START_CURVE();
+	SET_SPEED(base_addr, speed);
+	SET_ANGLE(base_addr, angle);
+	SET_RADIUS(base_addr, radius);
+	SET_RESOLUTION(base_addr, resolution);
+	SET_CIRC_PART_M1(base_addr, circle_part_m1);
+	SET_CIRC_PART_M2(base_addr, circle_part_m2);
+	START_CURVE(base_addr);
 
 	while(1){
-		OSTimeDlyHMSM(0, 0, 0, 100);
+		usleep(100*1000);
 		gyro_result = getGyro_result();
 		if (gyro_result < 0){
 			gyro_result = gyro_result *-1;
 		}
-		SET_GYRO(gyro_result-offset); //transmit
+		SET_GYRO(base_addr, gyro_result-offset); //transmit
 
 		done_flag = GET_DONE_FLAG(); //done_flag lesen
 
@@ -293,35 +302,35 @@ void drive_curve_steps(int16_t angle, uint8_t speed, int16_t radius, int16_t res
 //Diese Funktionen werden in der H Datei nicht angegeben und sollen auch nicht im Programm aufgerufen werden. Sie dienen lediglich fuer das Verstaendnis
 //der Funktionsweise und koennen zum Weiterbearbeiten benutzt werden.////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-static __inline__ void curve(){
-					IOWR(MOTOR_MODUL_0_BASE,0,25); 		//transmit 						Geschwindigkeit:	25
-					IOWR(MOTOR_MODUL_0_BASE,2,90); 		//transmit						Winkel:				90
-					IOWR(MOTOR_MODUL_0_BASE,3,2); 		//transmit						radius:				look up tabelle
-					IOWR(MOTOR_MODUL_0_BASE,4,32775); 	//transmit						Befehl:		 		kurve
+static __inline__ void curve(base){
+					SET_SPEED(base, 25); 				//transmit 						Geschwindigkeit:	25
+					SET_ANGLE(base, 90); 				//transmit						Winkel:				90
+					SET_RADIUS(base, 2); 				//transmit						radius:				look up tabelle
+					alt_write_word(base + 4,32775); 	//transmit						Befehl:		 		kurve
 }
 
 
-static __inline__ void send_driveback(){
-					IOWR(MOTOR_MODUL_0_BASE,0,25); //transmit //25 geht!!!!!!!!!!!	Geschwindigkeit:	25
-					IOWR(MOTOR_MODUL_0_BASE,1,33368); //transmit						Strecke:			60cm
-					IOWR(MOTOR_MODUL_0_BASE,4,32769); //transmit						Befehl:		 		Fahren
+static __inline__ void send_driveback(base){
+					SET_SPEED(base, 25); //transmit //25 geht!!!!!!!!!!!	Geschwindigkeit:	25
+					alt_write_word(base + 1,33368); //transmit						Strecke:			60cm
+					alt_write_word(base + 4,32769); //transmit						Befehl:		 		Fahren
 }
 
 //erkennung von negativen Zahlen und umwandlung in einerkopliment(auch in vhdl realisirbar, allerdings nur mit min 2 konvertierungen, ist also nicht besser...)
-void drive_test(uint8_t speed, int16_t distance){
+void drive_test(volatile uint32_t *base_addr, uint8_t speed, int16_t distance){
 	if(distance < 0){
 		distance = distance * -1;
 		distance = distance + 32768;
 
 	}
-		IOWR(MOTOR_MODUL_0_BASE,0,speed); 	//speed
-		IOWR(MOTOR_MODUL_0_BASE,1,distance); //distance !+/-!
-		IOWR(MOTOR_MODUL_0_BASE,4,DRIVE); 	//command
+		SET_SPEED(base_addr, speed); 		//speed
+		SET_DISTANCE(base_addr, distance); 	//distance !+/-!
+		START_DRIVE(base_addr); 			//command
 
 }
 
 
-void gyro_test(){
+/*void gyro_test(){
   Gyro_Result_t gyroResult;
   uint8_t i2c_status;
   char txt[30]="ERROR";
@@ -335,12 +344,12 @@ void gyro_test(){
   // LCDwrite(&txt[0],20);
   sprintf((char *)&txt[0],"Z:%4d   %4d T:%4d",gyroResult.XYZ[2],gyroResult.XYZ[2],gyroResult.temperature);
   LCDwrite(&txt[0],20);
-}
+}*/
 
 
 
 
-void drive_regler(uint8_t speed, int16_t distance){
+void drive_regler(volatile uint32_t *base_addr, uint8_t speed, int16_t distance){
 	uint32_t done_flag = 0;
 	uint16_t E1 =0;
 	uint16_t E2 =0;
@@ -350,15 +359,15 @@ void drive_regler(uint8_t speed, int16_t distance){
 		distance = distance + 32768;
 	}
 
-	IOWR(MOTOR_MODUL_0_BASE,0,speed); 	//speed
-	IOWR(MOTOR_MODUL_0_BASE,1,distance); //distance !+/-!
-	IOWR(MOTOR_MODUL_0_BASE,4,DRIVE_TURN); 	//command
+	SET_SPEED(base_addr, speed); 	//speed
+	SET_DISTANCE(base_addr, distance); //distance !+/-!
+	START_TURN(base_addr); 	//command
 
 	while(1){
-		OSTimeDlyHMSM(0, 0, 0, 50);
-		done_flag = IORD(MOTOR_MODUL_0_BASE,0); //done_flag lesen
-		E1 = IORD(MOTOR_MODUL_0_BASE,1);
-		E2 = IORD(MOTOR_MODUL_0_BASE,2);
+		usleep(50*1000);
+		done_flag = GET_DONE_FLAG(base_addr)	; //done_flag lesen
+		E1 = GET_ENCODER1(base_addr);
+		E2 = GET_ENCODER2(base_addr);
 
 		printf("E1: %i \n",E1);
 		printf("	E2: %i \n",E2);
@@ -370,33 +379,32 @@ void drive_regler(uint8_t speed, int16_t distance){
 }
 
 
-void drive_in_steps(){
+void drive_in_steps(volatile uint32_t *base_addr){
 
 	int16_t gyro_result;
 	int16_t offset;
 	uint32_t done_flag = 0;
 	int16_t angle = 180;
-	int8_t count = 0;
 	uint8_t speed = 25;
 
 
 	offset = get_turn_offset();
 
-	IOWR(MOTOR_MODUL_0_BASE,0,speed); 		//speed
-	IOWR(MOTOR_MODUL_0_BASE,2,angle); 		//angle !+/-!
-	IOWR(MOTOR_MODUL_0_BASE,4,DRIVE_TURN); 	//command
+	SET_SPEED(base_addr, speed); 		//speed
+	SET_ANGLE(base_addr, angle); 		//angle !+/-!
+	START_TURN(base_addr); 	//command
 
 
 
 	while(1){
-		OSTimeDlyHMSM(0, 0, 0, 100);
+		usleep(100*1000);
 		gyro_result = getGyro_result();
 		if (gyro_result < 0){
 			gyro_result = gyro_result *-1;
 		}
-		IOWR(MOTOR_MODUL_0_BASE,5,(gyro_result-offset)); //transmit
+		SET_GYRO(base_addr, gyro_result-offset); //transmit
 
-		done_flag = IORD(MOTOR_MODUL_0_BASE,0); //done_flag lesen
+		done_flag = GET_DONE_FLAG(base_addr)	; //done_flag lesen
 		if(done_flag == 1){
 			break;
 		}
@@ -404,7 +412,7 @@ void drive_in_steps(){
 }
 
 
-void drive_curve_steps_1(){
+void drive_curve_steps_1(volatile uint32_t *base_addr){
 
 	int16_t gyro_result;
 	int16_t offset;
@@ -418,23 +426,23 @@ void drive_curve_steps_1(){
 
 	offset = get_turn_offset();
 
-	IOWR(MOTOR_MODUL_0_BASE,0,speed); 		//speed
-	IOWR(MOTOR_MODUL_0_BASE,2,angle); 		//angle !+/-!
-	IOWR(MOTOR_MODUL_0_BASE,4,32775); 	//command
+	SET_SPEED(base_addr, speed); 		//speed
+	SET_ANGLE(base_addr, angle); 		//angle !+/-!
+	alt_write_word(base_addr + 4, 32775); 	//command
 
 
 
 	while(1){
-		OSTimeDlyHMSM(0, 0, 0, 100);
+		usleep(100*1000);
 		gyro_result = getGyro_result();
 		if (gyro_result < 0){
 			gyro_result = gyro_result *-1;
 		}
-		IOWR(MOTOR_MODUL_0_BASE,5,(gyro_result-offset)); //transmit
+		SET_GYRO(base_addr, gyro_result-offset); //transmit
 
-		done_flag = IORD(MOTOR_MODUL_0_BASE,0); //done_flag lesen
-		winkel_part = IORD(MOTOR_MODUL_0_BASE,3);
-		winkel_sum = IORD(MOTOR_MODUL_0_BASE,4);
+		done_flag = GET_DONE_FLAG(base_addr); //done_flag lesen
+		winkel_part = GET_WINKEL_PART(base_addr);
+		winkel_sum = GET_WINKEL_SUM(base_addr);
 
 		printf("Gyro: %i \n",gyro_result);
 		printf("Part: %i \n",winkel_part);
@@ -446,7 +454,7 @@ void drive_curve_steps_1(){
 	}
 }
 
-void drive_curve_steps_test(){
+void drive_curve_steps_test(volatile uint32_t *base_addr){
 
 	int16_t gyro_result;
 	int16_t offset;
@@ -482,27 +490,27 @@ void drive_curve_steps_test(){
 
 	offset = get_turn_offset();
 
-	IOWR(MOTOR_MODUL_0_BASE,0,speed); 		//speed
-	IOWR(MOTOR_MODUL_0_BASE,2,angle); 		//angle !+/-!
-	IOWR(MOTOR_MODUL_0_BASE,3,radius);
-	IOWR(MOTOR_MODUL_0_BASE,6,resolution);
-	IOWR(MOTOR_MODUL_0_BASE,7,circle_part_m1);
-	IOWR(MOTOR_MODUL_0_BASE,8,circle_part_m2);
-	IOWR(MOTOR_MODUL_0_BASE,4,DRIVE_CURVE); 	//command
+	SET_SPEED(base_addr, speed); 		//speed
+	SET_ANGLE(base_addr, angle); 		//angle !+/-!
+	SET_RADIUS(base_addr, radius);
+	SET_RESOLUTION(base_addr, resolution);
+	SET_CIRC_PART_M1(base_addr, circle_part_m1);
+	SET_CIRC_PART_M2(base_addr, circle_part_m2);
+	START_CURVE(base_addr); 	//command
 
 
 
 	while(1){
-		OSTimeDlyHMSM(0, 0, 0, 100);
+		usleep(100*1000);
 		gyro_result = getGyro_result();
 		if (gyro_result < 0){
 			gyro_result = gyro_result *-1;
 		}
-		IOWR(MOTOR_MODUL_0_BASE,5,(gyro_result-offset)); //transmit
+		SET_GYRO(base_addr, gyro_result-offset); //transmit
 
-		done_flag = IORD(MOTOR_MODUL_0_BASE,0); //done_flag lesen
-		winkel_part = IORD(MOTOR_MODUL_0_BASE,3);
-		winkel_sum = IORD(MOTOR_MODUL_0_BASE,4);
+		done_flag = GET_DONE_FLAG(base_addr); //done_flag lesen
+		winkel_part = GET_WINKEL_PART(base_addr);
+		winkel_sum = GET_WINKEL_SUM(base_addr);
 
 		printf("Gyro: %i \n",gyro_result);
 		printf("Part: %i \n",winkel_part);

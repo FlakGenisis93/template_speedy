@@ -1,15 +1,15 @@
-16:00:07 **** Incremental Build of configuration Debug for project saber ****
+17:15:19 **** Incremental Build of configuration Debug for project saber ****
 make all 
 'Building file: ../src/main.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-In file included from ../src/main.c:18:0:
-../src/motor_modul_mm.h:36:20: fatal error: system.h: No such file or directory
- #include <system.h>
-                    ^
-compilation terminated.
-src/subdir.mk:21: recipe for target 'src/main.o' failed
-make: *** [src/main.o] Error 1
+arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\saber\sensors" -I"H:\Git\template_speedy\hps_workspace\saber\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: saber'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "saber"  ./src/main.o ./src/motor_modul_mm.o  ./sensors/ADXL345.o  ./actuators/i2c.o   
+'Finished building target: saber'
+' '
 
-16:00:08 Build Finished (took 488ms)
+17:15:20 Build Finished (took 1s.144ms)
 
