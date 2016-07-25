@@ -5693,3 +5693,140 @@ Asynchronously called from thread Worker-48
 	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
 	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 10:11:54.040
+!MESSAGE Unable to connect to itg_debug. Failed target configuration:
+Failed to start gdbserver: port 5000 is already in use
+!STACK 0
+com.arm.debug.control.target.TargetControllerException: Failed target configuration:
+Failed to start gdbserver: port 5000 is already in use
+	at com.arm.debug.control.target.AbstractTargetController.runTargetControlProcess(AbstractTargetController.java:249)
+	at com.arm.debug.control.target.RSEGDBTargetController.configureTarget(RSEGDBTargetController.java:90)
+	at com.arm.debug.control.target.RSEGDBTargetController.doTargetSetup(RSEGDBTargetController.java:48)
+	at com.arm.debug.control.target.AbstractTargetController.setupTarget(AbstractTargetController.java:76)
+	at com.arm.debug.control.target.RSEGDBTargetController.setupTarget(RSEGDBTargetController.java:1)
+	at com.arm.debug.control.ConnectionController.doPreDebugServiceInitialization(ConnectionController.java:623)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:533)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 10:12:12.897
+!MESSAGE Unable to connect to itg_debug. Failed target configuration:
+Failed to start gdbserver: port 5000 is already in use
+!STACK 0
+com.arm.debug.control.target.TargetControllerException: Failed target configuration:
+Failed to start gdbserver: port 5000 is already in use
+	at com.arm.debug.control.target.AbstractTargetController.runTargetControlProcess(AbstractTargetController.java:249)
+	at com.arm.debug.control.target.RSEGDBTargetController.configureTarget(RSEGDBTargetController.java:90)
+	at com.arm.debug.control.target.RSEGDBTargetController.doTargetSetup(RSEGDBTargetController.java:48)
+	at com.arm.debug.control.target.AbstractTargetController.setupTarget(AbstractTargetController.java:76)
+	at com.arm.debug.control.target.RSEGDBTargetController.setupTarget(RSEGDBTargetController.java:1)
+	at com.arm.debug.control.ConnectionController.doPreDebugServiceInitialization(ConnectionController.java:623)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:533)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 10:12:19.194
+!MESSAGE Unable to load one or more images
+!STACK 0
+java.util.concurrent.ExecutionException: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\itg3200\Debug\itg3200 are already loaded at offset 0x00000000
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at com.arm.debug.control.CommandTask.get(CommandTask.java:197)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\itg3200\Debug\itg3200 are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	... 16 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-07-25 10:12:19.194
+!MESSAGE Symbols for image H:\Git\template_speedy\hps_workspace\itg3200\Debug\itg3200 are already loaded at offset 0x00000000
+!STACK 0
+com.arm.debug.core.interfaces.engine.DebugException: Symbols for image H:\Git\template_speedy\hps_workspace\itg3200\Debug\itg3200 are already loaded at offset 0x00000000
+	at com.arm.debug.interpreters.commands.SymbolAppender.appendSymbols(SymbolAppender.java:100)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.tryExecute(AddSymbolFileCommand.java:57)
+	at com.arm.debug.interpreter.ds.commands.file.AbstractFileCommand.executeOrUnload(AbstractFileCommand.java:73)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:34)
+	at com.arm.debug.interpreter.ds.commands.file.AddSymbolFileCommand.execute(AddSymbolFileCommand.java:1)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:383)
+	at com.arm.debug.interpreter.ds.DSInterpreter$3.run(DSInterpreter.java:1)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$QueuedTask.run(ConnectionEventManager.java:97)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.processTask(ConnectionEventManager.java:309)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager.access$8(ConnectionEventManager.java:307)
+	at com.arm.debug.core.engine.connection.ConnectionEventManager$2.run(ConnectionEventManager.java:212)
+	at com.arm.debug.control.CommandTask.fillInStackTrace(CommandTask.java:81)
+	at com.arm.debug.control.ConnectionController.execute(ConnectionController.java:1349)
+	at com.arm.debug.api.AbstractCommands.execute(AbstractCommands.java:115)
+	at com.arm.debug.api.Commands.addSymbolFile(Commands.java:766)
+	at com.arm.debug.api.Commands.addSymbolFileAndWait(Commands.java:775)
+	at com.arm.debug.control.ConnectionController.loadSymbolsfromFile(ConnectionController.java:1157)
+	at com.arm.debug.control.ConnectionController.doPostDebugServiceInitialization(ConnectionController.java:998)
+	at com.arm.debug.control.ConnectionController.manageDebugServiceAndInitialize(ConnectionController.java:821)
+	at com.arm.debug.control.ConnectionController.doInitialize(ConnectionController.java:537)
+	at com.arm.debug.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:517)
+	at com.arm.debug.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:455)
+	at com.arm.debug.control.ConnectionController.initialize(ConnectionController.java:402)
+	at com.arm.debug.control.ConnectionManager.createConnection(ConnectionManager.java:281)
+	at com.arm.debug.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at com.arm.debug.control.VariableResolvingLaunchConfiguration.launch(VariableResolvingLaunchConfiguration.java:273)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Asynchronously called from thread Worker-55
+	at com.arm.debug.service.proxy.SingleThreader.execute(SingleThreader.java:152)
+	at com.arm.debug.service.proxy.DebugServiceWrapper.invoke(DebugServiceWrapper.java:78)
+	at com.sun.proxy.$Proxy29.addSymbolFile(Unknown Source)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:23)
+	at com.arm.debug.api.commands.AddSymbolFile.execute(AddSymbolFile.java:1)
+	at com.arm.debug.api.AbstractDebugCommand.call(AbstractDebugCommand.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.arm.debug.control.CommandTask.run(CommandTask.java:56)
+	at com.arm.debug.control.ConnectionController$6.run(ConnectionController.java:1477)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
