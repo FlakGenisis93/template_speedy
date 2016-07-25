@@ -5,41 +5,49 @@
 <stringAttribute key="ANDROID_APP_DIR" value=""/>
 <stringAttribute key="ANDROID_PROCESS_NAME" value=""/>
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data Model" value="172343"/>
-<mapEntry key="*list global low level symbols" value="1267515"/>
-<mapEntry key="*loading values from target" value="2136167"/>
-<mapEntry key="*updating variables" value="701651"/>
-<mapEntry key="AddEventObserver" value="2050340"/>
-<mapEntry key="Evaluate" value="579441"/>
-<mapEntry key="Retrieving globals list" value="1314764"/>
-<mapEntry key="add-symbol-file" value="7541439"/>
-<mapEntry key="break" value="4802699"/>
-<mapEntry key="continue" value="5774033"/>
-<mapEntry key="directory" value="1141013"/>
-<mapEntry key="disassemble" value="18969479"/>
-<mapEntry key="file" value="27877978"/>
-<mapEntry key="get capabilities" value="102987"/>
-<mapEntry key="get cwd" value="160722"/>
-<mapEntry key="get execution addresss" value="190386"/>
-<mapEntry key="get source lines" value="561580"/>
-<mapEntry key="initialize command help" value="28141248"/>
-<mapEntry key="list breakpoints" value="320518"/>
-<mapEntry key="list instruction sets" value="271012"/>
-<mapEntry key="list signals" value="182153"/>
-<mapEntry key="list watchpoints" value="237906"/>
-<mapEntry key="reload-symbol-file" value="14714152"/>
-<mapEntry key="remove" value="867586"/>
-<mapEntry key="set CWD" value="3890343"/>
-<mapEntry key="set breakpoint properties" value="5194231"/>
-<mapEntry key="set debug-from" value="453995"/>
-<mapEntry key="start" value="49341077"/>
-<mapEntry key="step" value="23376878"/>
-<mapEntry key="toggleBreakpoint" value="5193348"/>
-<mapEntry key="waitForTargetToStop" value="38995928"/>
+<mapEntry key="*Fetching Data Model" value="133084"/>
+<mapEntry key="*FunctionLoader" value="5297601"/>
+<mapEntry key="*list global low level symbols" value="1213272"/>
+<mapEntry key="*loading memory from target" value="2633889"/>
+<mapEntry key="*loading values from target" value="638395"/>
+<mapEntry key="*updating expressions" value="101689"/>
+<mapEntry key="*updating registers" value="21382047"/>
+<mapEntry key="*updating variables" value="333525"/>
+<mapEntry key="AddEventObserver" value="301130"/>
+<mapEntry key="Evaluate" value="2546591"/>
+<mapEntry key="Retrieving globals list" value="666845"/>
+<mapEntry key="add-symbol-file" value="6327660"/>
+<mapEntry key="areCachesAvailable" value="1053556"/>
+<mapEntry key="break" value="3854782"/>
+<mapEntry key="continue" value="12607100"/>
+<mapEntry key="directory" value="946442"/>
+<mapEntry key="disassemble" value="7275645"/>
+<mapEntry key="evaluate address" value="464199"/>
+<mapEntry key="file" value="27236241"/>
+<mapEntry key="get byte order" value="347233"/>
+<mapEntry key="get capabilities" value="84410"/>
+<mapEntry key="get cwd" value="76891"/>
+<mapEntry key="get execution addresss" value="180796"/>
+<mapEntry key="get source lines" value="122832"/>
+<mapEntry key="getValidEncodings" value="967511"/>
+<mapEntry key="initialize command help" value="28669346"/>
+<mapEntry key="list breakpoints" value="260778"/>
+<mapEntry key="list instruction sets" value="124544"/>
+<mapEntry key="list signals" value="156380"/>
+<mapEntry key="list watchpoints" value="200452"/>
+<mapEntry key="reload-symbol-file" value="14193018"/>
+<mapEntry key="remove" value="520954"/>
+<mapEntry key="set CWD" value="3647929"/>
+<mapEntry key="set breakpoint properties" value="4071018"/>
+<mapEntry key="set debug-from" value="349589"/>
+<mapEntry key="start" value="40581969"/>
+<mapEntry key="step" value="34206014"/>
+<mapEntry key="toggleBreakpoint" value="5224479"/>
+<mapEntry key="waitForTargetToStop" value="37261635"/>
 </mapAttribute>
 <listAttribute key="DEBUG_TAB."/>
 <stringAttribute key="DEBUG_TAB..RESOURCES.0.TYPE" value="SOURCE_DIR"/>
-<stringAttribute key="DEBUG_TAB..RESOURCES.0.VALUE" value="${workspace_loc:/hmc6343}"/>
+<stringAttribute key="DEBUG_TAB..RESOURCES.0.VALUE" value="${workspace_loc:/laser}"/>
 <intAttribute key="DEBUG_TAB..RESOURCES.COUNT" value="1"/>
 <intAttribute key="FILES.CONNECT_TO_GDB_SERVER.RESOURCES.COUNT" value="0"/>
 <intAttribute key="FILES.DEBUG_EXISTING_ANDROID.RESOURCES.COUNT" value="0"/>
@@ -69,14 +77,14 @@
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.OPTION.ON_DEMAND_LOAD" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
-<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.VALUE" value="${workspace_loc:/hmc6343/Debug/hmc6343}"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.VALUE" value="${workspace_loc:/laser/Debug/laser}"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.TYPE" value="TARGET_WORKING_DIR"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.VALUE" value="/home/root"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.2.TYPE" value="TARGET_DOWNLOAD_DIR"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.2.VALUE" value="/home/root"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.3.OPTION.ON_DEMAND_LOAD" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.3.TYPE" value="SYMBOLS_FILE"/>
-<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.3.VALUE" value="${workspace_loc:/hmc6343/Debug/hmc6343}"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.3.VALUE" value="${workspace_loc:/laser/Debug/laser}"/>
 <intAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.COUNT" value="4"/>
 <intAttribute key="FILES.DOWNLOAD_DEBUG_ANDROID.RESOURCES.COUNT" value="0"/>
 <listAttribute key="FILES.ICE_DEBUG">
@@ -237,6 +245,18 @@
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Binary"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/laser/src/laser.c::doMeasurement_laser::distance"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Unsigned Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/laser/src/laser.c::doMeasurement::distance"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Unsigned Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/laser/src/main.c::main::distance"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Unsigned Decimal"/>
 </listAttribute>
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>
@@ -247,6 +267,16 @@
 </listAttribute>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.DisassemblyView.ranges">
 <listEntry value="100"/>
+</listAttribute>
+<listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.MemoryView.addresses">
+<listEntry value="&amp;(distance)"/>
+<listEntry value="&amp;(distance)"/>
+<listEntry value=""/>
+</listAttribute>
+<listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.MemoryView.ranges">
+<listEntry value="800"/>
+<listEntry value="sizeof(distance)"/>
+<listEntry value=""/>
 </listAttribute>
 <stringAttribute key="config_db_activity_name" value="Download and debug application"/>
 <stringAttribute key="config_db_connection_keys" value="gdb_address gdb_port gdb_disable_acks setup TCP_KILL_ON_EXIT TCP_DISABLE_EXTENDED_MODE"/>
@@ -261,9 +291,21 @@
 <listEntry value="&lt;Next Instruction&gt;"/>
 <listEntry value="100"/>
 </listAttribute>
+<stringAttribute key="debugger.view.ExpressionsView:DebugOutlineColumnState" value="OutlineConfig1&#9;0"/>
+<stringAttribute key="debugger.view.MemoryView" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;page&gt;&#10;&#9;&lt;memoryView displayWidthTag=&quot;BYTE_4&quot; mCompressedAddresses=&quot;true&quot; formatTag=&quot;Hexadecimal&quot; showTooltipTag=&quot;true&quot; autoAlign=&quot;false&quot;/&gt;&#10;&lt;/page&gt;&#10;"/>
+<listAttribute key="debugger.view.MemoryView:current">
+<listEntry value="&amp;(distance)"/>
+<listEntry value="800"/>
+</listAttribute>
+<stringAttribute key="debugger.view.NewRegisterView:DebugOutlineColumnState" value="OutlineConfig1&#9;0"/>
+<stringAttribute key="debugger.view.NewRegisterView:_selectedRegisterSet" value="All registers"/>
+<mapAttribute key="debugger.view.NewRegisterView_registerSets"/>
 <stringAttribute key="debugger.view.VariableTreeView:DebugOutlineColumnState" value="OutlineConfig1&#9;0"/>
 <listAttribute key="debugger.view.VariableTreeView:USER_ADDED_FILE_STATICS"/>
 <listAttribute key="debugger.view.VariableTreeView:USER_ADDED_GLOBALS"/>
+<booleanAttribute key="debugger.view.expression.DrawAsHex" value="false"/>
+<booleanAttribute key="debugger.view.register.DrawAsHex" value="false"/>
+<stringAttribute key="debugger.view.symbols.FunctionsView:DebugOutlineColumnState" value="OutlineConfig1&#9;0"/>
 <booleanAttribute key="debugger.view.variable.DrawAsHex" value="false"/>
 <stringAttribute key="ds5_launch_configuration_version" value="5.24.0"/>
 <stringAttribute key="dtsl_config" value="DtslScript"/>

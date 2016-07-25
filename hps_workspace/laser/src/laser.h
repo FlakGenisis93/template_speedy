@@ -166,14 +166,14 @@ uint8_t doMeasurement(volatile uint32_t *base_addr, uint16_t *distance);
  *	@brief		uint8_t doMeasurement_laser(void)
  *
  *	@details	Diesen Befehl nutzt man um auf den DE0_NANO_SOC eine Messung
- *				zu strten
+ *				zu starten
  *
- *	@param		keine
+ *	@param		uint16_t *distance		Zeiger auf Array fuer daten
  *
  *	@retval		0	Alles Okay
  *				1	Fehler
  *
  *
  *************************************************************************/
-uint8_t doMeasurement_laser(void);
+uint8_t doMeasurement_laser(uint16_t *distance);
 #endif

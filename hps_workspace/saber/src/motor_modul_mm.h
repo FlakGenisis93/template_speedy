@@ -2,7 +2,7 @@
  ******************************************************************************
  * @file    motor_modul_mm.h
  * @author  BoE. Lt. Kluge Florian
- * @version V1.0.0
+ * @version V1.0.1
  * @date    17.08.2016
  * @brief   Befehle fuer motor_modul_mm - Header
  *
@@ -24,6 +24,8 @@
  *           - drive_curve implementiert
  * @details V1.0.0 Kluge F.
  *           - final version, drive_curve verbessert und doku
+ * @details V1.0.1 Kluge F.
+ *           - defines fuer IOWR/IORD-Funktionen angelegt
  ********************************************************************************
  * @brief
  * <h2><center>&copy; COPYRIGHT 2012 - 2016 UniBwM ETTI WE 4</center></h2>
@@ -40,9 +42,7 @@
 #include "includes.h"
 #include <string.h>
 #include <stdint.h>
-
 #include "../sensors/gyroPSitg3200.h"
-
 
 
 //DRIVE-COMMAND/////////////////////////
@@ -51,6 +51,28 @@
 #define DRIVE_CURVE 0x8003	//deZ: 32771
 
 
+
+//IOWR-Funktionen///////////////////////
+#define SET_SPEED(speed)					IOWR(MOTOR_MODUL_0_BASE,0,speed)
+#define SET_DISTANCE(distance)				IOWR(MOTOR_MODUL_0_BASE,1,distance)
+#define SET_ANGLE(angle)					IOWR(MOTOR_MODUL_0_BASE,2,angle)
+#define SET_RADIUS(radius)					IOWR(MOTOR_MODUL_0_BASE,3,radius)
+#define SET_GYRO(gyro_result)				IOWR(MOTOR_MODUL_0_BASE,5,gyro_result)
+#define SET_RESOLUTION(resolution)			IOWR(MOTOR_MODUL_0_BASE,6,resolution)
+#define SET_CIRC_PART_M1(circle_part_m1)	IOWR(MOTOR_MODUL_0_BASE,7,circle_part_m1)
+#define SET_CIRC_PART_M2(circle_part_m2)	IOWR(MOTOR_MODUL_0_BASE,8,circle_part_m2)
+
+#define START_DRIVE()						IOWR(MOTOR_MODUL_0_BASE,4,DRIVE)
+#define START_TURN()						IOWR(MOTOR_MODUL_0_BASE,4,DRIVE_TURN)
+#define START_CURVE()						IOWR(MOTOR_MODUL_0_BASE,4,DRIVE_CURVE)
+
+
+//IORD-Funktionen///////////////////////
+#define GET_DONE_FLAG()						IORD(MOTOR_MODUL_0_BASE,0)
+#define GET_ENCODER1()						IORD(MOTOR_MODUL_0_BASE,1)
+#define GET_ENCODER2()						IORD(MOTOR_MODUL_0_BASE,2)
+#define GET_WINKEL_PART()					IORD(MOTOR_MODUL_0_BASE,3)
+#define GET_WINKEL_SUM()					IORD(MOTOR_MODUL_0_BASE,4)
 
 //Funktionen////////////////////////////
 /**

@@ -45,7 +45,7 @@ uint8_t read_version_itg(void){
 
 uint16_t read_temp_itg(void){
 
-	uint8_t reg_addr = {0x1B};
+	uint8_t reg_addr = 0x1B;
 	uint8_t temp_data[2];
 	uint16_t temperatur = 0;
 
@@ -67,7 +67,7 @@ uint16_t read_temp_itg(void){
 	temperatur = (temperatur | temp_data[1]);
 
 	//Offset auf Temperatur rechnen
-	temperatur = temperatur + 13200;
+	temperatur = (temperatur + 13200)/280+35;
 
 	//Temperatur zurueckgeben
 	return temperatur;

@@ -233,6 +233,9 @@ uint8_t doMeasurement(volatile uint32_t *base_addr, uint16_t *distance)
 
 	initMemory(base_addr); //Speicher initialisieren
 	sendCommand(base_addr, COMMAND_MEAS); // Befehl schicken
+
+	usleep(200*1000);
+
 	begin = findBeginOfData(base_addr, 0); // Anfang des Messbefehls finden
 
 	 while (begin < MAX_ADDR)
@@ -245,9 +248,11 @@ uint8_t doMeasurement(volatile uint32_t *base_addr, uint16_t *distance)
 			begin = data;
 			//printDistances(begin, end); // Messpunkte ausgeben
 			//hier Array beschreiben.
-			fillArrayDistances(base_addr, begin,end, distance);
+			fillArrayDistances(base_addr, begin, end, distance);
+			//Daten muessen in Array geschrieben werden, darum warten
+			usleep(1*1000*1000);
 			printDistances2(distance);
-			//OSTimeDlyHMSM(0, 0, 1, 0);
+
 			return 0;
 		}
 		else
@@ -263,7 +268,7 @@ uint8_t doMeasurement(volatile uint32_t *base_addr, uint16_t *distance)
 
 }
 
-uint8_t doMeasurement_laser(void){
+uint8_t doMeasurement_laser(uint16_t *distance){
 
 	void *virtual_base;
 	volatile uint32_t *hps_laser = NULL;
@@ -288,7 +293,6 @@ uint8_t doMeasurement_laser(void){
 
 	hps_laser = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + LASER_BASE ) & (uint32_t)( HW_REGS_MASK ) );
 
-	uint16_t distance[ARRAY_LENGHT];
 	doMeasurement(hps_laser, distance);
 
 

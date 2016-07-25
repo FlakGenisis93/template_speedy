@@ -74,13 +74,13 @@ void drive(uint8_t speed, int16_t distance){
 		distance = distance + 32768;
 	}
 
-	IOWR(MOTOR_MODUL_0_BASE,0,speed); 	//speed
-	IOWR(MOTOR_MODUL_0_BASE,1,distance); //distance !+/-!
-	IOWR(MOTOR_MODUL_0_BASE,4,DRIVE); 	//command
+	SET_SPEED(speed); 		//speed
+	SET_DISTANCE(distance);	//distance !+/-!
+	START_DRIVE(); 			//command
 
 	while(1){
 		OSTimeDlyHMSM(0, 0, 0, 100);
-		done_flag = IORD(MOTOR_MODUL_0_BASE,0); //done_flag lesen
+		done_flag = GET_DONE_FLAG(); //done_flag lesen
 		if(done_flag == 1){
 			break;
 		}
@@ -107,9 +107,9 @@ void drive_turn(uint8_t speed, int16_t angle){
 		angle = angle + 32768;
 	}
 
-	IOWR(MOTOR_MODUL_0_BASE,0,speed); 		//speed
-	IOWR(MOTOR_MODUL_0_BASE,2,angle); 		//angle !+/-!
-	IOWR(MOTOR_MODUL_0_BASE,4,DRIVE_TURN); 	//command
+	SET_SPEED(speed); 	//speed
+	SET_ANGLE(angle);	//angle !+/-!
+	START_TURN(); 		//command
 
 	while(1){
 		OSTimeDlyHMSM(0, 0, 0, 100);
@@ -117,9 +117,9 @@ void drive_turn(uint8_t speed, int16_t angle){
 		if (gyro_result < 0){
 			gyro_result = gyro_result *-1;
 		}
-		IOWR(MOTOR_MODUL_0_BASE,5,gyro_result); //transmit
+		SET_GYRO(gyro_result); //transmit
 
-		done_flag = IORD(MOTOR_MODUL_0_BASE,0); //done_flag lesen
+		done_flag = GET_DONE_FLAG(); //done_flag lesen
 		if(done_flag == 1){
 			break;
 		}
@@ -180,9 +180,9 @@ void drive_turn_w_offset(uint8_t speed, int16_t angle){
 		angle = angle + 32768;
 	}
 
-	IOWR(MOTOR_MODUL_0_BASE,0,speed); 		//speed
-	IOWR(MOTOR_MODUL_0_BASE,2,angle); 		//angle !+/-!
-	IOWR(MOTOR_MODUL_0_BASE,4,DRIVE_TURN); 	//command
+	SET_SPEED(speed);	//speed
+	SET_ANGLE(angle);	//angle !+/-!
+	START_TURN();		//command
 
 	while(1){
 		OSTimeDlyHMSM(0, 0, 0, 100);
@@ -190,9 +190,9 @@ void drive_turn_w_offset(uint8_t speed, int16_t angle){
 		if (gyro_result < 0){
 			gyro_result = gyro_result *-1;
 		}
-		IOWR(MOTOR_MODUL_0_BASE,5,(gyro_result-offset)); //transmit
+		SET_GYRO(gyro_result-offset); //transmit
 
-		done_flag = IORD(MOTOR_MODUL_0_BASE,0); //done_flag lesen
+		done_flag = GET_DONE_FLAG(); //done_flag lesen
 		if(done_flag == 1){
 			break;
 		}
@@ -254,13 +254,13 @@ void drive_curve_steps(int16_t angle, uint8_t speed, int16_t radius, int16_t res
 
 	offset = get_turn_offset();
 
-	IOWR(MOTOR_MODUL_0_BASE,0,speed); 		//speed
-	IOWR(MOTOR_MODUL_0_BASE,2,angle); 		//angle !+/-!
-	IOWR(MOTOR_MODUL_0_BASE,3,radius);
-	IOWR(MOTOR_MODUL_0_BASE,6,resolution);
-	IOWR(MOTOR_MODUL_0_BASE,7,circle_part_m1);
-	IOWR(MOTOR_MODUL_0_BASE,8,circle_part_m2);
-	IOWR(MOTOR_MODUL_0_BASE,4,DRIVE_CURVE); 	//command
+	SET_SPEED(speed);
+	SET_ANGLE(angle);
+	SET_RADIUS(radius);
+	SET_RESOLUTION(resolution);
+	SET_CIRC_PART_M1(circle_part_m1);
+	SET_CIRC_PART_M2(circle_part_m2);
+	START_CURVE();
 
 	while(1){
 		OSTimeDlyHMSM(0, 0, 0, 100);
@@ -268,13 +268,13 @@ void drive_curve_steps(int16_t angle, uint8_t speed, int16_t radius, int16_t res
 		if (gyro_result < 0){
 			gyro_result = gyro_result *-1;
 		}
-		IOWR(MOTOR_MODUL_0_BASE,5,(gyro_result-offset)); //transmit
+		SET_GYRO(gyro_result-offset); //transmit
 
-		done_flag = IORD(MOTOR_MODUL_0_BASE,0); //done_flag lesen
+		done_flag = GET_DONE_FLAG(); //done_flag lesen
 
 		///////DEBUG/////
-		//winkel_part = IORD(MOTOR_MODUL_0_BASE,3);
-		//winkel_sum = IORD(MOTOR_MODUL_0_BASE,4);
+		//winkel_part = GET_WINKEL_PART();
+		//winkel_sum = GET_WINKEL_SUM();
 
 		//printf("Gyro: %i \n",gyro_result);
 		//printf("Part: %i \n",winkel_part);
