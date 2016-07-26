@@ -14,6 +14,8 @@ int main(int argc, char *argv[]){
 		printf("Init I2C 100kHz successful\n");
 	}
 
+	init_itg();
+
 	uint8_t version;
 	version = read_version_itg();
 
@@ -22,7 +24,23 @@ int main(int argc, char *argv[]){
 	uint16_t temp;
 	temp = read_temp_itg();
 
-	printf("Temperatur: %d", temp);
+	printf("Temperatur: %d\n", temp);
+
+	int16_t grad;
+
+	while(1){
+
+		grad = read_gyro_z();
+
+		if (grad < 0){
+			grad = grad *-1;
+		}
+
+		grad = ((grad*1000)/14375);
+
+		printf("Grad/sec %d\n", grad);
+		usleep(100*1000);
+	}
 
 	return 0;
 	

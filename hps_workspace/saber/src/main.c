@@ -5,21 +5,8 @@
  *      Author: Urban
  */
 
-#include <stdio.h>
-#include <stdint.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <sys/mman.h>
-#include <soc_cv_av/socal/socal.h>
-#include <soc_cv_av/socal/hps.h>
-
-#include "hps_0.h"
-#include "hwlib.h"
 #include "motor_modul_mm.h"
 
-#define HW_REGS_BASE 	( ALT_STM_OFST )
-#define HW_REGS_SPAN 	( 0x04000000 )
-#define HW_REGS_MASK 	( HW_REGS_SPAN - 1 )
 
 
 int main() {
@@ -28,6 +15,21 @@ int main() {
 	volatile uint32_t *hps_saber = NULL;
 	int fd;
 
+	if(init_i2c(I2C_1) != 0){
+		printf("Init I2C 100kHz Failed\n");
+		return -1;
+	} else {
+		printf("Init I2C 100kHz successful\n");
+	}
+
+	if(init_i2c(I2C_2) != 0){
+		printf("Init I2C 100kHz Failed\n");
+		return -1;
+	} else {
+		printf("Init I2C 100kHz successful\n");
+	}
+
+	init_itg();
 
 	if( ( fd = open( "/dev/mem", ( O_RDWR | O_SYNC ) ) ) == -1 ) {
 		printf( "ERROR: could not open \"/dev/mem\"...\n" );
@@ -44,8 +46,21 @@ int main() {
 
 	hps_saber = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + MOTOR_MODUL_BASE ) & (uint32_t)( HW_REGS_MASK ) );
 
-	drive(hps_saber, 50, 600);
+	usleep(10*1000*1000);
 
+	drive(hps_saber, 125, 600);
+
+	usleep(2000*1000);
+
+	drive_turn_w_offset(hps_saber, 60, 90);
+
+	usleep(2000*1000);
+
+	drive_turn_w_offset(hps_saber, 60, -180);
+
+	usleep(2000*1000);
+
+	drive_curve_steps(hps_saber, 180, 130, 600, 5);
 
 	if( munmap( virtual_base, HW_REGS_SPAN ) != 0 ) {
 		printf( "ERROR: munmap() failed...\n" );

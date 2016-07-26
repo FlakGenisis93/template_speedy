@@ -35,15 +35,10 @@
 #ifndef MOTOR_MODUL__MM_H_
 #define MOTOR_MODUL__MM_H_
 
-/*#include <system.h>
-#include <io.h>
-#include "altera_avalon_pio_regs.h"
-#include "includes.h"
-#include "../sensors/gyroPSitg3200.h"*/
-
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
+#include <unistd.h>
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <soc_cv_av/socal/socal.h>
@@ -52,6 +47,8 @@
 #include "hps_0.h"
 #include "hwlib.h"
 #include "time.h"
+#include "i2c.h"
+#include "itg3200.h"
 
 
 

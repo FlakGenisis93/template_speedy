@@ -1,9 +1,14 @@
-10:26:20 **** Incremental Build of configuration Debug for project itg3200 ****
+13:55:33 **** Incremental Build of configuration Debug for project itg3200 ****
 make all 
-'Building file: ../src/itg3200.c'
+'Building file: ../src/main.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\itg3200\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/itg3200.d" -MT"src/itg3200.d" -o "src/itg3200.o" "../src/itg3200.c"
-'Finished building: ../src/itg3200.c'
+arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\itg3200\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../actuators/i2c.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\itg3200\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"actuators/i2c.d" -MT"actuators/i2c.d" -o "actuators/i2c.o" "../actuators/i2c.c"
+'Finished building: ../actuators/i2c.c'
 ' '
 'Building target: itg3200'
 'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
@@ -11,5 +16,5 @@ arm-linux-gnueabihf-gcc  -o "itg3200"  ./src/itg3200.o ./src/main.o  ./actuators
 'Finished building target: itg3200'
 ' '
 
-10:26:21 Build Finished (took 943ms)
+13:55:34 Build Finished (took 1s.243ms)
 

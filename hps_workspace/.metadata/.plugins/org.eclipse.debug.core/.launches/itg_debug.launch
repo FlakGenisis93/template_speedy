@@ -5,41 +5,43 @@
 <stringAttribute key="ANDROID_APP_DIR" value=""/>
 <stringAttribute key="ANDROID_PROCESS_NAME" value=""/>
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data Model" value="145608"/>
+<mapEntry key="*Fetching Data Model" value="136535"/>
 <mapEntry key="*FunctionLoader" value="9813468"/>
-<mapEntry key="*list global low level symbols" value="853160"/>
-<mapEntry key="*loading values from target" value="2188096"/>
+<mapEntry key="*list global low level symbols" value="689331"/>
+<mapEntry key="*loading values from target" value="1268671"/>
 <mapEntry key="*updating expressions" value="30800"/>
 <mapEntry key="*updating registers" value="23955"/>
-<mapEntry key="*updating variables" value="205837"/>
-<mapEntry key="AddEventObserver" value="335604"/>
-<mapEntry key="Evaluate" value="763000"/>
-<mapEntry key="Retrieving globals list" value="753832"/>
-<mapEntry key="add-symbol-file" value="6797967"/>
-<mapEntry key="break" value="3731399"/>
-<mapEntry key="continue" value="3749331"/>
-<mapEntry key="directory" value="1026958"/>
-<mapEntry key="disassemble" value="26416346"/>
-<mapEntry key="file" value="26270155"/>
-<mapEntry key="get capabilities" value="101866"/>
-<mapEntry key="get cwd" value="99902"/>
-<mapEntry key="get execution addresss" value="161998"/>
-<mapEntry key="get source lines" value="139447"/>
-<mapEntry key="initialize command help" value="28015088"/>
-<mapEntry key="interrupt" value="177467"/>
-<mapEntry key="list breakpoints" value="330674"/>
-<mapEntry key="list instruction sets" value="342065"/>
-<mapEntry key="list signals" value="169507"/>
-<mapEntry key="list watchpoints" value="247396"/>
-<mapEntry key="reload-symbol-file" value="12732728"/>
-<mapEntry key="remove" value="586105"/>
-<mapEntry key="set CWD" value="3526202"/>
-<mapEntry key="set breakpoint properties" value="4416216"/>
-<mapEntry key="set debug-from" value="441640"/>
-<mapEntry key="start" value="48092665"/>
-<mapEntry key="step" value="15651103"/>
-<mapEntry key="toggleBreakpoint" value="5887406"/>
-<mapEntry key="waitForTargetToStop" value="40242201"/>
+<mapEntry key="*updating variables" value="425164"/>
+<mapEntry key="AddEventObserver" value="586887"/>
+<mapEntry key="Evaluate" value="2110311"/>
+<mapEntry key="Retrieving globals list" value="908907"/>
+<mapEntry key="add-symbol-file" value="6073955"/>
+<mapEntry key="break" value="8838077"/>
+<mapEntry key="continue" value="8252085"/>
+<mapEntry key="directory" value="1304089"/>
+<mapEntry key="disassemble" value="23380431"/>
+<mapEntry key="file" value="25824954"/>
+<mapEntry key="get capabilities" value="382194"/>
+<mapEntry key="get cwd" value="77739"/>
+<mapEntry key="get execution addresss" value="154041"/>
+<mapEntry key="get source lines" value="126587"/>
+<mapEntry key="initialize command help" value="27613465"/>
+<mapEntry key="interrupt" value="1438555"/>
+<mapEntry key="list breakpoints" value="246344"/>
+<mapEntry key="list instruction sets" value="126586"/>
+<mapEntry key="list signals" value="221890"/>
+<mapEntry key="list watchpoints" value="199253"/>
+<mapEntry key="reload-symbol-file" value="13056783"/>
+<mapEntry key="remove" value="526685"/>
+<mapEntry key="set CWD" value="4203111"/>
+<mapEntry key="set breakpoint properties" value="6117418"/>
+<mapEntry key="set debug-from" value="274684"/>
+<mapEntry key="start" value="13422803"/>
+<mapEntry key="step" value="15359819"/>
+<mapEntry key="thread" value="9690268"/>
+<mapEntry key="toggleBreakpoint" value="5116714"/>
+<mapEntry key="updateBreakpointLocation" value="4023556"/>
+<mapEntry key="waitForTargetToStop" value="37329399"/>
 </mapAttribute>
 <listAttribute key="DEBUG_TAB."/>
 <stringAttribute key="DEBUG_TAB..RESOURCES.0.TYPE" value="SOURCE_DIR"/>
@@ -221,6 +223,22 @@
 <listEntry value="1"/>
 <listEntry value="formatter"/>
 <listEntry value="Binary"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/itg3200/src/itg3200.c::read_gyro_z::z_data[1]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Binary"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/itg3200/src/itg3200.c::read_gyro_z::z_data[0]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Binary"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/itg3200/src/itg3200.c::read_gyro_z::z"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Signed Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/itg3200/src/itg3200.c::read_gyro_z::z_data"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Binary"/>
 <listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/itg3200/src/main.c::main::version"/>
 <listEntry value="1"/>
 <listEntry value="formatter"/>
@@ -229,7 +247,7 @@
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>
 <stringAttribute key="VFS_REMOTE_MOUNT" value="/writeable"/>
-<stringAttribute key="breakpoints" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;breakpoints&gt;&#10;&#9;&lt;breakpoint ignorecount=&quot;0&quot; threadenabled=&quot;no&quot; list_all_threads=&quot;no&quot; core_list=&quot;{}&quot; continue=&quot;no&quot; verboseBreakpoints=&quot;yes&quot; kind=&quot;SOURCEPOSITION&quot;&gt;&#10;&#9;&#9;&lt;master_location index=&quot;0&quot; enabled=&quot;false&quot; version=&quot;2&quot; address=&quot;0x00008696&quot; debugFile=&quot;H:/Git/template_speedy/hps_workspace/itg3200/src/main.c&quot; hostFile=&quot;H:\Git\template_speedy\hps_workspace\itg3200\src\main.c&quot; line=&quot;18&quot; function=&quot;main&quot;/&gt;&#10;&#9;&#9;&lt;location index=&quot;0&quot; enabled=&quot;false&quot; version=&quot;2&quot; address=&quot;0x000086AE&quot; debugFile=&quot;H:/Git/template_speedy/hps_workspace/itg3200/src/main.c&quot; hostFile=&quot;H:\Git\template_speedy\hps_workspace\itg3200\src\main.c&quot; line=&quot;18&quot; function=&quot;main&quot;/&gt;&#10;&#9;&lt;/breakpoint&gt;&#10;&lt;/breakpoints&gt;&#10;"/>
+<stringAttribute key="breakpoints" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;breakpoints&gt;&#10;&lt;/breakpoints&gt;&#10;"/>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.DisassemblyView.addresses">
 <listEntry value="&lt;Next Instruction&gt;"/>
 </listAttribute>

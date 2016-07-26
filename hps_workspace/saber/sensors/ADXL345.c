@@ -37,16 +37,18 @@ bool ADXL345_Init(){
 
    
     // +- 2g range, 10 bits
-    bSuccess = ADXL345_REG_WRITE(file, ADXL345_REG_DATA_FORMAT, XL345_RANGE_2G | XL345_FULL_RESOLUTION);
+    bSuccess = ADXL345_REG_WRITE(file, ADXL345_REG_DATA_FORMAT, 0x80 | XL345_RANGE_2G | XL345_FULL_RESOLUTION);
  
+    //Offset
+	if (bSuccess){
+		bSuccess = ADXL345_REG_WRITE(file, ADXL345_REG_DATA_FORMAT, XL345_RANGE_2G | XL345_FULL_RESOLUTION);
+	}
         
     //Output Data Rate: 50Hz
     if (bSuccess){
-        bSuccess = ADXL345_REG_WRITE(file, ADXL345_REG_BW_RATE, XL345_RATE_50); // 50 HZ
+        bSuccess = ADXL345_REG_WRITE(file, ADXL345_REG_BW_RATE, XL345_RATE_100); // 100 HZ
     }
-    
-            
-        
+
     //INT_Enable: Data Ready
     if (bSuccess){   
         bSuccess = ADXL345_REG_WRITE(file, ADXL345_REG_INT_ENALBE, XL345_DATAREADY);
@@ -143,6 +145,82 @@ bool ADXL345_XYZ_Read(uint16_t szData16[3]){
     return bPass;
 }
 
+uint16_t ADXL345_X_Read(void){
+    bool bPass;
+    uint8_t xData[2];
+    uint16_t return_data;
+    int file;
+    const char *filename = "/dev/i2c-0";
+
+    // open bus
+    if ((file = open(filename, O_RDWR)) < 0) {
+    	/* ERROR HANDLING: you can check errno to see what went wrong */
+    	perror("Failed to open the i2c bus of gsensor");
+    	exit(1);
+    }
+
+
+    // init
+	// gsensor i2c address: 101_0011
+	int addr = 0b01010011;
+	if (ioctl(file, I2C_SLAVE, addr) < 0) {
+		printf("Failed to acquire bus access and/or talk to slave.\n");
+		/* ERROR HANDLING; you can check errno to see what went wrong */
+		exit(1);
+	}
+
+
+    bPass = ADXL345_REG_MULTI_READ(file, ADXL345_REG_DATAX0, (uint8_t *)&xData, 2);
+
+    close(file);
+
+   	if(bPass){
+   		return_data = xData[0];
+   		return_data = return_data | (xData[1] << 1);
+   		return return_data;
+   	}
+
+    return -1;
+}
+
+uint16_t ADXL345_Y_Read(void){
+    bool bPass;
+    uint8_t yData[2];
+    uint16_t return_data;
+    int file;
+    const char *filename = "/dev/i2c-0";
+
+    // open bus
+    if ((file = open(filename, O_RDWR)) < 0) {
+    	/* ERROR HANDLING: you can check errno to see what went wrong */
+    	perror("Failed to open the i2c bus of gsensor");
+    	exit(1);
+    }
+
+
+    // init
+	// gsensor i2c address: 101_0011
+	int addr = 0b01010011;
+	if (ioctl(file, I2C_SLAVE, addr) < 0) {
+		printf("Failed to acquire bus access and/or talk to slave.\n");
+		/* ERROR HANDLING; you can check errno to see what went wrong */
+		exit(1);
+	}
+
+
+    bPass = ADXL345_REG_MULTI_READ(file, ADXL345_REG_DATAX0, (uint8_t *)&yData, 2);
+
+    close(file);
+
+   	if(bPass){
+   		return_data = yData[0];
+   		return_data = return_data | (yData[1] << 1);
+   		return return_data;
+   	}
+
+    return -1;
+}
+
 uint16_t ADXL345_Z_Read(void){
     bool bPass;
     uint8_t zData[2];
@@ -168,7 +246,7 @@ uint16_t ADXL345_Z_Read(void){
 	}
 
 
-    bPass = ADXL345_REG_MULTI_READ(file, ADXL345_REG_DATAZ0, (uint8_t *)&zData, sizeof(zData));
+    bPass = ADXL345_REG_MULTI_READ(file, ADXL345_REG_DATAZ0, (uint8_t *)&zData, 2);
 
     close(file);
 

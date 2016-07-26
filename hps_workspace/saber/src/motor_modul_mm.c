@@ -31,7 +31,7 @@
  */
 
 #include "motor_modul_mm.h"
-#include "ADXL345.h"
+
 
 
 /**
@@ -40,24 +40,11 @@
   * @param		None
   * @retval		int16_t result, Wert vom Gyro
   */
-int16_t getGyro_result(){
+int16_t getGyro_result(void){
 
   int16_t result = 0; //uint16_t result;
-  bool bSuccess;
 
-  // configure accelerometer as +-2g and start measure
-  bSuccess = ADXL345_Init();
-  if (!bSuccess)
-	  return -1;
-
-  result = ADXL345_Z_Read();
-
- /* scmd=Gyro_ZOUT_HIGH;
-  i2c_status = os_i2c_Transceive(I2C_CHAN0, I2C_Gyro, &scmd, 1, &val, 1);
-  result=(((int)val)<<8);
-  scmd=Gyro_ZOUT_LOW;
-  i2c_status |= os_i2c_Transceive(I2C_CHAN0, I2C_Gyro, &scmd, 1, &val, 1);
-  result+=(int)val;*/
+  result = read_gyro_z();
 
   result=(int16_t)(result/14.375);
 
@@ -128,7 +115,7 @@ void drive_turn(volatile uint32_t *base_addr, uint8_t speed, int16_t angle){
 		}
 		SET_GYRO(base_addr, gyro_result); //transmit
 
-		done_flag = GET_DONE_FLAG(); //done_flag lesen
+		done_flag = GET_DONE_FLAG(base_addr); //done_flag lesen
 		if(done_flag == 1){
 			break;
 		}
@@ -201,7 +188,7 @@ void drive_turn_w_offset(volatile uint32_t *base_addr, uint8_t speed, int16_t an
 		}
 		SET_GYRO(base_addr, gyro_result-offset); //transmit
 
-		done_flag = GET_DONE_FLAG(); //done_flag lesen
+		done_flag = GET_DONE_FLAG(base_addr); //done_flag lesen
 		if(done_flag == 1){
 			break;
 		}
@@ -279,7 +266,7 @@ void drive_curve_steps(volatile uint32_t *base_addr, int16_t angle, uint8_t spee
 		}
 		SET_GYRO(base_addr, gyro_result-offset); //transmit
 
-		done_flag = GET_DONE_FLAG(); //done_flag lesen
+		done_flag = GET_DONE_FLAG(base_addr); //done_flag lesen
 
 		///////DEBUG/////
 		//winkel_part = GET_WINKEL_PART();

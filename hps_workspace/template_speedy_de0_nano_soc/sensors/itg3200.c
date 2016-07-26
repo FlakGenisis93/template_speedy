@@ -19,6 +19,36 @@
 
 //	F	U	N	K	T	I	O	N	E	N
 
+uint8_t init_itg(void){
+
+	uint8_t send_data[2];
+
+	send_data[0] = REG_Gyro_DLPF;
+	send_data[1] = Gyro_LPFBW_20;
+
+	//Befehl zum setzen des DLPF_CFG auf I2C Bus schreiben
+	if(write_i2c(I2C_2, ADDR_ITG, send_data, 2) != 2)
+		return -1;
+
+	send_data[0] = REG_Gyro_SampleRateDivider;
+	send_data[1] = 0x63;
+
+	//Befehl zum setzen des SAmpleRateDivider auf I2C Bus schreiben
+	if(write_i2c(I2C_2, ADDR_ITG, send_data, 2) != 2)
+		return -2;
+
+	send_data[0] = REG_Gyro_IR_CFG;
+	send_data[1] = 0x01;
+
+	//Befehl zum setzen des SAmpleRateDivider auf I2C Bus schreiben
+	if(write_i2c(I2C_2, ADDR_ITG, send_data, 2) != 2)
+		return -3;
+
+	return 0;
+
+
+}
+
 uint8_t read_version_itg(void){
 
 	uint8_t version = 0;
@@ -71,6 +101,33 @@ uint16_t read_temp_itg(void){
 
 	//Temperatur zurueckgeben
 	return temperatur;
+
+}
+
+int16_t read_gyro_z(void){
+
+	uint8_t reg_addr = 0x21;
+	int8_t z_data[2];
+	int16_t z;
+
+	//Befehl auf I2C Bus schreiben
+	if(write_i2c(I2C_2, ADDR_ITG, &reg_addr, 1) != 1)
+		return -1;
+
+	//Lesen auf I2C Bus
+	if(read_i2c(I2C_2, ADDR_ITG, z_data, 2) != 2)
+		return -2;
+
+	//Ersten 8 bit schreiben
+	z = z_data[0];
+
+	//8 bit schieben um 8 nach links
+	z = (z << 8);
+
+	//Verodern mit low 8 bit
+	z = (z | z_data[1]);
+
+	return z;
 
 }
 

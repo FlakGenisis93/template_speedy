@@ -1,6 +1,15 @@
-16:00:01 **** Incremental Build of configuration Debug for project gsensor_altera ****
+10:29:38 **** Incremental Build of configuration Debug for project gsensor_altera ****
 make all 
-make: Nothing to be done for 'all'.
+'Building file: ../src/gesonsor_nano.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/gesonsor_nano.d" -MT"src/gesonsor_nano.d" -o "src/gesonsor_nano.o" "../src/gesonsor_nano.c"
+'Finished building: ../src/gesonsor_nano.c'
+' '
+'Building target: gsensor_altera'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "gsensor_altera"  ./src/ADXL345.o ./src/gesonsor_nano.o   
+'Finished building target: gsensor_altera'
+' '
 
-16:00:02 Build Finished (took 397ms)
+10:29:40 Build Finished (took 2s.244ms)
 

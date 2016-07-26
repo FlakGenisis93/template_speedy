@@ -77,6 +77,9 @@
 
 // Register List
 #define ADXL345_REG_DEVID       0x00
+#define	ADXL345_OFFSET_X		0x1E
+#define	ADXL345_OFFSET_Y		0x1F
+#define	ADXL345_OFFSET_Z		0x20
 #define ADXL345_REG_POWER_CTL   0x2D
 #define ADXL345_REG_DATA_FORMAT 0x31
 #define ADXL345_REG_FIFO_CTL    0x38
@@ -96,6 +99,8 @@
 bool ADXL345_Init();
 bool ADXL345_IsDataReady();
 bool ADXL345_XYZ_Read(uint16_t szData16[3]);
+uint16_t ADXL345_X_Read(void);
+uint16_t ADXL345_Y_Read(void);
 uint16_t ADXL345_Z_Read(void);
 bool ADXL345_IdRead(uint8_t *pId);
 bool ADXL345_REG_WRITE(int file, uint8_t address, uint8_t value);

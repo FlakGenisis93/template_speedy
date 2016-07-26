@@ -5,39 +5,40 @@
 <stringAttribute key="ANDROID_APP_DIR" value=""/>
 <stringAttribute key="ANDROID_PROCESS_NAME" value=""/>
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data Model" value="126189"/>
-<mapEntry key="*list global low level symbols" value="583823"/>
-<mapEntry key="*loading values from target" value="2032667"/>
-<mapEntry key="*updating variables" value="173575"/>
-<mapEntry key="AddEventObserver" value="270814"/>
-<mapEntry key="Evaluate" value="501314"/>
-<mapEntry key="Retrieving globals list" value="1224216"/>
-<mapEntry key="add-symbol-file" value="6587053"/>
-<mapEntry key="break" value="2534217"/>
-<mapEntry key="continue" value="5643115"/>
-<mapEntry key="directory" value="1396550"/>
-<mapEntry key="disassemble" value="14216615"/>
-<mapEntry key="file" value="27888026"/>
-<mapEntry key="get capabilities" value="327805"/>
-<mapEntry key="get cwd" value="82888"/>
-<mapEntry key="get execution addresss" value="175553"/>
-<mapEntry key="get source lines" value="128500"/>
-<mapEntry key="initialize command help" value="27664107"/>
-<mapEntry key="interrupt" value="6253378"/>
-<mapEntry key="list breakpoints" value="196691"/>
-<mapEntry key="list instruction sets" value="104001"/>
-<mapEntry key="list signals" value="151459"/>
-<mapEntry key="list watchpoints" value="177247"/>
-<mapEntry key="reload-symbol-file" value="10725398"/>
-<mapEntry key="remove" value="562971"/>
-<mapEntry key="set CWD" value="2717111"/>
-<mapEntry key="set breakpoint properties" value="3265205"/>
-<mapEntry key="set debug-from" value="282663"/>
-<mapEntry key="start" value="13221858"/>
-<mapEntry key="step" value="13391261"/>
+<mapEntry key="*Fetching Data Model" value="143971"/>
+<mapEntry key="*list global low level symbols" value="878039"/>
+<mapEntry key="*loading values from target" value="1872476"/>
+<mapEntry key="*updating variables" value="350984"/>
+<mapEntry key="AddEventObserver" value="271084"/>
+<mapEntry key="Evaluate" value="840706"/>
+<mapEntry key="Retrieving globals list" value="931386"/>
+<mapEntry key="add-symbol-file" value="6558982"/>
+<mapEntry key="break" value="3312375"/>
+<mapEntry key="continue" value="3781539"/>
+<mapEntry key="directory" value="1288883"/>
+<mapEntry key="disassemble" value="22823583"/>
+<mapEntry key="file" value="26458781"/>
+<mapEntry key="get capabilities" value="118767"/>
+<mapEntry key="get cwd" value="73141"/>
+<mapEntry key="get execution addresss" value="158895"/>
+<mapEntry key="get source lines" value="116346"/>
+<mapEntry key="initialize command help" value="28538877"/>
+<mapEntry key="interrupt" value="4356817"/>
+<mapEntry key="list breakpoints" value="240413"/>
+<mapEntry key="list instruction sets" value="126350"/>
+<mapEntry key="list signals" value="157923"/>
+<mapEntry key="list watchpoints" value="177032"/>
+<mapEntry key="reload-symbol-file" value="10238702"/>
+<mapEntry key="remove" value="717669"/>
+<mapEntry key="set CWD" value="3502892"/>
+<mapEntry key="set breakpoint properties" value="2875656"/>
+<mapEntry key="set debug-from" value="370937"/>
+<mapEntry key="start" value="47598284"/>
+<mapEntry key="step" value="21189310"/>
+<mapEntry key="target reset" value="21505736"/>
 <mapEntry key="thread" value="3172890"/>
-<mapEntry key="toggleBreakpoint" value="4415585"/>
-<mapEntry key="waitForTargetToStop" value="39113510"/>
+<mapEntry key="toggleBreakpoint" value="5157779"/>
+<mapEntry key="waitForTargetToStop" value="39016466"/>
 </mapAttribute>
 <listAttribute key="DEBUG_TAB."/>
 <stringAttribute key="DEBUG_TAB..RESOURCES.0.TYPE" value="SOURCE_DIR"/>
@@ -159,6 +160,26 @@
 <listEntry value="1"/>
 <listEntry value="formatter"/>
 <listEntry value="Signed Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/saber/sensors/itg3200.c::read_gyro_z::z"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Binary"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/saber/sensors/itg3200.c::read_gyro_z::z_data[1]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Unsigned Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/saber/sensors/itg3200.c::read_gyro_z::z_data[0]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Unsigned Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/saber/sensors/itg3200.c::read_gyro_z::z_data"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Unsigned Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/saber/src/motor_modul_mm.c::getGyro_result::result"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Unsigned Decimal"/>
 </listAttribute>
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>
