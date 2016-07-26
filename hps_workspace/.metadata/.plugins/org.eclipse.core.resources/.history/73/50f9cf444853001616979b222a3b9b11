@@ -1,0 +1,25 @@
+actuators/motor_modul_mm.d: ../actuators/motor_modul_mm.c \
+ ../actuators/motor_modul_mm.h \
+ C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include/soc_cv_av/socal/socal.h \
+ C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include/soc_cv_av/socal/hps.h \
+ H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\src/hps_0.h \
+ C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include/hwlib.h \
+ ../actuators/i2c.h \
+ H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\sensors/itg3200.h \
+ H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\actuators/i2c.h
+
+../actuators/motor_modul_mm.h:
+
+C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include/soc_cv_av/socal/socal.h:
+
+C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include/soc_cv_av/socal/hps.h:
+
+H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\src/hps_0.h:
+
+C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include/hwlib.h:
+
+../actuators/i2c.h:
+
+H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\sensors/itg3200.h:
+
+H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc\actuators/i2c.h:

@@ -1,0 +1,156 @@
+/**
+  *******************************************************************************************************************
+  * @file      	i2c.h
+  * @author    	B. Eng. Urban Conrad
+  * @version   	V1.0
+  * @date      	14.07.2016
+  * @copyright 	2009 - 2016 UniBw M - ETTI - Institut 4
+  * @brief   	Header functions to control the LCD
+  *******************************************************************************************************************
+  * @par History:
+  *  @details V1.0.0 14.07.2016 Urban Conrad
+  *           - Initial version
+  *******************************************************************************************************************
+  */
+  
+//	I	N	C	L	U	D	E	S
+
+#include "lcd.h"
+
+uint32_t read_register_lcd(uint8_t data[4]){
+
+	uint8_t reg_addr[] = {0};
+
+	//Registernr an modul schreiben
+	if(write_i2c(I2C_2, LCD03_ADRESS, reg_addr, 1) != 1)
+		return 1;
+
+	//Lesen der Register
+	if(read_i2c(I2C_2, LCD03_ADRESS, data, 4) == 4){
+		return 0;
+	}
+
+	return 1;
+
+}
+
+uint16_t read_key_lcd(void){
+
+	uint8_t register_daten[2];
+	uint8_t reg_addr[] = {1};
+	uint16_t data = 0;
+
+	//Registernr an modul schreiben
+	if(write_i2c(I2C_2, LCD03_ADRESS, reg_addr, 1) != 1)
+		return -1;
+
+	//Lesen der Tataturregister
+	if(read_i2c(I2C_2, LCD03_ADRESS, register_daten, 2) == 2){
+
+		//Speichern des low and high Bytes in eine Variable
+		data = register_daten[0] | ( register_daten[1] << 8);
+
+		//Rueckgabe des Tastaturregisters
+		return data;
+	}
+
+	return -1;
+
+}
+
+uint8_t read_free_fifo_lcd(void){
+
+	uint8_t register_daten[1];
+	uint8_t reg_addr[] = {0};
+
+	//Registernr an modul schreiben
+	if(write_i2c(I2C_2, LCD03_ADRESS, reg_addr, 1) != 1)
+		return -1;
+
+	//Lesen des Register mit den freien Bytes im FIFO
+	if(read_i2c(I2C_2, LCD03_ADRESS, register_daten, 1) == 1){
+
+		//Gibt die freien FIFO Bytes zurueck
+		return register_daten[0];
+	}
+
+	return -1;
+
+}
+
+uint8_t write_data_lcd(uint8_t data[], uint8_t length){
+
+	uint8_t i;
+	uint8_t data_reg[length + 1];
+	data_reg[0] = 0;
+
+	//Erstellen eines Arrays mit Registeradresse
+	for(i = 0; i < length; i++){
+		data_reg[i + 1] = data[i];
+	}
+
+	//Schreiben der Daten auf den I2C Bus
+	if(write_i2c(I2C_2, LCD03_ADRESS, data_reg, length + 1) == length + 1){
+		return 0;
+	}
+
+	return -1;
+
+}
+
+
+uint8_t clear_lcd(void){
+
+	uint8_t clear_display[] = {12};
+
+	//Schreiben des Befehls zum loeschen des LCD's
+	if(write_data_lcd(clear_display, 1) == 0){
+		return 0;
+	}
+
+	return -1;
+
+}
+
+uint8_t set_courser_lcd(uint8_t line, uint8_t column){
+
+	uint8_t data[3];
+	//Erstellen des Arrays mit der Position
+	data[1] = 3;
+	data[1] = line;
+	data[2] = column;
+
+	//Schreiben des Befehls zum Courser setzen
+	if(write_data_lcd(data, 3) == 0){
+		return 0;
+	}
+
+	return -1;
+
+}
+
+uint8_t blacklight_on_lcd(void){
+
+	uint8_t blacklight_on[] = {19};
+
+	//Schreiben des Befehls zum anschalten des backlights
+	if(write_data_lcd(blacklight_on, 1) == 0){
+		return 0;
+	}
+
+	return -1;
+
+}
+
+uint8_t blacklight_off_lcd(void){
+
+	uint8_t blacklight_off[] = {20};
+
+	//Schreiben des Befehls zum ausschalten des backlights
+	if(write_data_lcd(blacklight_off, 1) == 0){
+		return 0;
+	}
+
+	return -1;
+
+}

@@ -43,13 +43,15 @@ int main(int argc, char *argv[]){
 
 	clear_lcd();
 
-	uint8_t text[] = {"Hasllo Welt!"};
+	set_courser_lcd(2, 1);
+
+	uint8_t text[] = {"Hallo Welt!"};
 
 	write_data_lcd(text, sizeof(text));
 
 	blacklight_on_lcd();
 
-	set_courser_lcd(2, 1);
+
 
 	printf("bye!\r\n");
 

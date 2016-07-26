@@ -1,0 +1,159 @@
+/**
+  *******************************************************************************************************************
+  * @file      	lcd.h
+  * @author    	B. Eng. Urban Conrad
+  * @version   	V1.0
+  * @date      	14.07.2016
+  * @copyright 	2009 - 2016 UniBw M - ETTI - Institut 4
+  * @brief   	Header functions to control the LCD
+  *******************************************************************************************************************
+  * @par History:
+  *  @details V1.0.0 14.07.2016 Urban Conrad
+  *           - Initial version
+  *******************************************************************************************************************
+  */
+  
+#ifndef LCD_H_
+#define LCD_H_
+
+//	I	N	C	L	U	D	E	S
+
+#include "i2c.h"
+
+//	D	E	F	I	N	E	S
+
+#define LCD03_ADRESS	0x63
+
+//	F	U	N	K	T	I	O	N	E	N
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint32_t read_register_lcd(uint8_t data[4])
+ *
+ *	@details	Diese Funktion liest die Register des LCD's 
+ *
+ *	@param		uint8_t data[4]	Array fuer die Daten, muss 4 Felder gross sein
+ *
+ *	@retval		0	Alles Okay
+ *				1	Fehler
+ *
+ *******************************************************************************************************************/
+ 
+uint32_t read_register_lcd(uint8_t data[4]);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint16_t read_key_lcd(void)
+ *
+ *	@details	Diese Funktion liest die Tastatur aus, genauere Infos wie Codiert im Datenblatt
+ *
+ *	@param		void
+ *
+ *	@retval		x	Bits von der Tastatur
+ *				1	Fehler
+ *
+ *******************************************************************************************************************/
+ 
+uint16_t read_key_lcd(void);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint8_t read_free_fifo_lcd(void)
+ *
+ *	@details	Diese Funktion liest die freien Bytes im FIFO aus
+ *
+ *	@param		void
+ *
+ *	@retval		x	Freie Bytes im FIFO
+ *				1	Fehler
+ *
+ *******************************************************************************************************************/
+ 
+uint8_t read_free_fifo_lcd(void);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint8_t write_data_lcd(uint8_t data[], uint8_t length)
+ *
+ *	@details	Diese Funktion schreibt auf das LCD
+ *
+ *	@param		uint8_t data[]	Daten zum schreiben
+ *				uint8_t length	Laenge des Arrays
+ *
+ *	@retval		0	Alles Ok
+ *				-1	Fehler
+ *
+ *******************************************************************************************************************/
+ 
+uint8_t write_data_lcd(uint8_t data[], uint8_t length);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint8_t clear_lcd(void)
+ *
+ *	@details	Diese Funktion loescht das LCD
+ *
+ *	@param		void
+ *
+ *	@retval		0	Alles Ok
+ *				-1	Fehler
+ *
+ *******************************************************************************************************************/
+ 
+uint8_t clear_lcd(void);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint8_t set_courser_lcd(uint8_t line, uint8_t column)
+ *
+ *	@details	Diese Funktion setzt den courser auf dem LCD
+ *
+ *	@param		uint8_t line	1 - 4
+ *				uint8_t column	1 - 20
+ *
+ *	@retval		0	Alles Ok
+ *				-1	Fehler
+ *
+ *******************************************************************************************************************/
+ 
+uint8_t set_courser_lcd(uint8_t line, uint8_t column);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint8_t blacklight_on_lcd(void)
+ *
+ *	@details	Diese Funktion schaltet das backlight des LCD's an
+ *
+ *	@param		void
+ *
+ *	@retval		0	Alles Ok
+ *				-1	Fehler
+ *
+ *******************************************************************************************************************/
+ 
+uint8_t blacklight_on_lcd(void);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint8_t blacklight_off_lcd(void)
+ *
+ *	@details	Diese Funktion schaltet das backlight des LCD's aus
+ *
+ *	@param		void
+ *
+ *	@retval		0	Alles Ok
+ *				-1	Fehler
+ *
+ *******************************************************************************************************************/
+ 
+uint8_t blacklight_off_lcd(void);
+
+#endif /* LCD_H_ */
