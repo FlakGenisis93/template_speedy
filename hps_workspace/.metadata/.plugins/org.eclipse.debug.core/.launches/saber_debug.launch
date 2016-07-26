@@ -5,40 +5,40 @@
 <stringAttribute key="ANDROID_APP_DIR" value=""/>
 <stringAttribute key="ANDROID_PROCESS_NAME" value=""/>
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data Model" value="143971"/>
-<mapEntry key="*list global low level symbols" value="878039"/>
-<mapEntry key="*loading values from target" value="1872476"/>
-<mapEntry key="*updating variables" value="350984"/>
-<mapEntry key="AddEventObserver" value="271084"/>
-<mapEntry key="Evaluate" value="840706"/>
-<mapEntry key="Retrieving globals list" value="931386"/>
-<mapEntry key="add-symbol-file" value="6558982"/>
-<mapEntry key="break" value="3312375"/>
-<mapEntry key="continue" value="3781539"/>
-<mapEntry key="directory" value="1288883"/>
-<mapEntry key="disassemble" value="22823583"/>
-<mapEntry key="file" value="26458781"/>
-<mapEntry key="get capabilities" value="118767"/>
+<mapEntry key="*Fetching Data Model" value="1318652"/>
+<mapEntry key="*list global low level symbols" value="2395308"/>
+<mapEntry key="*loading values from target" value="6829305"/>
+<mapEntry key="*updating variables" value="2896046"/>
+<mapEntry key="AddEventObserver" value="2897764"/>
+<mapEntry key="Evaluate" value="4271086"/>
+<mapEntry key="Retrieving globals list" value="8846227"/>
+<mapEntry key="add-symbol-file" value="25213249"/>
+<mapEntry key="break" value="12688455"/>
+<mapEntry key="continue" value="4633192"/>
+<mapEntry key="directory" value="1754219"/>
+<mapEntry key="disassemble" value="42132058"/>
+<mapEntry key="file" value="79089087"/>
+<mapEntry key="get capabilities" value="137605"/>
 <mapEntry key="get cwd" value="73141"/>
-<mapEntry key="get execution addresss" value="158895"/>
-<mapEntry key="get source lines" value="116346"/>
-<mapEntry key="initialize command help" value="28538877"/>
+<mapEntry key="get execution addresss" value="326092"/>
+<mapEntry key="get source lines" value="687862"/>
+<mapEntry key="initialize command help" value="33849930"/>
 <mapEntry key="interrupt" value="4356817"/>
-<mapEntry key="list breakpoints" value="240413"/>
-<mapEntry key="list instruction sets" value="126350"/>
-<mapEntry key="list signals" value="157923"/>
-<mapEntry key="list watchpoints" value="177032"/>
+<mapEntry key="list breakpoints" value="307940"/>
+<mapEntry key="list instruction sets" value="923864"/>
+<mapEntry key="list signals" value="930361"/>
+<mapEntry key="list watchpoints" value="2489205"/>
 <mapEntry key="reload-symbol-file" value="10238702"/>
 <mapEntry key="remove" value="717669"/>
-<mapEntry key="set CWD" value="3502892"/>
-<mapEntry key="set breakpoint properties" value="2875656"/>
-<mapEntry key="set debug-from" value="370937"/>
-<mapEntry key="start" value="47598284"/>
+<mapEntry key="set CWD" value="6640335"/>
+<mapEntry key="set breakpoint properties" value="4881562"/>
+<mapEntry key="set debug-from" value="849135"/>
+<mapEntry key="start" value="109070175"/>
 <mapEntry key="step" value="21189310"/>
 <mapEntry key="target reset" value="21505736"/>
 <mapEntry key="thread" value="3172890"/>
 <mapEntry key="toggleBreakpoint" value="5157779"/>
-<mapEntry key="waitForTargetToStop" value="39016466"/>
+<mapEntry key="waitForTargetToStop" value="49464903"/>
 </mapAttribute>
 <listAttribute key="DEBUG_TAB."/>
 <stringAttribute key="DEBUG_TAB..RESOURCES.0.TYPE" value="SOURCE_DIR"/>
