@@ -20,6 +20,20 @@
 
 #include "i2c.h"
 
+
+#define KEY_1		0x0001
+#define KEY_2		0x0002
+#define KEY_3		0x0004
+#define KEY_4		0x0008
+#define KEY_5		0x0010
+#define KEY_6		0x0020
+#define KEY_7		0x0040
+#define KEY_8		0x0080
+#define KEY_9		0x0100
+#define KEY_STERN	0x0200
+#define KEY_0		0x0400
+#define KEY_RAUTE	0x0800
+
 //	D	E	F	I	N	E	S
 
 #define LCD03_ADRESS	0x63
@@ -155,5 +169,9 @@ uint8_t blacklight_on_lcd(void);
  *******************************************************************************************************************/
  
 uint8_t blacklight_off_lcd(void);
+
+uint8_t hide_cursor_lcd(void);
+
+uint8_t underline_cursor_lcd(void);
 
 #endif /* LCD_H_ */

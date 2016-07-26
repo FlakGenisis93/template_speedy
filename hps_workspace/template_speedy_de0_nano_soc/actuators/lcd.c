@@ -116,7 +116,7 @@ uint8_t set_courser_lcd(uint8_t line, uint8_t column){
 
 	uint8_t data[3];
 	//Erstellen des Arrays mit der Position
-	data[1] = 3;
+	data[0] = 3;
 	data[1] = line;
 	data[2] = column;
 
@@ -148,6 +148,32 @@ uint8_t blacklight_off_lcd(void){
 
 	//Schreiben des Befehls zum ausschalten des backlights
 	if(write_data_lcd(blacklight_off, 1) == 0){
+		return 0;
+	}
+
+	return -1;
+
+}
+
+uint8_t hide_cursor_lcd(void){
+
+	uint8_t hide_cursor[] = {4};
+
+	//Schreiben des Befehls zum verstecken des cursors
+	if(write_data_lcd(hide_cursor, 1) == 0){
+		return 0;
+	}
+
+	return -1;
+
+}
+
+uint8_t underline_cursor_lcd(void){
+
+	uint8_t underline[] = {5};
+
+	//Schreiben des Befehls zum aktivieren des underline cursors
+	if(write_data_lcd(underline, 1) == 0){
 		return 0;
 	}
 
