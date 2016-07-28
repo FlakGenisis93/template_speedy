@@ -142,8 +142,8 @@ struct i2c_regs {
 #define IC_SPEED_MODE_FAST	2
 #define IC_SPEED_MODE_MAX	3
 
-#define I2C_MAX_SPEED		100001
-#define I2C_FAST_SPEED		100000
-#define I2C_STANDARD_SPEED	99999
+#define I2C_MAX_SPEED		3400000
+#define I2C_FAST_SPEED		400000
+#define I2C_STANDARD_SPEED	100000
 
 #endif /* __DW_I2C_H_ */

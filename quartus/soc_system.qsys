@@ -13,7 +13,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "11";
          type = "int";
       }
    }
@@ -26,7 +26,7 @@
       }
       datum baseAddress
       {
-         value = "128";
+         value = "64";
          type = "String";
       }
    }
@@ -192,7 +192,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "12";
          type = "int";
       }
    }
@@ -205,7 +205,7 @@
       }
       datum baseAddress
       {
-         value = "64";
+         value = "128";
          type = "String";
       }
    }
@@ -448,8 +448,8 @@
   <parameter name="driver_pass_error_bits" value="false" />
   <parameter name="export_handshake" value="false" />
   <parameter name="fifo_export_used" value="false" />
-  <parameter name="fifo_size_rx" value="1024" />
-  <parameter name="fifo_size_tx" value="512" />
+  <parameter name="fifo_size_rx" value="512" />
+  <parameter name="fifo_size_tx" value="2048" />
   <parameter name="fixedBaud" value="true" />
   <parameter name="gap_value" value="2" />
   <parameter name="hw_cts" value="false" />
@@ -1144,7 +1144,7 @@
    start="hps_0.h2f_lw_axi_master"
    end="laser.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0040" />
+  <parameter name="baseAddress" value="0x0080" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1153,7 +1153,7 @@
    start="hps_0.h2f_lw_axi_master"
    end="Motor_Modul.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0080" />
+  <parameter name="baseAddress" value="0x0040" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection

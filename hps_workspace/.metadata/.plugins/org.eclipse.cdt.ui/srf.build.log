@@ -1,15 +1,6 @@
-13:48:36 **** Incremental Build of configuration Debug for project srf ****
+18:33:09 **** Incremental Build of configuration Debug for project srf ****
 make all 
-'Building file: ../src/main.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\srf\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building target: srf'
-'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "srf"  ./src/main.o ./src/srf08.o  ./actuators/i2c.o   
-'Finished building target: srf'
-' '
+make: Nothing to be done for 'all'.
 
-13:48:37 Build Finished (took 1s.31ms)
+18:33:10 Build Finished (took 440ms)
 

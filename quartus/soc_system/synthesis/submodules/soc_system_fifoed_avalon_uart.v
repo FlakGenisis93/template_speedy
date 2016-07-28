@@ -535,7 +535,7 @@ module soc_system_fifoed_avalon_uart_txfifo (
   output           tx_empty;
   output  [  7: 0] tx_fifo_q;
   output           tx_full;
-  output  [  8: 0] tx_used;
+  output  [ 10: 0] tx_used;
   input            clk;
   input            d1_tx_wr_strobe;
   input            reset;
@@ -545,7 +545,7 @@ module soc_system_fifoed_avalon_uart_txfifo (
   wire             tx_empty;
   wire    [  7: 0] tx_fifo_q;
   wire             tx_full;
-  wire    [  8: 0] tx_used;
+  wire    [ 10: 0] tx_used;
   scfifo txfifo
     (
       .clock (clk),
@@ -559,11 +559,11 @@ module soc_system_fifoed_avalon_uart_txfifo (
       .wrreq (tx_fifo_wr_strobe)
     );
 
-  defparam txfifo.lpm_numwords = 512,
+  defparam txfifo.lpm_numwords = 2048,
            txfifo.lpm_showahead = "ON",
            txfifo.lpm_type = "scfifo",
            txfifo.lpm_width = 8,
-           txfifo.lpm_widthu = 9,
+           txfifo.lpm_widthu = 11,
            txfifo.overflow_checking = "ON",
            txfifo.underflow_checking = "ON",
            txfifo.use_eab = "ON";
@@ -599,7 +599,7 @@ module soc_system_fifoed_avalon_uart_rxfifo (
   output  [  7: 0] rx_data_b;
   output           rx_empty;
   output           rx_full;
-  output  [  9: 0] rx_used;
+  output  [  8: 0] rx_used;
   input            clk;
   input            d1_rx_fifo_rd_strobe;
   input            d1_rx_rd_strobe;
@@ -609,7 +609,7 @@ module soc_system_fifoed_avalon_uart_rxfifo (
   wire    [  7: 0] rx_data_b;
   wire             rx_empty;
   wire             rx_full;
-  wire    [  9: 0] rx_used;
+  wire    [  8: 0] rx_used;
   scfifo rxfifo
     (
       .clock (clk),
@@ -623,11 +623,11 @@ module soc_system_fifoed_avalon_uart_rxfifo (
       .wrreq (d1_rx_rd_strobe)
     );
 
-  defparam rxfifo.lpm_numwords = 1024,
+  defparam rxfifo.lpm_numwords = 512,
            rxfifo.lpm_showahead = "ON",
            rxfifo.lpm_type = "scfifo",
            rxfifo.lpm_width = 8,
-           rxfifo.lpm_widthu = 10,
+           rxfifo.lpm_widthu = 9,
            rxfifo.overflow_checking = "ON",
            rxfifo.underflow_checking = "ON",
            rxfifo.use_eab = "ON";
@@ -760,7 +760,7 @@ module soc_system_fifoed_avalon_uart_regs (
   wire             reset;
   wire             rts_control_bit;
   wire             rx_at_threshold;
-  wire    [ 10: 0] rx_buff_used;
+  wire    [  9: 0] rx_buff_used;
   wire    [  7: 0] rx_data_b;
   wire             rx_empty;
   wire             rx_fifo_rd_strobe;
@@ -768,13 +768,13 @@ module soc_system_fifoed_avalon_uart_regs (
   wire             rx_not_empty;
   wire             rx_not_full;
   wire             rx_rd_strobe;
-  wire    [  9: 0] rx_used;
+  wire    [  8: 0] rx_used;
   wire    [ 31: 0] selected_read_data;
   wire    [ 14: 0] status_reg;
   wire             status_wr_strobe;
   wire             timer_timout;
   wire             tx_almost_empty;
-  wire    [  9: 0] tx_buff_used;
+  wire    [ 11: 0] tx_buff_used;
   reg     [  7: 0] tx_data;
   wire             tx_empty;
   wire    [  7: 0] tx_fifo_q;
@@ -783,7 +783,7 @@ module soc_system_fifoed_avalon_uart_regs (
   wire             tx_not_empty;
   wire             tx_not_full;
   reg              tx_overrun;
-  wire    [  8: 0] tx_used;
+  wire    [ 10: 0] tx_used;
   wire             tx_wr_strobe;
   //CJR changed to 32 bits wide
   always @(posedge clk or negedge reset_n)
@@ -1124,15 +1124,15 @@ endmodule
 //--data_bits=8
 //--divisor_bits=10
 //--fifo_export_used=0
-//--fifo_size_rx=1024
-//--fifo_size_tx=512
+//--fifo_size_rx=512
+//--fifo_size_tx=2048
 //--fixed_baud=1
 //--gap_value=2
 //--hw_cts=0
 //--num_control_reg_bits=16
 //--num_status_reg_bits=15
 //--parity=N
-//--project_info=HASH(0x75b60f8)
+//--project_info=HASH(0x75c0128)
 //--relativepath=1
 //--rx_IRQ_Threshold=1
 //--rx_fifo_LE=0

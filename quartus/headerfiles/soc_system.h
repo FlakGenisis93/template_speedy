@@ -60,7 +60,7 @@
 #define FPGA_ONLY_MASTER_SYSID_QSYS_SPAN 8
 #define FPGA_ONLY_MASTER_SYSID_QSYS_END 0x10007
 #define FPGA_ONLY_MASTER_SYSID_QSYS_ID 2899645186
-#define FPGA_ONLY_MASTER_SYSID_QSYS_TIMESTAMP 1467637239
+#define FPGA_ONLY_MASTER_SYSID_QSYS_TIMESTAMP 1469695449
 
 /*
  * Macros for device 'led_pio', class 'altera_avalon_pio'
@@ -221,7 +221,7 @@
 #define HPS_0_FIFOED_AVALON_UART_PARITY 'N'
 #define HPS_0_FIFOED_AVALON_UART_PASS_ERROR_BITS 0
 #define HPS_0_FIFOED_AVALON_UART_RX_FIFO_LE 0
-#define HPS_0_FIFOED_AVALON_UART_RX_FIFO_SIZE 1024
+#define HPS_0_FIFOED_AVALON_UART_RX_FIFO_SIZE 512
 #define HPS_0_FIFOED_AVALON_UART_RX_IRQ_THRESHOLD 1
 #define HPS_0_FIFOED_AVALON_UART_SIM_CHAR_STREAM ""
 #define HPS_0_FIFOED_AVALON_UART_SIM_TRUE_BAUD 0
@@ -231,7 +231,7 @@
 #define HPS_0_FIFOED_AVALON_UART_TIMESTAMP_WIDTH 8
 #define HPS_0_FIFOED_AVALON_UART_TRANSMIT_PIN 0
 #define HPS_0_FIFOED_AVALON_UART_TX_FIFO_LE 0
-#define HPS_0_FIFOED_AVALON_UART_TX_FIFO_SIZE 512
+#define HPS_0_FIFOED_AVALON_UART_TX_FIFO_SIZE 2048
 #define HPS_0_FIFOED_AVALON_UART_TX_IRQ_THRESHOLD 1
 #define HPS_0_FIFOED_AVALON_UART_UHW_CTS 0
 #define HPS_0_FIFOED_AVALON_UART_USE_CTS_RTS 0
@@ -245,18 +245,6 @@
 #define HPS_0_FIFOED_AVALON_UART_USE_TX_FIFO 1
 
 /*
- * Macros for device 'laser', class 'laser'
- * Path to the device is from the master group 'hps_0'.
- * The macros are prefixed with 'HPS_0_LASER_'.
- * The prefix is the master group descriptor and the slave descriptor.
- */
-#define HPS_0_LASER_COMPONENT_TYPE laser
-#define HPS_0_LASER_COMPONENT_NAME laser
-#define HPS_0_LASER_BASE 0x40
-#define HPS_0_LASER_SPAN 32
-#define HPS_0_LASER_END 0x5f
-
-/*
  * Macros for device 'Motor_Modul', class 'Motor_Modul'
  * Path to the device is from the master group 'hps_0'.
  * The macros are prefixed with 'HPS_0_MOTOR_MODUL_'.
@@ -264,9 +252,21 @@
  */
 #define HPS_0_MOTOR_MODUL_COMPONENT_TYPE Motor_Modul
 #define HPS_0_MOTOR_MODUL_COMPONENT_NAME Motor_Modul
-#define HPS_0_MOTOR_MODUL_BASE 0x80
+#define HPS_0_MOTOR_MODUL_BASE 0x40
 #define HPS_0_MOTOR_MODUL_SPAN 64
-#define HPS_0_MOTOR_MODUL_END 0xbf
+#define HPS_0_MOTOR_MODUL_END 0x7f
+
+/*
+ * Macros for device 'laser', class 'laser'
+ * Path to the device is from the master group 'hps_0'.
+ * The macros are prefixed with 'HPS_0_LASER_'.
+ * The prefix is the master group descriptor and the slave descriptor.
+ */
+#define HPS_0_LASER_COMPONENT_TYPE laser
+#define HPS_0_LASER_COMPONENT_NAME laser
+#define HPS_0_LASER_BASE 0x80
+#define HPS_0_LASER_SPAN 32
+#define HPS_0_LASER_END 0x9f
 
 /*
  * Macros for device 'sysid_qsys', class 'altera_avalon_sysid_qsys'
@@ -280,7 +280,7 @@
 #define HPS_0_SYSID_QSYS_SPAN 8
 #define HPS_0_SYSID_QSYS_END 0x10007
 #define HPS_0_SYSID_QSYS_ID 2899645186
-#define HPS_0_SYSID_QSYS_TIMESTAMP 1467637239
+#define HPS_0_SYSID_QSYS_TIMESTAMP 1469695449
 
 /*
  * Macros for device 'led_pio', class 'altera_avalon_pio'
@@ -449,7 +449,7 @@
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_PARITY 'N'
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_PASS_ERROR_BITS 0
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_RX_FIFO_LE 0
-#define HPS_0_BRIDGES_FIFOED_AVALON_UART_RX_FIFO_SIZE 1024
+#define HPS_0_BRIDGES_FIFOED_AVALON_UART_RX_FIFO_SIZE 512
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_RX_IRQ_THRESHOLD 1
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_SIM_CHAR_STREAM ""
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_SIM_TRUE_BAUD 0
@@ -459,7 +459,7 @@
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_TIMESTAMP_WIDTH 8
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_TRANSMIT_PIN 0
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_TX_FIFO_LE 0
-#define HPS_0_BRIDGES_FIFOED_AVALON_UART_TX_FIFO_SIZE 512
+#define HPS_0_BRIDGES_FIFOED_AVALON_UART_TX_FIFO_SIZE 2048
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_TX_IRQ_THRESHOLD 1
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_UHW_CTS 0
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_USE_CTS_RTS 0
@@ -473,18 +473,6 @@
 #define HPS_0_BRIDGES_FIFOED_AVALON_UART_USE_TX_FIFO 1
 
 /*
- * Macros for device 'laser', class 'laser'
- * Path to the device is from the master group 'hps_0_bridges'.
- * The macros are prefixed with 'HPS_0_BRIDGES_LASER_'.
- * The prefix is the master group descriptor and the slave descriptor.
- */
-#define HPS_0_BRIDGES_LASER_COMPONENT_TYPE laser
-#define HPS_0_BRIDGES_LASER_COMPONENT_NAME laser
-#define HPS_0_BRIDGES_LASER_BASE 0x40
-#define HPS_0_BRIDGES_LASER_SPAN 32
-#define HPS_0_BRIDGES_LASER_END 0x5f
-
-/*
  * Macros for device 'Motor_Modul', class 'Motor_Modul'
  * Path to the device is from the master group 'hps_0_bridges'.
  * The macros are prefixed with 'HPS_0_BRIDGES_MOTOR_MODUL_'.
@@ -492,9 +480,21 @@
  */
 #define HPS_0_BRIDGES_MOTOR_MODUL_COMPONENT_TYPE Motor_Modul
 #define HPS_0_BRIDGES_MOTOR_MODUL_COMPONENT_NAME Motor_Modul
-#define HPS_0_BRIDGES_MOTOR_MODUL_BASE 0x80
+#define HPS_0_BRIDGES_MOTOR_MODUL_BASE 0x40
 #define HPS_0_BRIDGES_MOTOR_MODUL_SPAN 64
-#define HPS_0_BRIDGES_MOTOR_MODUL_END 0xbf
+#define HPS_0_BRIDGES_MOTOR_MODUL_END 0x7f
+
+/*
+ * Macros for device 'laser', class 'laser'
+ * Path to the device is from the master group 'hps_0_bridges'.
+ * The macros are prefixed with 'HPS_0_BRIDGES_LASER_'.
+ * The prefix is the master group descriptor and the slave descriptor.
+ */
+#define HPS_0_BRIDGES_LASER_COMPONENT_TYPE laser
+#define HPS_0_BRIDGES_LASER_COMPONENT_NAME laser
+#define HPS_0_BRIDGES_LASER_BASE 0x80
+#define HPS_0_BRIDGES_LASER_SPAN 32
+#define HPS_0_BRIDGES_LASER_END 0x9f
 
 /*
  * Macros for device 'sysid_qsys', class 'altera_avalon_sysid_qsys'
@@ -508,7 +508,7 @@
 #define HPS_0_BRIDGES_SYSID_QSYS_SPAN 8
 #define HPS_0_BRIDGES_SYSID_QSYS_END 0x10007
 #define HPS_0_BRIDGES_SYSID_QSYS_ID 2899645186
-#define HPS_0_BRIDGES_SYSID_QSYS_TIMESTAMP 1467637239
+#define HPS_0_BRIDGES_SYSID_QSYS_TIMESTAMP 1469695449
 
 /*
  * Macros for device 'led_pio', class 'altera_avalon_pio'
@@ -1110,7 +1110,7 @@
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_PARITY 'N'
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_PASS_ERROR_BITS 0
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_RX_FIFO_LE 0
-#define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_RX_FIFO_SIZE 1024
+#define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_RX_FIFO_SIZE 512
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_RX_IRQ_THRESHOLD 1
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_SIM_CHAR_STREAM ""
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_SIM_TRUE_BAUD 0
@@ -1120,7 +1120,7 @@
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_TIMESTAMP_WIDTH 8
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_TRANSMIT_PIN 0
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_TX_FIFO_LE 0
-#define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_TX_FIFO_SIZE 512
+#define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_TX_FIFO_SIZE 2048
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_TX_IRQ_THRESHOLD 1
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_UHW_CTS 0
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_USE_CTS_RTS 0
@@ -1134,18 +1134,6 @@
 #define HPS_0_ARM_A9_0_FIFOED_AVALON_UART_USE_TX_FIFO 1
 
 /*
- * Macros for device 'laser', class 'laser'
- * Path to the device is from the master group 'hps_0_arm_a9_0'.
- * The macros are prefixed with 'HPS_0_ARM_A9_0_LASER_'.
- * The prefix is the master group descriptor and the slave descriptor.
- */
-#define HPS_0_ARM_A9_0_LASER_COMPONENT_TYPE laser
-#define HPS_0_ARM_A9_0_LASER_COMPONENT_NAME laser
-#define HPS_0_ARM_A9_0_LASER_BASE 0xff200040
-#define HPS_0_ARM_A9_0_LASER_SPAN 32
-#define HPS_0_ARM_A9_0_LASER_END 0xff20005f
-
-/*
  * Macros for device 'Motor_Modul', class 'Motor_Modul'
  * Path to the device is from the master group 'hps_0_arm_a9_0'.
  * The macros are prefixed with 'HPS_0_ARM_A9_0_MOTOR_MODUL_'.
@@ -1153,9 +1141,21 @@
  */
 #define HPS_0_ARM_A9_0_MOTOR_MODUL_COMPONENT_TYPE Motor_Modul
 #define HPS_0_ARM_A9_0_MOTOR_MODUL_COMPONENT_NAME Motor_Modul
-#define HPS_0_ARM_A9_0_MOTOR_MODUL_BASE 0xff200080
+#define HPS_0_ARM_A9_0_MOTOR_MODUL_BASE 0xff200040
 #define HPS_0_ARM_A9_0_MOTOR_MODUL_SPAN 64
-#define HPS_0_ARM_A9_0_MOTOR_MODUL_END 0xff2000bf
+#define HPS_0_ARM_A9_0_MOTOR_MODUL_END 0xff20007f
+
+/*
+ * Macros for device 'laser', class 'laser'
+ * Path to the device is from the master group 'hps_0_arm_a9_0'.
+ * The macros are prefixed with 'HPS_0_ARM_A9_0_LASER_'.
+ * The prefix is the master group descriptor and the slave descriptor.
+ */
+#define HPS_0_ARM_A9_0_LASER_COMPONENT_TYPE laser
+#define HPS_0_ARM_A9_0_LASER_COMPONENT_NAME laser
+#define HPS_0_ARM_A9_0_LASER_BASE 0xff200080
+#define HPS_0_ARM_A9_0_LASER_SPAN 32
+#define HPS_0_ARM_A9_0_LASER_END 0xff20009f
 
 /*
  * Macros for device 'sysid_qsys', class 'altera_avalon_sysid_qsys'
@@ -1169,7 +1169,7 @@
 #define HPS_0_ARM_A9_0_SYSID_QSYS_SPAN 8
 #define HPS_0_ARM_A9_0_SYSID_QSYS_END 0xff210007
 #define HPS_0_ARM_A9_0_SYSID_QSYS_ID 2899645186
-#define HPS_0_ARM_A9_0_SYSID_QSYS_TIMESTAMP 1467637239
+#define HPS_0_ARM_A9_0_SYSID_QSYS_TIMESTAMP 1469695449
 
 /*
  * Macros for device 'led_pio', class 'altera_avalon_pio'
@@ -1807,7 +1807,7 @@
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_PARITY 'N'
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_PASS_ERROR_BITS 0
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_RX_FIFO_LE 0
-#define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_RX_FIFO_SIZE 1024
+#define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_RX_FIFO_SIZE 512
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_RX_IRQ_THRESHOLD 1
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_SIM_CHAR_STREAM ""
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_SIM_TRUE_BAUD 0
@@ -1817,7 +1817,7 @@
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_TIMESTAMP_WIDTH 8
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_TRANSMIT_PIN 0
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_TX_FIFO_LE 0
-#define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_TX_FIFO_SIZE 512
+#define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_TX_FIFO_SIZE 2048
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_TX_IRQ_THRESHOLD 1
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_UHW_CTS 0
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_USE_CTS_RTS 0
@@ -1831,18 +1831,6 @@
 #define HPS_0_ARM_A9_1_FIFOED_AVALON_UART_USE_TX_FIFO 1
 
 /*
- * Macros for device 'laser', class 'laser'
- * Path to the device is from the master group 'hps_0_arm_a9_1'.
- * The macros are prefixed with 'HPS_0_ARM_A9_1_LASER_'.
- * The prefix is the master group descriptor and the slave descriptor.
- */
-#define HPS_0_ARM_A9_1_LASER_COMPONENT_TYPE laser
-#define HPS_0_ARM_A9_1_LASER_COMPONENT_NAME laser
-#define HPS_0_ARM_A9_1_LASER_BASE 0xff200040
-#define HPS_0_ARM_A9_1_LASER_SPAN 32
-#define HPS_0_ARM_A9_1_LASER_END 0xff20005f
-
-/*
  * Macros for device 'Motor_Modul', class 'Motor_Modul'
  * Path to the device is from the master group 'hps_0_arm_a9_1'.
  * The macros are prefixed with 'HPS_0_ARM_A9_1_MOTOR_MODUL_'.
@@ -1850,9 +1838,21 @@
  */
 #define HPS_0_ARM_A9_1_MOTOR_MODUL_COMPONENT_TYPE Motor_Modul
 #define HPS_0_ARM_A9_1_MOTOR_MODUL_COMPONENT_NAME Motor_Modul
-#define HPS_0_ARM_A9_1_MOTOR_MODUL_BASE 0xff200080
+#define HPS_0_ARM_A9_1_MOTOR_MODUL_BASE 0xff200040
 #define HPS_0_ARM_A9_1_MOTOR_MODUL_SPAN 64
-#define HPS_0_ARM_A9_1_MOTOR_MODUL_END 0xff2000bf
+#define HPS_0_ARM_A9_1_MOTOR_MODUL_END 0xff20007f
+
+/*
+ * Macros for device 'laser', class 'laser'
+ * Path to the device is from the master group 'hps_0_arm_a9_1'.
+ * The macros are prefixed with 'HPS_0_ARM_A9_1_LASER_'.
+ * The prefix is the master group descriptor and the slave descriptor.
+ */
+#define HPS_0_ARM_A9_1_LASER_COMPONENT_TYPE laser
+#define HPS_0_ARM_A9_1_LASER_COMPONENT_NAME laser
+#define HPS_0_ARM_A9_1_LASER_BASE 0xff200080
+#define HPS_0_ARM_A9_1_LASER_SPAN 32
+#define HPS_0_ARM_A9_1_LASER_END 0xff20009f
 
 /*
  * Macros for device 'sysid_qsys', class 'altera_avalon_sysid_qsys'
@@ -1866,7 +1866,7 @@
 #define HPS_0_ARM_A9_1_SYSID_QSYS_SPAN 8
 #define HPS_0_ARM_A9_1_SYSID_QSYS_END 0xff210007
 #define HPS_0_ARM_A9_1_SYSID_QSYS_ID 2899645186
-#define HPS_0_ARM_A9_1_SYSID_QSYS_TIMESTAMP 1467637239
+#define HPS_0_ARM_A9_1_SYSID_QSYS_TIMESTAMP 1469695449
 
 /*
  * Macros for device 'led_pio', class 'altera_avalon_pio'

@@ -1,0 +1,491 @@
+#include "speedy.h"
+
+uint8_t init_speedy(void){
+
+	uint8_t data = 0x00;
+
+	//Init I2C 1
+	if(init_i2c(I2C_1) != 0)
+		return 1;
+
+	//Pyro Sensor
+	if(write_i2c(I2C_1, ADDR_TPA81, &data, 1) != 1)
+		return 11;
+
+	//SRF08 hinten links
+	if(write_i2c(I2C_1, SRF_HL, &data, 1) != 1)
+		return 12;
+
+	//SRF08 vorne
+	if(write_i2c(I2C_1, SRF_V, &data, 1) != 1)
+		return 13;
+
+	//SRF08 hinten rechts
+	if(write_i2c(I2C_1, SRF_HR, &data, 1) != 1)
+		return 14;
+
+	//Init I2C 2
+	if(init_i2c(I2C_2) != 0)
+		return 2;
+
+	//HMC6343
+	if(write_i2c(I2C_2, ADDR_HMC, &data, 1) != 1)
+		return 21;
+
+	//MAX11613
+	if(write_i2c(I2C_2, ADDR_MAX11613, &data, 1) != 1)
+		return 22;
+
+	//LCD
+	if(write_i2c(I2C_2, LCD03_ADRESS, &data, 1) != 1)
+		return 23;
+
+	//ITG3200
+	if(write_i2c(I2C_2, ADDR_ITG, &data, 1) != 1)
+		return 24;
+
+	//Init Motor Modul
+	if(init_itg() != 0)
+		return 3;
+
+	//Init G Sensor ADXL345 on DE0 Nano SoC
+	if(!ADXL345_Init())
+		return 4;
+
+	return 0;
+}
+
+
+uint8_t key_1_fahren(volatile uint32_t *base_addr){
+
+	uint16_t key;
+	uint8_t text_1_key_1[] = {	"\n"
+								" Speedy faehrt 60cm "
+								"\n"
+								"      Press #       "};
+
+	uint8_t text_2_key_1[] = {	"   Speedy faehrt !  "};
+	uint8_t text_3_key_1[] = {	"      Fertig!       "};
+	uint8_t zahlen[] = {'1', '2', '3'};
+
+	clear_lcd();
+	set_courser_lcd(1, 1);
+	write_data_lcd(text_1_key_1, sizeof(text_1_key_1));
+
+	usleep(500*1000);
+
+	do{
+
+		key = read_key_lcd();
+
+		usleep(100*1000);
+
+	}while(key != 0x0800);
+
+	clear_lcd();
+	set_courser_lcd(2, 10);
+	write_data_lcd(&zahlen[2], 1);
+
+	usleep(1000*1000);
+
+	set_courser_lcd(2, 10);
+	write_data_lcd(&zahlen[1], 1);
+
+	usleep(1000*1000);
+
+	set_courser_lcd(2, 10);
+	write_data_lcd(&zahlen[0], 1);
+
+	usleep(1000*1000);
+
+	clear_lcd();
+	set_courser_lcd(2, 1);
+	write_data_lcd(text_2_key_1, sizeof(text_2_key_1));
+
+	drive(base_addr, 60, 600);
+
+	clear_lcd();
+	set_courser_lcd(2, 1);
+	write_data_lcd(text_3_key_1, sizeof(text_3_key_1));
+
+	usleep(1000*1000);
+
+	return 0;
+
+}
+
+uint8_t key_2_fahren(volatile uint32_t *base_addr){
+
+	uint16_t key;
+	uint8_t text_1_key_1[] = {	"\n"
+								"   Speedy drehen    "
+								"\n"
+								"      Press #       "};
+
+	uint8_t text_2_key_1[] = {	"   Speedy drehet !  "};
+
+	uint8_t text_3_key_1[] = {	"      Fertig!       "};
+
+	uint8_t zahlen[] = {'1', '2', '3'};
+
+	clear_lcd();
+	set_courser_lcd(1, 1);
+	write_data_lcd(text_1_key_1, sizeof(text_1_key_1));
+
+	usleep(500*1000);
+
+	do{
+
+		key = read_key_lcd();
+
+		usleep(100*1000);
+
+	}while(key != 0x0800);
+
+	clear_lcd();
+	set_courser_lcd(2, 10);
+	write_data_lcd(&zahlen[2], 1);
+
+	usleep(1000*1000);
+
+	set_courser_lcd(2, 10);
+	write_data_lcd(&zahlen[1], 1);
+
+	usleep(1000*1000);
+
+	set_courser_lcd(2, 10);
+	write_data_lcd(&zahlen[0], 1);
+
+	usleep(1000*1000);
+
+	clear_lcd();
+	set_courser_lcd(2, 1);
+	write_data_lcd(text_2_key_1, sizeof(text_2_key_1));
+
+	drive_turn_w_offset(base_addr, 60, 90);
+
+	clear_lcd();
+	set_courser_lcd(2, 1);
+	write_data_lcd(text_3_key_1, sizeof(text_3_key_1));
+
+	usleep(1000*1000);
+
+	return 0;
+
+}
+
+uint8_t key_3_fahren(volatile uint32_t *base_addr){
+
+	uint16_t key;
+	uint8_t text_1_key_2[] = {	"Speedy faehrt Kurve "
+								"      rechts        "
+								"\n"
+								"      Press #       "};
+
+	uint8_t text_2_key_2[] = {	"   Speedy faehrt !  "};
+
+	uint8_t text_3_key_2[] = {	"      Fertig!       "};
+
+	uint8_t zahlen[] = {'1', '2', '3'};
+
+	clear_lcd();
+	set_courser_lcd(1, 1);
+	write_data_lcd(text_1_key_2, sizeof(text_1_key_2));
+
+	usleep(500*1000);
+
+	do{
+
+		key = read_key_lcd();
+
+		usleep(100*1000);
+
+	}while(key != 0x0800);
+
+	clear_lcd();
+	set_courser_lcd(2, 10);
+	write_data_lcd(&zahlen[2], 1);
+
+	usleep(1000*1000);
+
+	set_courser_lcd(2, 10);
+	write_data_lcd(&zahlen[1], 1);
+
+	usleep(1000*1000);
+
+	set_courser_lcd(2, 10);
+	write_data_lcd(&zahlen[0], 1);
+
+	usleep(1000*1000);
+
+	clear_lcd();
+	set_courser_lcd(2, 1);
+	write_data_lcd(text_2_key_2, sizeof(text_2_key_2));
+
+	drive_curve_steps(base_addr, 180, 130, 600, 5);
+
+	clear_lcd();
+	set_courser_lcd(2, 1);
+	write_data_lcd(text_3_key_2, sizeof(text_3_key_2));
+
+	usleep(1000*1000);
+
+	return 0;
+
+}
+
+uint8_t key_4_senden(volatile uint32_t *base_addr){
+
+	uint16_t key;
+	uint16_t distance[ARRAY_LENGHT];
+	uint8_t xbee_addr[4];
+	uint8_t xbee_cnt = 0;
+	uint8_t text_1_key_4[] = {	" Setze XBee RX Addr "
+								"       0x           "
+								"\n"
+								"      Press #       "};
+
+	uint8_t text_2_key_4[] = {	"\n "
+								" TX Daten via Xbee  "
+								"\n"
+								"      Press #       "};
+
+	uint8_t text_3_key_4[] = {	"    Laser misst !   "};
+
+	uint8_t text_5_key_4[] = {	"   Speedy sendet !  "};
+
+	uint8_t text_4_key_4[] = {	"      Fertig!       "};
+
+
+
+
+	clear_lcd();
+	set_courser_lcd(1, 1);
+	write_data_lcd(text_1_key_4, sizeof(text_1_key_4));
+
+	usleep(500*1000);
+
+	set_courser_lcd(2, 10 + xbee_cnt);
+	underline_cursor_lcd();
+
+	while(xbee_cnt < 4){
+
+		key = read_key_lcd();
+
+		switch (key){
+
+			case KEY_1:
+
+				xbee_addr[xbee_cnt] = '1';
+
+				write_data_lcd(&xbee_addr[xbee_cnt] , 1);
+
+				xbee_cnt += 1;
+
+				if(xbee_cnt < 4)
+					set_courser_lcd(2, 10 + xbee_cnt);
+
+				if(xbee_cnt == 4)
+					hide_cursor_lcd();
+
+			break;
+
+			case KEY_2:
+
+				xbee_addr[xbee_cnt] = '2';
+
+				write_data_lcd(&xbee_addr[xbee_cnt] , 1);
+
+				xbee_cnt += 1;
+
+				if(xbee_cnt < 4)
+					set_courser_lcd(2, 10 + xbee_cnt);
+
+				if(xbee_cnt == 4)
+					hide_cursor_lcd();
+
+			break;
+
+			case KEY_3:
+
+				xbee_addr[xbee_cnt] = '3';
+
+				write_data_lcd(&xbee_addr[xbee_cnt] , 1);
+
+				xbee_cnt += 1;
+
+				if(xbee_cnt < 4)
+					set_courser_lcd(2, 10 + xbee_cnt);
+
+				if(xbee_cnt == 4)
+					hide_cursor_lcd();
+
+			break;
+
+			case KEY_4:
+
+				xbee_addr[xbee_cnt] = '4';
+
+				write_data_lcd(&xbee_addr[xbee_cnt] , 1);
+
+				xbee_cnt += 1;
+
+				if(xbee_cnt < 4)
+					set_courser_lcd(2, 10 + xbee_cnt);
+
+				if(xbee_cnt == 4)
+					hide_cursor_lcd();
+
+			break;
+
+			case KEY_5:
+
+				xbee_addr[xbee_cnt] = '5';
+
+				write_data_lcd(&xbee_addr[xbee_cnt] , 1);
+
+				xbee_cnt += 1;
+
+				if(xbee_cnt < 4)
+					set_courser_lcd(2, 10 + xbee_cnt);
+
+				if(xbee_cnt == 4)
+					hide_cursor_lcd();
+
+
+			break;
+
+			case KEY_6:
+
+				xbee_addr[xbee_cnt] = '6';
+
+				write_data_lcd(&xbee_addr[xbee_cnt] , 1);
+
+				xbee_cnt += 1;
+
+				if(xbee_cnt < 4)
+					set_courser_lcd(2, 10 + xbee_cnt);
+
+				if(xbee_cnt == 4)
+					hide_cursor_lcd();
+
+			break;
+
+			case KEY_7:
+
+				xbee_addr[xbee_cnt] = '7';
+
+				write_data_lcd(&xbee_addr[xbee_cnt] , 1);
+
+				xbee_cnt += 1;
+
+				if(xbee_cnt < 4)
+					set_courser_lcd(2, 10 + xbee_cnt);
+
+				if(xbee_cnt == 4)
+					hide_cursor_lcd();
+
+			break;
+
+			case KEY_8:
+
+				xbee_addr[xbee_cnt] = '8';
+
+				write_data_lcd(&xbee_addr[xbee_cnt] , 1);
+
+				xbee_cnt += 1;
+
+				if(xbee_cnt < 4)
+					set_courser_lcd(2, 10 + xbee_cnt);
+
+				if(xbee_cnt == 4)
+					hide_cursor_lcd();
+
+			break;
+
+			case KEY_9:
+
+				xbee_addr[xbee_cnt] = '9';
+
+				write_data_lcd(&xbee_addr[xbee_cnt] , 1);
+
+				xbee_cnt += 1;
+
+				if(xbee_cnt < 4)
+					set_courser_lcd(2, 10 + xbee_cnt);
+
+				if(xbee_cnt == 4)
+					hide_cursor_lcd();
+
+			break;
+
+			case KEY_0:
+
+				xbee_addr[xbee_cnt] = '0';
+
+				write_data_lcd(&xbee_addr[xbee_cnt] , 1);
+
+				xbee_cnt += 1;
+
+				if(xbee_cnt < 4)
+					set_courser_lcd(2, 10 + xbee_cnt);
+
+				if(xbee_cnt == 4)
+					hide_cursor_lcd();
+
+			break;
+
+			default:
+				NULL;
+			break;
+
+		}
+
+		usleep(200*1000);
+
+	}
+
+
+	do{
+
+		key = read_key_lcd();
+
+		usleep(100*1000);
+
+	}while(key != 0x0800);
+
+	clear_lcd();
+	set_courser_lcd(1, 1);
+	write_data_lcd(text_2_key_4, sizeof(text_2_key_4));
+
+	usleep(1000*1000);
+
+	do{
+
+		key = read_key_lcd();
+
+		usleep(100*1000);
+
+	}while(key != 0x0800);
+
+	clear_lcd();
+	set_courser_lcd(2, 1);
+	write_data_lcd(text_3_key_4, sizeof(text_3_key_4));
+
+	//Lese Laser Daten
+	doMeasurement(base_addr, distance);
+
+	clear_lcd();
+	set_courser_lcd(2, 1);
+	write_data_lcd(text_4_key_4, sizeof(text_3_key_4));
+
+	//Xbee
+
+	clear_lcd();
+	set_courser_lcd(2, 1);
+	write_data_lcd(text_5_key_4, sizeof(text_4_key_4));
+
+	usleep(1000*1000);
+
+	return 0;
+}

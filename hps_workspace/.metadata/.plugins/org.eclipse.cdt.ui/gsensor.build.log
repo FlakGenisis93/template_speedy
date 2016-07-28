@@ -1,6 +1,6 @@
-16:00:01 **** Incremental Build of configuration Debug for project gsensor ****
+18:32:58 **** Incremental Build of configuration Debug for project gsensor ****
 make all 
 make: Nothing to be done for 'all'.
 
-16:00:01 Build Finished (took 341ms)
+18:32:58 Build Finished (took 340ms)
 

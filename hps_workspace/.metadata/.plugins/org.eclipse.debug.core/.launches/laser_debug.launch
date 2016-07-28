@@ -5,45 +5,46 @@
 <stringAttribute key="ANDROID_APP_DIR" value=""/>
 <stringAttribute key="ANDROID_PROCESS_NAME" value=""/>
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data Model" value="153039"/>
+<mapEntry key="*Fetching Data Model" value="142683"/>
 <mapEntry key="*FunctionLoader" value="5297601"/>
-<mapEntry key="*list global low level symbols" value="1054619"/>
-<mapEntry key="*loading memory from target" value="2633889"/>
-<mapEntry key="*loading values from target" value="628765"/>
+<mapEntry key="*list global low level symbols" value="301751"/>
+<mapEntry key="*loading memory from target" value="1384556"/>
+<mapEntry key="*loading values from target" value="1040049"/>
 <mapEntry key="*updating expressions" value="101689"/>
 <mapEntry key="*updating registers" value="21382047"/>
-<mapEntry key="*updating variables" value="280591"/>
-<mapEntry key="AddEventObserver" value="315317"/>
-<mapEntry key="Evaluate" value="608598"/>
-<mapEntry key="Retrieving globals list" value="974441"/>
-<mapEntry key="add-symbol-file" value="5876513"/>
-<mapEntry key="areCachesAvailable" value="1053556"/>
-<mapEntry key="break" value="5277258"/>
-<mapEntry key="continue" value="3752261"/>
-<mapEntry key="directory" value="1481233"/>
-<mapEntry key="disassemble" value="6099566"/>
+<mapEntry key="*updating variables" value="561333"/>
+<mapEntry key="AddEventObserver" value="413114"/>
+<mapEntry key="Evaluate" value="1520140"/>
+<mapEntry key="Retrieving globals list" value="729014"/>
+<mapEntry key="add-symbol-file" value="6360671"/>
+<mapEntry key="areCachesAvailable" value="668922"/>
+<mapEntry key="break" value="6697324"/>
+<mapEntry key="continue" value="18019264"/>
+<mapEntry key="directory" value="1046056"/>
+<mapEntry key="disassemble" value="58089"/>
 <mapEntry key="evaluate address" value="464199"/>
-<mapEntry key="file" value="26556207"/>
-<mapEntry key="get byte order" value="347233"/>
-<mapEntry key="get capabilities" value="85927"/>
-<mapEntry key="get cwd" value="77987"/>
-<mapEntry key="get execution addresss" value="157829"/>
-<mapEntry key="get source lines" value="124163"/>
-<mapEntry key="getValidEncodings" value="967511"/>
-<mapEntry key="initialize command help" value="26561151"/>
-<mapEntry key="list breakpoints" value="214762"/>
-<mapEntry key="list instruction sets" value="116452"/>
-<mapEntry key="list signals" value="169521"/>
-<mapEntry key="list watchpoints" value="206593"/>
-<mapEntry key="reload-symbol-file" value="10752965"/>
-<mapEntry key="remove" value="523988"/>
-<mapEntry key="set CWD" value="4149564"/>
-<mapEntry key="set breakpoint properties" value="5667709"/>
-<mapEntry key="set debug-from" value="358787"/>
-<mapEntry key="start" value="40159954"/>
-<mapEntry key="step" value="34206014"/>
-<mapEntry key="toggleBreakpoint" value="5224479"/>
-<mapEntry key="waitForTargetToStop" value="39256415"/>
+<mapEntry key="file" value="26003043"/>
+<mapEntry key="get byte order" value="340652"/>
+<mapEntry key="get capabilities" value="92950"/>
+<mapEntry key="get cwd" value="96594"/>
+<mapEntry key="get execution addresss" value="185907"/>
+<mapEntry key="get source lines" value="144544"/>
+<mapEntry key="getValidEncodings" value="568853"/>
+<mapEntry key="initialize command help" value="32202514"/>
+<mapEntry key="interrupt" value="221955"/>
+<mapEntry key="list breakpoints" value="677486"/>
+<mapEntry key="list instruction sets" value="369452"/>
+<mapEntry key="list signals" value="157959"/>
+<mapEntry key="list watchpoints" value="218964"/>
+<mapEntry key="reload-symbol-file" value="11515620"/>
+<mapEntry key="remove" value="544215"/>
+<mapEntry key="set CWD" value="2718996"/>
+<mapEntry key="set breakpoint properties" value="7075916"/>
+<mapEntry key="set debug-from" value="333035"/>
+<mapEntry key="start" value="25557396"/>
+<mapEntry key="step" value="22913166"/>
+<mapEntry key="toggleBreakpoint" value="6063092"/>
+<mapEntry key="waitForTargetToStop" value="37389429"/>
 </mapAttribute>
 <listAttribute key="DEBUG_TAB."/>
 <stringAttribute key="DEBUG_TAB..RESOURCES.0.TYPE" value="SOURCE_DIR"/>
@@ -64,9 +65,11 @@
 <listAttribute key="FILES.DOWNLOAD_AND_DEBUG"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.OPTION.ON_DEMAND_LOAD" value="true"/>
-<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
+<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.TYPE" value="TARGET_WORKING_DIR"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.0.VALUE" value=""/>
-<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.TYPE" value="TARGET_WORKING_DIR"/>
+<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
+<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.OPTION.ON_DEMAND_LOAD" value="true"/>
+<stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.1.VALUE" value=""/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.2.TYPE" value="TARGET_DOWNLOAD_DIR"/>
 <stringAttribute key="FILES.DOWNLOAD_AND_DEBUG.RESOURCES.2.VALUE" value=""/>
@@ -76,10 +79,12 @@
 </listAttribute>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.OPTION.ON_DEMAND_LOAD" value="true"/>
-<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
-<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.VALUE" value="${workspace_loc:/laser/Debug/laser}"/>
-<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.TYPE" value="TARGET_WORKING_DIR"/>
-<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.VALUE" value="/home/root"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.TYPE" value="TARGET_WORKING_DIR"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.0.VALUE" value="/home/root"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.OPTION.ALSO_LOAD_SYMBOLS" value="true"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.OPTION.ON_DEMAND_LOAD" value="true"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.TYPE" value="APP_ON_HOST_TO_DOWNLOAD"/>
+<stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.1.VALUE" value="${workspace_loc:/laser/Debug/laser}"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.2.TYPE" value="TARGET_DOWNLOAD_DIR"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.2.VALUE" value="/home/root"/>
 <stringAttribute key="FILES.DOWNLOAD_DEBUG.RESOURCES.3.OPTION.ON_DEMAND_LOAD" value="true"/>
@@ -249,11 +254,15 @@
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Unsigned Decimal"/>
-<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/laser/src/laser.c::doMeasurement::distance"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/laser/src/main.c::main::distance"/>
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Unsigned Decimal"/>
-<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/laser/src/main.c::main::distance"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/laser/src/laser.c::fillArrayDistances::array"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Unsigned Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/laser/src/laser.c::doMeasurement::distance"/>
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Unsigned Decimal"/>
@@ -261,22 +270,32 @@
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>
 <stringAttribute key="VFS_REMOTE_MOUNT" value="/writeable"/>
-<stringAttribute key="breakpoints" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;breakpoints&gt;&#10;&lt;/breakpoints&gt;&#10;"/>
+<stringAttribute key="breakpoints" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;breakpoints&gt;&#10;&#9;&lt;breakpoint ignorecount=&quot;0&quot; threadenabled=&quot;no&quot; list_all_threads=&quot;no&quot; core_list=&quot;{}&quot; continue=&quot;no&quot; verboseBreakpoints=&quot;yes&quot; kind=&quot;SOURCEPOSITION&quot;&gt;&#10;&#9;&#9;&lt;master_location index=&quot;0&quot; enabled=&quot;true&quot; version=&quot;2&quot; address=&quot;0x000089C2&quot; debugFile=&quot;H:/Git/template_speedy/hps_workspace/laser/src/laser.c&quot; hostFile=&quot;H:\Git\template_speedy\hps_workspace\laser\src\laser.c&quot; line=&quot;239&quot; function=&quot;doMeasurement&quot;/&gt;&#10;&#9;&#9;&lt;location index=&quot;0&quot; enabled=&quot;true&quot; version=&quot;2&quot; address=&quot;0x000089C2&quot; debugFile=&quot;H:/Git/template_speedy/hps_workspace/laser/src/laser.c&quot; hostFile=&quot;H:\Git\template_speedy\hps_workspace\laser\src\laser.c&quot; line=&quot;239&quot; function=&quot;doMeasurement&quot;/&gt;&#10;&#9;&lt;/breakpoint&gt;&#10;&#9;&lt;breakpoint ignorecount=&quot;0&quot; threadenabled=&quot;no&quot; list_all_threads=&quot;no&quot; core_list=&quot;{}&quot; continue=&quot;no&quot; verboseBreakpoints=&quot;yes&quot; kind=&quot;SOURCEPOSITION&quot;&gt;&#10;&#9;&#9;&lt;master_location index=&quot;0&quot; enabled=&quot;true&quot; version=&quot;2&quot; address=&quot;0x000089CE&quot; debugFile=&quot;H:/Git/template_speedy/hps_workspace/laser/src/laser.c&quot; hostFile=&quot;H:\Git\template_speedy\hps_workspace\laser\src\laser.c&quot; line=&quot;241&quot; function=&quot;doMeasurement&quot;/&gt;&#10;&#9;&#9;&lt;location index=&quot;0&quot; enabled=&quot;true&quot; version=&quot;2&quot; address=&quot;0x000089CE&quot; debugFile=&quot;H:/Git/template_speedy/hps_workspace/laser/src/laser.c&quot; hostFile=&quot;H:\Git\template_speedy\hps_workspace\laser\src\laser.c&quot; line=&quot;241&quot; function=&quot;doMeasurement&quot;/&gt;&#10;&#9;&#9;&lt;location index=&quot;1&quot; enabled=&quot;true&quot; version=&quot;2&quot; address=&quot;0x00008A30&quot; debugFile=&quot;H:/Git/template_speedy/hps_workspace/laser/src/laser.c&quot; hostFile=&quot;H:\Git\template_speedy\hps_workspace\laser\src\laser.c&quot; line=&quot;241&quot; function=&quot;doMeasurement&quot;/&gt;&#10;&#9;&lt;/breakpoint&gt;&#10;&#9;&lt;breakpoint ignorecount=&quot;0&quot; threadenabled=&quot;no&quot; list_all_threads=&quot;no&quot; core_list=&quot;{}&quot; continue=&quot;no&quot; verboseBreakpoints=&quot;yes&quot; kind=&quot;SOURCEPOSITION&quot;&gt;&#10;&#9;&#9;&lt;master_location index=&quot;0&quot; enabled=&quot;true&quot; version=&quot;2&quot; address=&quot;0x000089AE&quot; debugFile=&quot;H:/Git/template_speedy/hps_workspace/laser/src/laser.c&quot; hostFile=&quot;H:\Git\template_speedy\hps_workspace\laser\src\laser.c&quot; line=&quot;235&quot; function=&quot;doMeasurement&quot;/&gt;&#10;&#9;&#9;&lt;location index=&quot;0&quot; enabled=&quot;true&quot; version=&quot;2&quot; address=&quot;0x000089AE&quot; debugFile=&quot;H:/Git/template_speedy/hps_workspace/laser/src/laser.c&quot; hostFile=&quot;H:\Git\template_speedy\hps_workspace\laser\src\laser.c&quot; line=&quot;235&quot; function=&quot;doMeasurement&quot;/&gt;&#10;&#9;&lt;/breakpoint&gt;&#10;&lt;/breakpoints&gt;&#10;"/>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.DisassemblyView.addresses">
+<listEntry value=""/>
 <listEntry value="&lt;Next Instruction&gt;"/>
+<listEntry value="&amp;(array)"/>
+<listEntry value="&amp;(distance)"/>
 </listAttribute>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.DisassemblyView.ranges">
+<listEntry value=""/>
+<listEntry value="100"/>
+<listEntry value="100"/>
 <listEntry value="100"/>
 </listAttribute>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.MemoryView.addresses">
-<listEntry value="&amp;(distance)"/>
-<listEntry value="&amp;(distance)"/>
+<listEntry value="&amp;(array)"/>
 <listEntry value=""/>
+<listEntry value="&amp;(distance)"/>
+<listEntry value="&amp;(distance)"/>
+<listEntry value="&amp;(distance)"/>
 </listAttribute>
 <listAttribute key="com.arm.debug.views.common.AddressTracker.debugger.view.MemoryView.ranges">
+<listEntry value="sizeof(array)"/>
+<listEntry value=""/>
+<listEntry value="sizeof(distance) * 770"/>
 <listEntry value="800"/>
 <listEntry value="sizeof(distance)"/>
-<listEntry value=""/>
 </listAttribute>
 <stringAttribute key="config_db_activity_name" value="Download and debug application"/>
 <stringAttribute key="config_db_connection_keys" value="gdb_address gdb_port gdb_disable_acks setup TCP_KILL_ON_EXIT TCP_DISABLE_EXTENDED_MODE"/>
@@ -288,14 +307,14 @@
 <stringAttribute key="config_file" value="CDB://cadi_config.xml"/>
 <booleanAttribute key="connectOnly" value="false"/>
 <listAttribute key="debugger.view.DisassemblyView:current">
-<listEntry value="&lt;Next Instruction&gt;"/>
-<listEntry value="100"/>
+<listEntry value=""/>
+<listEntry value=""/>
 </listAttribute>
 <stringAttribute key="debugger.view.ExpressionsView:DebugOutlineColumnState" value="OutlineConfig1&#9;0"/>
 <stringAttribute key="debugger.view.MemoryView" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;page&gt;&#10;&#9;&lt;memoryView displayWidthTag=&quot;BYTE_4&quot; mCompressedAddresses=&quot;true&quot; formatTag=&quot;Hexadecimal&quot; showTooltipTag=&quot;true&quot; autoAlign=&quot;false&quot;/&gt;&#10;&lt;/page&gt;&#10;"/>
 <listAttribute key="debugger.view.MemoryView:current">
-<listEntry value="&amp;(distance)"/>
-<listEntry value="800"/>
+<listEntry value="&amp;(array)"/>
+<listEntry value="sizeof(array)"/>
 </listAttribute>
 <stringAttribute key="debugger.view.NewRegisterView:DebugOutlineColumnState" value="OutlineConfig1&#9;0"/>
 <stringAttribute key="debugger.view.NewRegisterView:_selectedRegisterSet" value="All registers"/>

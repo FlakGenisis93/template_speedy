@@ -1,4 +1,4 @@
-15:33:56 **** Build of configuration Debug for project saber ****
+18:33:06 **** Incremental Build of configuration Debug for project saber ****
 make all 
 'Building file: ../src/main.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
@@ -31,5 +31,5 @@ arm-linux-gnueabihf-gcc  -o "saber"  ./src/main.o ./src/motor_modul_mm.o  ./sens
 'Finished building target: saber'
 ' '
 
-15:33:58 Build Finished (took 2s.234ms)
+18:33:09 Build Finished (took 2s.400ms)
 

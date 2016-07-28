@@ -1,4 +1,4 @@
-10:29:38 **** Incremental Build of configuration Debug for project gsensor_altera ****
+18:32:58 **** Incremental Build of configuration Debug for project gsensor_altera ****
 make all 
 'Building file: ../src/gesonsor_nano.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
@@ -11,5 +11,5 @@ arm-linux-gnueabihf-gcc  -o "gsensor_altera"  ./src/ADXL345.o ./src/gesonsor_nan
 'Finished building target: gsensor_altera'
 ' '
 
-10:29:40 Build Finished (took 2s.244ms)
+18:32:59 Build Finished (took 843ms)
 

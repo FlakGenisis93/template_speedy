@@ -44,6 +44,7 @@
  *
  */
 /************************************************************************/
+
 void sendCommand(volatile uint32_t *base_addr,  uint32_t cmd);
 
 /************************************************************************/
@@ -53,6 +54,7 @@ void sendCommand(volatile uint32_t *base_addr,  uint32_t cmd);
  *
  */
 /************************************************************************/
+
 void initMemory(volatile uint32_t *base_addr );
 
 /************************************************************************/
@@ -67,6 +69,7 @@ void initMemory(volatile uint32_t *base_addr );
  *	kann die Stelle uebergeben an der begonnen werden soll zu suchen
  *
  *************************************************************************/
+
 uint32_t findBeginOfData(volatile uint32_t *base_addr, uint32_t offset);
 
 /************************************************************************/
@@ -83,6 +86,7 @@ uint32_t findBeginOfData(volatile uint32_t *base_addr, uint32_t offset);
  *	muss die Stelle uebergeben werden an der die Daten des Befehls beginnen
  *
  *************************************************************************/
+
 uint32_t findEndOfData(volatile uint32_t *base_addr, uint32_t begin);
 
 /************************************************************************/
@@ -92,6 +96,7 @@ uint32_t findEndOfData(volatile uint32_t *base_addr, uint32_t begin);
  *	Parametern begin und end aus.
  *
  *************************************************************************/
+
 void printData(volatile uint32_t *base_addr, uint32_t begin, uint32_t end);
 
 /************************************************************************/
@@ -107,6 +112,7 @@ void printData(volatile uint32_t *base_addr, uint32_t begin, uint32_t end);
  *	uebergeben an denen der Andfang und das Ende der Laserantwort stehen.
  *
  *************************************************************************/
+
 uint32_t getBeginDistanceData(volatile uint32_t *base_addr, uint32_t beginData, uint32_t endData);
 
 /************************************************************************/
@@ -117,6 +123,7 @@ uint32_t getBeginDistanceData(volatile uint32_t *base_addr, uint32_t beginData, 
  *	Buchstaben in Entfernungen in Millimeter umgerechnet.
  *
  *************************************************************************/
+
 uint32_t encodingDistance(volatile uint32_t *base_addr, uint32_t dataPos);
 
 /************************************************************************/
@@ -125,6 +132,7 @@ uint32_t encodingDistance(volatile uint32_t *base_addr, uint32_t dataPos);
  *	Diese Funktion gibt die umgerechneten Distanzen auf der Console aus.
  *
  *************************************************************************/
+
 void printDistances(volatile uint32_t *base_addr, uint32_t begin, uint32_t end);
 
 /************************************************************************/
@@ -133,6 +141,7 @@ void printDistances(volatile uint32_t *base_addr, uint32_t begin, uint32_t end);
  *	Diese Funktion gibt den Inhalt des Arrays aus.
  *
  *************************************************************************/
+
 void printDistances2(uint16_t *array);
 
 /************************************************************************/
@@ -143,6 +152,7 @@ void printDistances2(uint16_t *array);
  *	und uint32_t end befüllt.
  *
  *************************************************************************/
+
 void fillArrayDistances(volatile uint32_t *base_addr, uint32_t begin, uint32_t end, uint16_t *array);
 
 /************************************************************************/
@@ -159,21 +169,8 @@ void fillArrayDistances(volatile uint32_t *base_addr, uint32_t begin, uint32_t e
  *
  *
  *************************************************************************/
+
 uint8_t doMeasurement(volatile uint32_t *base_addr, uint16_t *distance);
 
-/************************************************************************/
-/*
- *	@brief		uint8_t doMeasurement_laser(void)
- *
- *	@details	Diesen Befehl nutzt man um auf den DE0_NANO_SOC eine Messung
- *				zu starten
- *
- *	@param		uint16_t *distance		Zeiger auf Array fuer daten
- *
- *	@retval		0	Alles Okay
- *				1	Fehler
- *
- *
- *************************************************************************/
-uint8_t doMeasurement_laser(uint16_t *distance);
+
 #endif

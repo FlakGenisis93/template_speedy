@@ -231,10 +231,10 @@ uint8_t doMeasurement(volatile uint32_t *base_addr, uint16_t *distance)
 	int end = 0;
 	int data = 0;
 
-	initMemory(base_addr); //Speicher initialisieren
+
 	sendCommand(base_addr, COMMAND_MEAS); // Befehl schicken
 
-	usleep(200*1000);
+	usleep(400*1000);
 
 	begin = findBeginOfData(base_addr, 0); // Anfang des Messbefehls finden
 
@@ -266,44 +266,5 @@ uint8_t doMeasurement(volatile uint32_t *base_addr, uint16_t *distance)
 
 	 return 1; // Keine Daten gefunden.
 
-}
-
-uint8_t doMeasurement_laser(){
-
-	void *virtual_base;
-	volatile uint32_t *hps_laser = NULL;
-	int fd;
-
-
-	// map the address space for the LED registers into user space so we can interact with them.
-	// we'll actually map in the entire CSR span of the HPS since we want to access various registers within that span
-
-	if( ( fd = open( "/dev/mem", ( O_RDWR | O_SYNC ) ) ) == -1 ) {
-		printf( "ERROR: could not open \"/dev/mem\"...\n" );
-		return( 1 );
-	}
-
-	virtual_base = mmap( NULL, HW_REGS_SPAN, ( PROT_READ | PROT_WRITE ), MAP_SHARED, fd, HW_REGS_BASE );
-
-	if( virtual_base == MAP_FAILED ) {
-		printf( "ERROR: mmap() failed...\n" );
-		close( fd );
-		return( 1 );
-	}
-
-	hps_laser = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + LASER_BASE ) & (uint32_t)( HW_REGS_MASK ) );
-
-	uint16_t distance[ARRAY_LENGHT];
-	doMeasurement(hps_laser, distance);
-
-	if( munmap( virtual_base, HW_REGS_SPAN ) != 0 ) {
-		printf( "ERROR: munmap() failed...\n" );
-		close( fd );
-		return( 1 );
-	}
-
-	close( fd );
-
-	return( 0 );
 }
 

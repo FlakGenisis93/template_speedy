@@ -93,10 +93,10 @@
 		.memory_mem_odt                                  (<connected-to-memory_mem_odt>),                                  //                               .mem_odt
 		.memory_mem_dm                                   (<connected-to-memory_mem_dm>),                                   //                               .mem_dm
 		.memory_oct_rzqin                                (<connected-to-memory_oct_rzqin>),                                //                               .oct_rzqin
-		.reset_reset_n                                   (<connected-to-reset_reset_n>),                                   //                          reset.reset_n
 		.motor_modul_encoder_encoder1_register_in        (<connected-to-motor_modul_encoder_encoder1_register_in>),        //            motor_modul_encoder.encoder1_register_in
 		.motor_modul_encoder_encoder2_register_in        (<connected-to-motor_modul_encoder_encoder2_register_in>),        //                               .encoder2_register_in
+		.motor_modul_led_drivestatus_led_drivestatus_out (<connected-to-motor_modul_led_drivestatus_led_drivestatus_out>), //    motor_modul_led_drivestatus.led_drivestatus_out
 		.motor_modul_uart_to_sabertooth_uart_out         (<connected-to-motor_modul_uart_to_sabertooth_uart_out>),         // motor_modul_uart_to_sabertooth.uart_out
-		.motor_modul_led_drivestatus_led_drivestatus_out (<connected-to-motor_modul_led_drivestatus_led_drivestatus_out>)  //    motor_modul_led_drivestatus.led_drivestatus_out
+		.reset_reset_n                                   (<connected-to-reset_reset_n>)                                    //                          reset.reset_n
 	);
 
