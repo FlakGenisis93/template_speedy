@@ -94,11 +94,11 @@
 			memory_mem_odt                                  : out   std_logic;                                        -- mem_odt
 			memory_mem_dm                                   : out   std_logic_vector(3 downto 0);                     -- mem_dm
 			memory_oct_rzqin                                : in    std_logic                     := 'X';             -- oct_rzqin
-			reset_reset_n                                   : in    std_logic                     := 'X';             -- reset_n
 			motor_modul_encoder_encoder1_register_in        : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- encoder1_register_in
 			motor_modul_encoder_encoder2_register_in        : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- encoder2_register_in
+			motor_modul_led_drivestatus_led_drivestatus_out : out   std_logic_vector(1 downto 0);                     -- led_drivestatus_out
 			motor_modul_uart_to_sabertooth_uart_out         : out   std_logic;                                        -- uart_out
-			motor_modul_led_drivestatus_led_drivestatus_out : out   std_logic_vector(1 downto 0)                      -- led_drivestatus_out
+			reset_reset_n                                   : in    std_logic                     := 'X'              -- reset_n
 		);
 	end component soc_system;
 
@@ -198,10 +198,10 @@
 			memory_mem_odt                                  => CONNECTED_TO_memory_mem_odt,                                  --                               .mem_odt
 			memory_mem_dm                                   => CONNECTED_TO_memory_mem_dm,                                   --                               .mem_dm
 			memory_oct_rzqin                                => CONNECTED_TO_memory_oct_rzqin,                                --                               .oct_rzqin
-			reset_reset_n                                   => CONNECTED_TO_reset_reset_n,                                   --                          reset.reset_n
 			motor_modul_encoder_encoder1_register_in        => CONNECTED_TO_motor_modul_encoder_encoder1_register_in,        --            motor_modul_encoder.encoder1_register_in
 			motor_modul_encoder_encoder2_register_in        => CONNECTED_TO_motor_modul_encoder_encoder2_register_in,        --                               .encoder2_register_in
+			motor_modul_led_drivestatus_led_drivestatus_out => CONNECTED_TO_motor_modul_led_drivestatus_led_drivestatus_out, --    motor_modul_led_drivestatus.led_drivestatus_out
 			motor_modul_uart_to_sabertooth_uart_out         => CONNECTED_TO_motor_modul_uart_to_sabertooth_uart_out,         -- motor_modul_uart_to_sabertooth.uart_out
-			motor_modul_led_drivestatus_led_drivestatus_out => CONNECTED_TO_motor_modul_led_drivestatus_led_drivestatus_out  --    motor_modul_led_drivestatus.led_drivestatus_out
+			reset_reset_n                                   => CONNECTED_TO_reset_reset_n                                    --                          reset.reset_n
 		);
 

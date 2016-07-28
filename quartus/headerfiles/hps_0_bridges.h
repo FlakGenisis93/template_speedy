@@ -91,7 +91,7 @@
 #define FIFOED_AVALON_UART_PARITY 'N'
 #define FIFOED_AVALON_UART_PASS_ERROR_BITS 0
 #define FIFOED_AVALON_UART_RX_FIFO_LE 0
-#define FIFOED_AVALON_UART_RX_FIFO_SIZE 1024
+#define FIFOED_AVALON_UART_RX_FIFO_SIZE 512
 #define FIFOED_AVALON_UART_RX_IRQ_THRESHOLD 1
 #define FIFOED_AVALON_UART_SIM_CHAR_STREAM ""
 #define FIFOED_AVALON_UART_SIM_TRUE_BAUD 0
@@ -101,7 +101,7 @@
 #define FIFOED_AVALON_UART_TIMESTAMP_WIDTH 8
 #define FIFOED_AVALON_UART_TRANSMIT_PIN 0
 #define FIFOED_AVALON_UART_TX_FIFO_LE 0
-#define FIFOED_AVALON_UART_TX_FIFO_SIZE 512
+#define FIFOED_AVALON_UART_TX_FIFO_SIZE 2048
 #define FIFOED_AVALON_UART_TX_IRQ_THRESHOLD 1
 #define FIFOED_AVALON_UART_UHW_CTS 0
 #define FIFOED_AVALON_UART_USE_CTS_RTS 0
@@ -115,26 +115,26 @@
 #define FIFOED_AVALON_UART_USE_TX_FIFO 1
 
 /*
- * Macros for device 'laser', class 'laser'
- * The macros are prefixed with 'LASER_'.
- * The prefix is the slave descriptor.
- */
-#define LASER_COMPONENT_TYPE laser
-#define LASER_COMPONENT_NAME laser
-#define LASER_BASE 0x40
-#define LASER_SPAN 32
-#define LASER_END 0x5f
-
-/*
  * Macros for device 'Motor_Modul', class 'Motor_Modul'
  * The macros are prefixed with 'MOTOR_MODUL_'.
  * The prefix is the slave descriptor.
  */
 #define MOTOR_MODUL_COMPONENT_TYPE Motor_Modul
 #define MOTOR_MODUL_COMPONENT_NAME Motor_Modul
-#define MOTOR_MODUL_BASE 0x80
+#define MOTOR_MODUL_BASE 0x40
 #define MOTOR_MODUL_SPAN 64
-#define MOTOR_MODUL_END 0xbf
+#define MOTOR_MODUL_END 0x7f
+
+/*
+ * Macros for device 'laser', class 'laser'
+ * The macros are prefixed with 'LASER_'.
+ * The prefix is the slave descriptor.
+ */
+#define LASER_COMPONENT_TYPE laser
+#define LASER_COMPONENT_NAME laser
+#define LASER_BASE 0x80
+#define LASER_SPAN 32
+#define LASER_END 0x9f
 
 /*
  * Macros for device 'sysid_qsys', class 'altera_avalon_sysid_qsys'
@@ -147,7 +147,7 @@
 #define SYSID_QSYS_SPAN 8
 #define SYSID_QSYS_END 0x10007
 #define SYSID_QSYS_ID 2899645186
-#define SYSID_QSYS_TIMESTAMP 1467637239
+#define SYSID_QSYS_TIMESTAMP 1469695449
 
 /*
  * Macros for device 'led_pio', class 'altera_avalon_pio'

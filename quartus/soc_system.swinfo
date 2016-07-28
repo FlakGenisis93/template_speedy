@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SopcSystem>
  <!-- An entire SOPC Builder system -->
- <!-- 2016.07.04.16:36:42 -->
+ <!-- 2016.07.28.11:09:25 -->
  <name>soc_system</name>
  <version>1.0</version>
  <sopcVersion>1.0</sopcVersion>
@@ -290,7 +290,7 @@
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.RX_FIFO_SIZE</name>
-   <value>1024</value>
+   <value>512</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.RX_IRQ_THRESHOLD</name>
@@ -330,7 +330,7 @@
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TX_FIFO_SIZE</name>
-   <value>512</value>
+   <value>2048</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TX_IRQ_THRESHOLD</name>
@@ -797,45 +797,6 @@
     <interruptControllerID>-1</interruptControllerID>
    </connectedDevice>
    <connectedDevice>
-    <moduleName>laser</moduleName>
-    <slaveDesc>laser</slaveDesc>
-    <slave>
-     <name>avalon_slave_0</name>
-     <version>16.0</version>
-     <assignment>
-      <name>embeddedsw.configuration.isFlash</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isMemoryDevice</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isNonVolatileStorage</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isPrintableDevice</name>
-      <value>0</value>
-     </assignment>
-     <systemSlaveName>laser.avalon_slave_0</systemSlaveName>
-     <addressGroup>0</addressGroup>
-    </slave>
-    <baseAddress>64</baseAddress>
-    <basePhysicalAddress>64</basePhysicalAddress>
-    <span>32</span>
-    <isBigEndian>false</isBigEndian>
-    <isInstructionAccessible>false</isInstructionAccessible>
-    <isDataAccessible>false</isDataAccessible>
-    <isTightlyCoupledInstructionAccessible>false</isTightlyCoupledInstructionAccessible>
-    <isTightlyCoupledDataAccessible>false</isTightlyCoupledDataAccessible>
-    <hasIrq>false</hasIrq>
-    <irqNumber>-1</irqNumber>
-    <irqInterruptControllerID>-1</irqInterruptControllerID>
-    <isConnectedInterruptControllerDevice>false</isConnectedInterruptControllerDevice>
-    <interruptControllerID>-1</interruptControllerID>
-   </connectedDevice>
-   <connectedDevice>
     <moduleName>Motor_Modul</moduleName>
     <slaveDesc>Motor_Modul</slaveDesc>
     <slave>
@@ -860,9 +821,48 @@
      <systemSlaveName>Motor_Modul.avalon_slave_0</systemSlaveName>
      <addressGroup>0</addressGroup>
     </slave>
+    <baseAddress>64</baseAddress>
+    <basePhysicalAddress>64</basePhysicalAddress>
+    <span>64</span>
+    <isBigEndian>false</isBigEndian>
+    <isInstructionAccessible>false</isInstructionAccessible>
+    <isDataAccessible>false</isDataAccessible>
+    <isTightlyCoupledInstructionAccessible>false</isTightlyCoupledInstructionAccessible>
+    <isTightlyCoupledDataAccessible>false</isTightlyCoupledDataAccessible>
+    <hasIrq>false</hasIrq>
+    <irqNumber>-1</irqNumber>
+    <irqInterruptControllerID>-1</irqInterruptControllerID>
+    <isConnectedInterruptControllerDevice>false</isConnectedInterruptControllerDevice>
+    <interruptControllerID>-1</interruptControllerID>
+   </connectedDevice>
+   <connectedDevice>
+    <moduleName>laser</moduleName>
+    <slaveDesc>laser</slaveDesc>
+    <slave>
+     <name>avalon_slave_0</name>
+     <version>16.0</version>
+     <assignment>
+      <name>embeddedsw.configuration.isFlash</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isMemoryDevice</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isNonVolatileStorage</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isPrintableDevice</name>
+      <value>0</value>
+     </assignment>
+     <systemSlaveName>laser.avalon_slave_0</systemSlaveName>
+     <addressGroup>0</addressGroup>
+    </slave>
     <baseAddress>128</baseAddress>
     <basePhysicalAddress>128</basePhysicalAddress>
-    <span>64</span>
+    <span>32</span>
     <isBigEndian>false</isBigEndian>
     <isInstructionAccessible>false</isInstructionAccessible>
     <isDataAccessible>false</isDataAccessible>
@@ -1314,45 +1314,6 @@
     <interruptControllerID>-1</interruptControllerID>
    </connectedDevice>
    <connectedDevice>
-    <moduleName>laser</moduleName>
-    <slaveDesc>laser</slaveDesc>
-    <slave>
-     <name>avalon_slave_0</name>
-     <version>16.0</version>
-     <assignment>
-      <name>embeddedsw.configuration.isFlash</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isMemoryDevice</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isNonVolatileStorage</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isPrintableDevice</name>
-      <value>0</value>
-     </assignment>
-     <systemSlaveName>laser.avalon_slave_0</systemSlaveName>
-     <addressGroup>0</addressGroup>
-    </slave>
-    <baseAddress>64</baseAddress>
-    <basePhysicalAddress>64</basePhysicalAddress>
-    <span>32</span>
-    <isBigEndian>false</isBigEndian>
-    <isInstructionAccessible>false</isInstructionAccessible>
-    <isDataAccessible>false</isDataAccessible>
-    <isTightlyCoupledInstructionAccessible>false</isTightlyCoupledInstructionAccessible>
-    <isTightlyCoupledDataAccessible>false</isTightlyCoupledDataAccessible>
-    <hasIrq>false</hasIrq>
-    <irqNumber>-1</irqNumber>
-    <irqInterruptControllerID>-1</irqInterruptControllerID>
-    <isConnectedInterruptControllerDevice>false</isConnectedInterruptControllerDevice>
-    <interruptControllerID>-1</interruptControllerID>
-   </connectedDevice>
-   <connectedDevice>
     <moduleName>Motor_Modul</moduleName>
     <slaveDesc>Motor_Modul</slaveDesc>
     <slave>
@@ -1377,9 +1338,48 @@
      <systemSlaveName>Motor_Modul.avalon_slave_0</systemSlaveName>
      <addressGroup>0</addressGroup>
     </slave>
+    <baseAddress>64</baseAddress>
+    <basePhysicalAddress>64</basePhysicalAddress>
+    <span>64</span>
+    <isBigEndian>false</isBigEndian>
+    <isInstructionAccessible>false</isInstructionAccessible>
+    <isDataAccessible>false</isDataAccessible>
+    <isTightlyCoupledInstructionAccessible>false</isTightlyCoupledInstructionAccessible>
+    <isTightlyCoupledDataAccessible>false</isTightlyCoupledDataAccessible>
+    <hasIrq>false</hasIrq>
+    <irqNumber>-1</irqNumber>
+    <irqInterruptControllerID>-1</irqInterruptControllerID>
+    <isConnectedInterruptControllerDevice>false</isConnectedInterruptControllerDevice>
+    <interruptControllerID>-1</interruptControllerID>
+   </connectedDevice>
+   <connectedDevice>
+    <moduleName>laser</moduleName>
+    <slaveDesc>laser</slaveDesc>
+    <slave>
+     <name>avalon_slave_0</name>
+     <version>16.0</version>
+     <assignment>
+      <name>embeddedsw.configuration.isFlash</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isMemoryDevice</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isNonVolatileStorage</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isPrintableDevice</name>
+      <value>0</value>
+     </assignment>
+     <systemSlaveName>laser.avalon_slave_0</systemSlaveName>
+     <addressGroup>0</addressGroup>
+    </slave>
     <baseAddress>128</baseAddress>
     <basePhysicalAddress>128</basePhysicalAddress>
-    <span>64</span>
+    <span>32</span>
     <isBigEndian>false</isBigEndian>
     <isInstructionAccessible>false</isInstructionAccessible>
     <isDataAccessible>false</isDataAccessible>
@@ -2844,45 +2844,6 @@
     <interruptControllerID>-1</interruptControllerID>
    </connectedDevice>
    <connectedDevice>
-    <moduleName>laser</moduleName>
-    <slaveDesc>laser</slaveDesc>
-    <slave>
-     <name>avalon_slave_0</name>
-     <version>16.0</version>
-     <assignment>
-      <name>embeddedsw.configuration.isFlash</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isMemoryDevice</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isNonVolatileStorage</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isPrintableDevice</name>
-      <value>0</value>
-     </assignment>
-     <systemSlaveName>laser.avalon_slave_0</systemSlaveName>
-     <addressGroup>0</addressGroup>
-    </slave>
-    <baseAddress>4280287296</baseAddress>
-    <basePhysicalAddress>4280287296</basePhysicalAddress>
-    <span>32</span>
-    <isBigEndian>false</isBigEndian>
-    <isInstructionAccessible>false</isInstructionAccessible>
-    <isDataAccessible>false</isDataAccessible>
-    <isTightlyCoupledInstructionAccessible>false</isTightlyCoupledInstructionAccessible>
-    <isTightlyCoupledDataAccessible>false</isTightlyCoupledDataAccessible>
-    <hasIrq>false</hasIrq>
-    <irqNumber>-1</irqNumber>
-    <irqInterruptControllerID>-1</irqInterruptControllerID>
-    <isConnectedInterruptControllerDevice>false</isConnectedInterruptControllerDevice>
-    <interruptControllerID>-1</interruptControllerID>
-   </connectedDevice>
-   <connectedDevice>
     <moduleName>Motor_Modul</moduleName>
     <slaveDesc>Motor_Modul</slaveDesc>
     <slave>
@@ -2907,9 +2868,48 @@
      <systemSlaveName>Motor_Modul.avalon_slave_0</systemSlaveName>
      <addressGroup>0</addressGroup>
     </slave>
+    <baseAddress>4280287296</baseAddress>
+    <basePhysicalAddress>4280287296</basePhysicalAddress>
+    <span>64</span>
+    <isBigEndian>false</isBigEndian>
+    <isInstructionAccessible>false</isInstructionAccessible>
+    <isDataAccessible>false</isDataAccessible>
+    <isTightlyCoupledInstructionAccessible>false</isTightlyCoupledInstructionAccessible>
+    <isTightlyCoupledDataAccessible>false</isTightlyCoupledDataAccessible>
+    <hasIrq>false</hasIrq>
+    <irqNumber>-1</irqNumber>
+    <irqInterruptControllerID>-1</irqInterruptControllerID>
+    <isConnectedInterruptControllerDevice>false</isConnectedInterruptControllerDevice>
+    <interruptControllerID>-1</interruptControllerID>
+   </connectedDevice>
+   <connectedDevice>
+    <moduleName>laser</moduleName>
+    <slaveDesc>laser</slaveDesc>
+    <slave>
+     <name>avalon_slave_0</name>
+     <version>16.0</version>
+     <assignment>
+      <name>embeddedsw.configuration.isFlash</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isMemoryDevice</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isNonVolatileStorage</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isPrintableDevice</name>
+      <value>0</value>
+     </assignment>
+     <systemSlaveName>laser.avalon_slave_0</systemSlaveName>
+     <addressGroup>0</addressGroup>
+    </slave>
     <baseAddress>4280287360</baseAddress>
     <basePhysicalAddress>4280287360</basePhysicalAddress>
-    <span>64</span>
+    <span>32</span>
     <isBigEndian>false</isBigEndian>
     <isInstructionAccessible>false</isInstructionAccessible>
     <isDataAccessible>false</isDataAccessible>
@@ -4341,45 +4341,6 @@
     <interruptControllerID>-1</interruptControllerID>
    </connectedDevice>
    <connectedDevice>
-    <moduleName>laser</moduleName>
-    <slaveDesc>laser</slaveDesc>
-    <slave>
-     <name>avalon_slave_0</name>
-     <version>16.0</version>
-     <assignment>
-      <name>embeddedsw.configuration.isFlash</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isMemoryDevice</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isNonVolatileStorage</name>
-      <value>0</value>
-     </assignment>
-     <assignment>
-      <name>embeddedsw.configuration.isPrintableDevice</name>
-      <value>0</value>
-     </assignment>
-     <systemSlaveName>laser.avalon_slave_0</systemSlaveName>
-     <addressGroup>0</addressGroup>
-    </slave>
-    <baseAddress>4280287296</baseAddress>
-    <basePhysicalAddress>4280287296</basePhysicalAddress>
-    <span>32</span>
-    <isBigEndian>false</isBigEndian>
-    <isInstructionAccessible>false</isInstructionAccessible>
-    <isDataAccessible>false</isDataAccessible>
-    <isTightlyCoupledInstructionAccessible>false</isTightlyCoupledInstructionAccessible>
-    <isTightlyCoupledDataAccessible>false</isTightlyCoupledDataAccessible>
-    <hasIrq>false</hasIrq>
-    <irqNumber>-1</irqNumber>
-    <irqInterruptControllerID>-1</irqInterruptControllerID>
-    <isConnectedInterruptControllerDevice>false</isConnectedInterruptControllerDevice>
-    <interruptControllerID>-1</interruptControllerID>
-   </connectedDevice>
-   <connectedDevice>
     <moduleName>Motor_Modul</moduleName>
     <slaveDesc>Motor_Modul</slaveDesc>
     <slave>
@@ -4404,9 +4365,48 @@
      <systemSlaveName>Motor_Modul.avalon_slave_0</systemSlaveName>
      <addressGroup>0</addressGroup>
     </slave>
+    <baseAddress>4280287296</baseAddress>
+    <basePhysicalAddress>4280287296</basePhysicalAddress>
+    <span>64</span>
+    <isBigEndian>false</isBigEndian>
+    <isInstructionAccessible>false</isInstructionAccessible>
+    <isDataAccessible>false</isDataAccessible>
+    <isTightlyCoupledInstructionAccessible>false</isTightlyCoupledInstructionAccessible>
+    <isTightlyCoupledDataAccessible>false</isTightlyCoupledDataAccessible>
+    <hasIrq>false</hasIrq>
+    <irqNumber>-1</irqNumber>
+    <irqInterruptControllerID>-1</irqInterruptControllerID>
+    <isConnectedInterruptControllerDevice>false</isConnectedInterruptControllerDevice>
+    <interruptControllerID>-1</interruptControllerID>
+   </connectedDevice>
+   <connectedDevice>
+    <moduleName>laser</moduleName>
+    <slaveDesc>laser</slaveDesc>
+    <slave>
+     <name>avalon_slave_0</name>
+     <version>16.0</version>
+     <assignment>
+      <name>embeddedsw.configuration.isFlash</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isMemoryDevice</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isNonVolatileStorage</name>
+      <value>0</value>
+     </assignment>
+     <assignment>
+      <name>embeddedsw.configuration.isPrintableDevice</name>
+      <value>0</value>
+     </assignment>
+     <systemSlaveName>laser.avalon_slave_0</systemSlaveName>
+     <addressGroup>0</addressGroup>
+    </slave>
     <baseAddress>4280287360</baseAddress>
     <basePhysicalAddress>4280287360</basePhysicalAddress>
-    <span>64</span>
+    <span>32</span>
     <isBigEndian>false</isBigEndian>
     <isInstructionAccessible>false</isInstructionAccessible>
     <isDataAccessible>false</isDataAccessible>
@@ -8707,7 +8707,7 @@
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1467637239</value>
+   <value>1469695449</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -8727,7 +8727,7 @@
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1467637239</value>
+   <value>1469695449</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>

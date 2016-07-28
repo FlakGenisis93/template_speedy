@@ -17,14 +17,15 @@ int main(void) {
 
 	//Anpassen wie benoetigt
 	uint8_t text_3[] = {"1 Fahre gerade      "
-						"2 Drehen            "
+						"2 Drehen rechts     "
 						"3 180 Grad Kurve    "
-						"4 Sende Laser Daten "};
+						"4 Sende Laser       "};
 
 	int memmory;			//file pointer fuer speicher
 	void *virtual_base;
 	volatile uint32_t *hps_laser = NULL;
 	volatile uint32_t *hps_saber = NULL;
+	volatile uint32_t *hps_xbee = NULL;
 
 
 
@@ -53,12 +54,14 @@ int main(void) {
 
 	hps_laser = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + LASER_BASE ) & (uint32_t)( HW_REGS_MASK ) );
 	hps_saber = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + MOTOR_MODUL_BASE ) & (uint32_t)( HW_REGS_MASK ) );
+	hps_xbee = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + FIFOED_AVALON_UART_BASE ) & (uint32_t)( HW_REGS_MASK ) );
 
 	//Init memmory laser
 	initMemory(hps_laser);
 
 	//Write on LCD
 
+	hide_cursor_lcd();
 	clear_lcd();
 	blacklight_on_lcd();
 	set_courser_lcd(1, 1);
@@ -109,7 +112,7 @@ int main(void) {
 
 	usleep(700*1000);
 
-	while(read_key_lcd() != 0x0A00){
+	while(key != 0x0A00){
 
 		key = read_key_lcd();
 
@@ -134,7 +137,7 @@ int main(void) {
 			break;
 
 			case KEY_4:
-				key_4_senden();
+				key_4_senden(hps_laser, hps_xbee);
 				clear_lcd();
 				write_data_lcd(text_3, sizeof(text_3));
 			break;

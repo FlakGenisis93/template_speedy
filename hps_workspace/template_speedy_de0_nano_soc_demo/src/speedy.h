@@ -31,7 +31,7 @@ uint8_t init_speedy(void);
 uint8_t key_1_fahren(volatile uint32_t *base_addr);
 uint8_t key_2_fahren(volatile uint32_t *base_addr);
 uint8_t key_3_fahren(volatile uint32_t *base_addr);
-uint8_t key_4_senden();
+uint8_t key_4_senden(volatile uint32_t *base_addr_laser, volatile uint32_t *base_addr_xbee);
 
 
 #endif /* SPEEDY_H_ */

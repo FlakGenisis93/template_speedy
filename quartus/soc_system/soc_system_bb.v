@@ -94,11 +94,11 @@ module soc_system (
 	memory_mem_odt,
 	memory_mem_dm,
 	memory_oct_rzqin,
-	reset_reset_n,
 	motor_modul_encoder_encoder1_register_in,
 	motor_modul_encoder_encoder2_register_in,
+	motor_modul_led_drivestatus_led_drivestatus_out,
 	motor_modul_uart_to_sabertooth_uart_out,
-	motor_modul_led_drivestatus_led_drivestatus_out);	
+	reset_reset_n);	
 
 	input	[3:0]	button_pio_external_connection_export;
 	input		clk_clk;
@@ -194,9 +194,9 @@ module soc_system (
 	output		memory_mem_odt;
 	output	[3:0]	memory_mem_dm;
 	input		memory_oct_rzqin;
-	input		reset_reset_n;
 	input	[1:0]	motor_modul_encoder_encoder1_register_in;
 	input	[1:0]	motor_modul_encoder_encoder2_register_in;
-	output		motor_modul_uart_to_sabertooth_uart_out;
 	output	[1:0]	motor_modul_led_drivestatus_led_drivestatus_out;
+	output		motor_modul_uart_to_sabertooth_uart_out;
+	input		reset_reset_n;
 endmodule

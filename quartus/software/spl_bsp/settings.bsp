@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>spl</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Jul 4, 2016 3:51:32 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1467640292866</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Jul 28, 2016 11:18:17 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1469697497950</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>.\</BspGeneratedLocation>
-        <BspSettingsFile>H:\Masterarbeit\work\quartus\software\spl_bsp\settings.bsp</BspSettingsFile>
+        <BspSettingsFile>H:\Git\template_speedy\quartus\software\spl_bsp\settings.bsp</BspSettingsFile>
         <HpsSettingsPath>..\..\hps_isw_handoff\soc_system_hps_0</HpsSettingsPath>
         <JdiFile>default</JdiFile>
         <Cpu xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

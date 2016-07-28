@@ -1,15 +1,6 @@
-18:36:22 **** Incremental Build of configuration Debug for project lcd ****
+18:33:04 **** Incremental Build of configuration Debug for project lcd ****
 make all 
-'Building file: ../src/lcd.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\lcd\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/lcd.d" -MT"src/lcd.d" -o "src/lcd.o" "../src/lcd.c"
-'Finished building: ../src/lcd.c'
-' '
-'Building target: lcd'
-'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "lcd"  ./src/lcd.o ./src/main.o  ./actuators/i2c.o   
-'Finished building target: lcd'
-' '
+make: Nothing to be done for 'all'.
 
-18:36:23 Build Finished (took 888ms)
+18:33:05 Build Finished (took 389ms)
 

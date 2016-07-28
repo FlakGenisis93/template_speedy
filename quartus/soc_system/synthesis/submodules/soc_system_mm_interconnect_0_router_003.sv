@@ -135,8 +135,8 @@ module soc_system_mm_interconnect_0_router_003
     // during address decoding
     // -------------------------------------------------------
     localparam PAD0 = log2ceil(64'h40 - 64'h0); 
-    localparam PAD1 = log2ceil(64'h60 - 64'h40); 
-    localparam PAD2 = log2ceil(64'hc0 - 64'h80); 
+    localparam PAD1 = log2ceil(64'h80 - 64'h40); 
+    localparam PAD2 = log2ceil(64'ha0 - 64'h80); 
     localparam PAD3 = log2ceil(64'h10008 - 64'h10000); 
     localparam PAD4 = log2ceil(64'h10050 - 64'h10040); 
     localparam PAD5 = log2ceil(64'h10090 - 64'h10080); 
@@ -206,16 +206,16 @@ module soc_system_mm_interconnect_0_router_003
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
     end
 
-    // ( 0x40 .. 0x60 )
+    // ( 0x40 .. 0x80 )
     if ( {address[RG:PAD1],{PAD1{1'b0}}} == 18'h40   ) begin
-            src_channel = 10'b00100000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 6;
-    end
-
-    // ( 0x80 .. 0xc0 )
-    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 18'h80   ) begin
             src_channel = 10'b01000000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
+    end
+
+    // ( 0x80 .. 0xa0 )
+    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 18'h80   ) begin
+            src_channel = 10'b00100000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 6;
     end
 
     // ( 0x10000 .. 0x10008 )
