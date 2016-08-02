@@ -508,17 +508,7 @@ uint8_t key_4_senden(volatile uint32_t *base_addr_laser, volatile uint32_t *base
 	write_data_lcd(text_4_key_4, sizeof(text_3_key_4));
 
 	//Xbee
-
-	for(i = 0; i <= 768; i++ ){
-
-		xbee_tx_data[0] = distance[i] & 0x00FF;
-		xbee_tx_data[1] = (distance[i] & 0xFF00) >> 8;
-
-		xbee_tx(base_addr_xbee, xbee_rx_addr, xbee_tx_data, 2);
-
-	}
-
-	//xbee_tx(base_addr_xbee, xbee_rx_addr, distance, 400);
+	xbee_tx(base_addr_xbee, xbee_rx_addr, distance, sizeof(distance));
 
 
 

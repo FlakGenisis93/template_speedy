@@ -78,133 +78,85 @@ uint8_t create_xbee_frame(uint16_t xbee_addr, uint8_t *xbee_frame, uint8_t daten
 	return 0;
 }
 
-uint8_t xbee_tx(uint16_t xbee_addr, uint8_t daten[], uint16_t length){
+uint8_t xbee_tx(volatile uint32_t *base_addr, uint16_t xbee_addr, uint8_t daten[], uint16_t length){
 
-	void *virtual_base;
-	volatile uint32_t *hps_xbee = NULL;
-	int fd;
 	uint8_t xbee_frame[109];
+	uint8_t daten_payload[100];
 	uint16_t length_payload;
-	uint32_t i;
-
-	//Oeffnen der Datei des Speichers mit Fehlerabrage
-	if( ( fd = open( "/dev/mem", ( O_RDWR | O_SYNC ) ) ) == -1 ) {
-		printf( "ERROR: could not open \"/dev/mem\"...\n" );
-		return 2;
-	}
-
-	//Erstellen einer Virtuellen Adresse
-	virtual_base = mmap( NULL, HW_REGS_SPAN, ( PROT_READ | PROT_WRITE ), MAP_SHARED, fd, HW_REGS_BASE );
-
-	//Fehlerabrage der Virtuellen Adresse
-	if( virtual_base == MAP_FAILED ) {
-		printf( "ERROR: mmap() failed...\n" );
-		close( fd );
-		return 3;
-	}
-
-	//Erstellen einen Pointers auf XBee im Speicher
-	hps_xbee = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + FIFOED_AVALON_UART_BASE ) & (uint32_t)( HW_REGS_MASK ) );
+	uint32_t i, k, l, j = 0;
 
 
 	do{
 
+		//Pruefen ob Frame > 100
 		if(length > 100){
+			//Falls ja, Payload auf 100 Bytes begrenzen
 			length_payload = 100;
+			//laenge um 100 reduzieren
 			length = length - 100;
 		} else {
+			//paylead auf den rest setzen
 			length_payload = length;
+			//length auf 0 setzen als Abbruchbedingung
 			length = 0;
 		}
 
+		//Kopiert die Daten in daten_payload
+		//i = Zaehlvariable fuer daten[]
+		//j = Variable zum setzen fuer i 0, 100, 200 usw ...
+		//k = Zaehlvariable fuer daten_payload[]
+		for(i = j * 100, k = 0; i < 100 + (j * 100) && k < length_payload; i++, k++){
+			daten_payload[k] = daten[i];
+		}
+
 		//Erstellen des XBee Frames mit Fehlerabrage
-		if(create_xbee_frame(xbee_addr, xbee_frame, daten, length_payload) == 1)
+		if(create_xbee_frame(xbee_addr, xbee_frame, daten_payload, length_payload) == 1)
 			return 1;
 
 		//Schreiben an UART
-		for(i = 0; i < length_payload + 9; i++){
+		for(l = 0; l < length_payload + 9; l++){
 
-			alt_write_word(hps_xbee + 0x1, xbee_frame[i]);
+			alt_write_word(base_addr + 0x1, xbee_frame[l]);
 		
 		}
 
+		j++;
+
 	}while (length > 0);
-
-	//Memorryunmapping aufheben mti Fehlerabfrage
-	if( munmap( virtual_base, HW_REGS_SPAN ) != 0 ) {
-		printf( "ERROR: munmap() failed...\n" );
-		close(fd);
-		return 4;
-	}
-
-	//Datei schliesen
-	close(fd);
 
 	return 0;
 }
 
-int16_t xbee_rx(uint8_t rx_xbee_daten[]){
+int16_t xbee_rx(volatile uint32_t *base_addr, uint8_t rx_xbee_daten[]){
 
-	void *virtual_base;
-	volatile uint32_t *hps_xbee = NULL;
-	int fd;
 	uint16_t fifo_used = 0;
 	uint32_t i;
 
-	//Oeffnen der Datei des Speichers mit Fehlerabrage
-	if( ( fd = open( "/dev/mem", ( O_RDWR | O_SYNC ) ) ) == -1 ) {
-		printf( "ERROR: could not open \"/dev/mem\"...\n" );
-		return( -1 );
-	}
-
-	//Erstellen einer Virtuellen Adresse
-	virtual_base = mmap( NULL, HW_REGS_SPAN, ( PROT_READ | PROT_WRITE ), MAP_SHARED, fd, HW_REGS_BASE );
-
-	//Fehlerabrage der Virtuellen Adresse
-	if( virtual_base == MAP_FAILED ) {
-		printf( "ERROR: mmap() failed...\n" );
-		close(fd);
-		return -2;
-	}
-
-	//Erstellen einen Pointers auf XBee im Speicher
-	hps_xbee = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + FIFOED_AVALON_UART_BASE ) & (uint32_t)( HW_REGS_MASK ) );
-
 	//Einschlaten des GAP
-	alt_write_word(hps_xbee + 0x3, 0x2000);
+	alt_write_word(base_addr + 0x3, 0x2000);
 
 	do{
 
 		//Falls der Interrupt fuer GAP gesetzt ist
-		if( (alt_read_word(hps_xbee + 0x2) & 0x2000) >>13 ){
+		if( (alt_read_word(base_addr + 0x2) & 0x2000) >>13 ){
 
 			//Pruefe wie voll das FIFO ist
-			fifo_used = alt_read_word(hps_xbee + 0x6);
+			fifo_used = alt_read_word(base_addr + 0x6);
 
 			//Speichere die Daten in das Uebergebene Array
 			for(i = 0; i < fifo_used; i++){
 
-				rx_xbee_daten[i] = alt_read_word(hps_xbee);
+				rx_xbee_daten[i] = alt_read_word(base_addr);
 
 			}
 
 			//Setze den Interrupt zurueck
-			alt_write_word(hps_xbee + 0x2, 0x2000);
+			alt_write_word(base_addr + 0x2, 0x2000);
 
 		}
 
 	//Solange fifo_used = 0 wurden keine Daten empfangen
 	}while( fifo_used == 0 );
-
-	//Memorryunmapping aufheben mti Fehlerabfrage
-	if( munmap( virtual_base, HW_REGS_SPAN ) != 0 ) {
-		printf( "ERROR: munmap() failed...\n" );
-		close( fd );
-		return -3;
-	}
-
-	//Datei schliesen
-	close(fd);
 
 	//Zurueckgeben der empfangenen Bytes
 	return fifo_used;

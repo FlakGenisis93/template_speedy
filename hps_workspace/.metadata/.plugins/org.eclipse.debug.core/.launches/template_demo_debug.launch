@@ -5,39 +5,39 @@
 <stringAttribute key="ANDROID_APP_DIR" value=""/>
 <stringAttribute key="ANDROID_PROCESS_NAME" value=""/>
 <mapAttribute key="AverageDurationTracker">
-<mapEntry key="*Fetching Data Model" value="2838415"/>
-<mapEntry key="*list global low level symbols" value="2693978"/>
-<mapEntry key="*loading values from target" value="16402573"/>
-<mapEntry key="*updating variables" value="4723777"/>
-<mapEntry key="AddEventObserver" value="4420088"/>
-<mapEntry key="Evaluate" value="3259461"/>
-<mapEntry key="Retrieving globals list" value="25276803"/>
-<mapEntry key="add-symbol-file" value="35243706"/>
-<mapEntry key="break" value="2791622"/>
-<mapEntry key="continue" value="5593458"/>
-<mapEntry key="directory" value="2240589"/>
-<mapEntry key="disassemble" value="43783242"/>
-<mapEntry key="file" value="113239923"/>
-<mapEntry key="get capabilities" value="213516"/>
-<mapEntry key="get cwd" value="73307"/>
-<mapEntry key="get execution addresss" value="390365"/>
-<mapEntry key="get source lines" value="965149"/>
-<mapEntry key="initialize command help" value="38399754"/>
+<mapEntry key="*Fetching Data Model" value="146490"/>
+<mapEntry key="*list global low level symbols" value="367502"/>
+<mapEntry key="*loading values from target" value="4610938"/>
+<mapEntry key="*updating variables" value="738516"/>
+<mapEntry key="AddEventObserver" value="379539"/>
+<mapEntry key="Evaluate" value="735223"/>
+<mapEntry key="Retrieving globals list" value="1740226"/>
+<mapEntry key="add-symbol-file" value="6873457"/>
+<mapEntry key="break" value="6329736"/>
+<mapEntry key="continue" value="131659570"/>
+<mapEntry key="directory" value="1805437"/>
+<mapEntry key="disassemble" value="28336442"/>
+<mapEntry key="file" value="29725763"/>
+<mapEntry key="get capabilities" value="96510"/>
+<mapEntry key="get cwd" value="88664"/>
+<mapEntry key="get execution addresss" value="165734"/>
+<mapEntry key="get source lines" value="127528"/>
+<mapEntry key="initialize command help" value="27225072"/>
 <mapEntry key="interrupt" value="2020303"/>
-<mapEntry key="list breakpoints" value="466805"/>
-<mapEntry key="list instruction sets" value="1793734"/>
-<mapEntry key="list signals" value="2016607"/>
-<mapEntry key="list watchpoints" value="5858938"/>
-<mapEntry key="reload-symbol-file" value="22144740"/>
-<mapEntry key="remove" value="1047063"/>
-<mapEntry key="set CWD" value="8854952"/>
-<mapEntry key="set breakpoint properties" value="4570554"/>
-<mapEntry key="set debug-from" value="1216526"/>
-<mapEntry key="start" value="146454010"/>
-<mapEntry key="step" value="32112085"/>
-<mapEntry key="toggleBreakpoint" value="6283556"/>
+<mapEntry key="list breakpoints" value="359947"/>
+<mapEntry key="list instruction sets" value="208741"/>
+<mapEntry key="list signals" value="171949"/>
+<mapEntry key="list watchpoints" value="228103"/>
+<mapEntry key="reload-symbol-file" value="16977692"/>
+<mapEntry key="remove" value="1136954"/>
+<mapEntry key="set CWD" value="2554988"/>
+<mapEntry key="set breakpoint properties" value="7271051"/>
+<mapEntry key="set debug-from" value="377703"/>
+<mapEntry key="start" value="19782369"/>
+<mapEntry key="step" value="27609879"/>
+<mapEntry key="toggleBreakpoint" value="7590813"/>
 <mapEntry key="updateBreakpointLocation" value="4147245"/>
-<mapEntry key="waitForTargetToStop" value="56097724"/>
+<mapEntry key="waitForTargetToStop" value="37520767"/>
 </mapAttribute>
 <listAttribute key="DEBUG_TAB."/>
 <stringAttribute key="DEBUG_TAB..RESOURCES.0.TYPE" value="SOURCE_DIR"/>
@@ -238,10 +238,6 @@
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Unsigned Decimal"/>
-<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::xbee_frame"/>
-<listEntry value="1"/>
-<listEntry value="element formatter"/>
-<listEntry value="Character"/>
 <listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/src/speedy.c::key_4_senden::xbee_tx_data[0]"/>
 <listEntry value="1"/>
 <listEntry value="formatter"/>
@@ -250,10 +246,74 @@
 <listEntry value="1"/>
 <listEntry value="formatter"/>
 <listEntry value="Unsigned Decimal"/>
-<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/src/speedy.c::key_4_senden::distance"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten[0]"/>
 <listEntry value="1"/>
-<listEntry value="element formatter"/>
+<listEntry value="formatter"/>
 <listEntry value="Unsigned Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::create_xbee_frame::daten"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[1]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[2]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[3]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[4]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[5]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[6]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[7]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[8]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[9]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[10]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[11]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[12]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[13]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[14]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload[0]"/>
+<listEntry value="1"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
 <listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/src/speedy.c::key_4_senden::xbee_rx_addr"/>
 <listEntry value="1"/>
 <listEntry value="formatter"/>
@@ -270,6 +330,24 @@
 <listEntry value="1"/>
 <listEntry value="element formatter"/>
 <listEntry value="Unsigned Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/src/speedy.c::key_4_senden::distance"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Unsigned Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten"/>
+<listEntry value="2"/>
+<listEntry value="formatter"/>
+<listEntry value="Hexadecimal"/>
+<listEntry value="element formatter"/>
+<listEntry value="Unsigned Decimal"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::xbee_frame"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Character"/>
+<listEntry value="VALUE:H:/Git/template_speedy/hps_workspace/template_speedy_de0_nano_soc_demo/actuators/xbee.c::xbee_tx::daten_payload"/>
+<listEntry value="1"/>
+<listEntry value="element formatter"/>
+<listEntry value="Hexadecimal"/>
 </listAttribute>
 <booleanAttribute key="VFS_ENABLED" value="true"/>
 <stringAttribute key="VFS_LOCAL_DIR" value="${workspace_loc}"/>

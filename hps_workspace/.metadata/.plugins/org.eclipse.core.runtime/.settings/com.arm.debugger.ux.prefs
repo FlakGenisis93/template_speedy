@@ -1,4 +1,4 @@
-ConnectionManager.savedConnections=<?xml version\="1.0" encoding\="UTF-8"?>\n<connections>\n\t<connection current\="yes" mode\="debug" type\="com.arm.debugger.launcher2">template_demo_debug</connection>\n</connections>\n
+ConnectionManager.savedConnections=<?xml version\="1.0" encoding\="UTF-8"?>\n<connections>\n\t<connection current\="no" mode\="debug" type\="com.arm.debugger.launcher2">xbee_debug</connection>\n\t<connection current\="yes" mode\="debug" type\="com.arm.debugger.launcher2">template_demo_debug</connection>\n</connections>\n
 PreferredTargetHasBeenSet=true
 debugger.perspective.switch.preference.launch=always
 eclipse.preferences.version=1

@@ -94,7 +94,7 @@ uint8_t create_xbee_frame(uint16_t xbee_addr, uint8_t *xbee_frame, uint8_t daten
  *
  *******************************************************************************************************************/
  
-uint8_t xbee_tx(uint16_t xbee_addr, uint8_t daten[], uint16_t length);
+uint8_t xbee_tx(volatile uint32_t *base_addr, uint16_t xbee_addr, uint8_t daten[], uint16_t length);
 
 /**
  *******************************************************************************************************************
@@ -113,6 +113,6 @@ uint8_t xbee_tx(uint16_t xbee_addr, uint8_t daten[], uint16_t length);
  *
  *******************************************************************************************************************/
  
-int16_t xbee_rx(uint8_t rx_xbee_daten[]);
+int16_t xbee_rx(volatile uint32_t *base_addr, uint8_t rx_xbee_daten[]);
 
 #endif /* XBEE_H_ */

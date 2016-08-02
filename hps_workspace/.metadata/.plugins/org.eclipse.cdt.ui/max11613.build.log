@@ -1,15 +1,6 @@
-18:33:05 **** Incremental Build of configuration Debug for project max11613 ****
+11:22:38 **** Incremental Build of configuration Debug for project max11613 ****
 make all 
-'Building file: ../src/max11613.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\max11613\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/max11613.d" -MT"src/max11613.d" -o "src/max11613.o" "../src/max11613.c"
-'Finished building: ../src/max11613.c'
-' '
-'Building target: max11613'
-'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "max11613"  ./src/main.o ./src/max11613.o  ./actuators/i2c.o   
-'Finished building target: max11613'
-' '
+make: Nothing to be done for 'all'.
 
-18:33:06 Build Finished (took 942ms)
+11:22:38 Build Finished (took 422ms)
 

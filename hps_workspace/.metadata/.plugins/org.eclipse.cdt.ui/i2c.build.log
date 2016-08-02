@@ -1,15 +1,6 @@
-18:33:00 **** Incremental Build of configuration Debug for project i2c ****
+11:22:36 **** Incremental Build of configuration Debug for project i2c ****
 make all 
-'Building file: ../src/i2c.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/i2c.d" -MT"src/i2c.d" -o "src/i2c.o" "../src/i2c.c"
-'Finished building: ../src/i2c.c'
-' '
-'Building target: i2c'
-'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "i2c"  ./src/i2c.o ./src/main.o   
-'Finished building target: i2c'
-' '
+make: Nothing to be done for 'all'.
 
-18:33:01 Build Finished (took 841ms)
+11:22:36 Build Finished (took 359ms)
 

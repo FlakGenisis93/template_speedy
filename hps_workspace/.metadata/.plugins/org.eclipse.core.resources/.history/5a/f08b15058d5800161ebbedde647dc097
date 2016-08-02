@@ -1,0 +1,118 @@
+/**
+  *******************************************************************************************************************
+  * @file      	xbee.h
+  * @author    	B. Eng. Urban Conrad
+  * @version   	V1.0
+  * @date      	13.07.2016
+  * @copyright 	2009 - 2016 UniBw M - ETTI - Institut 4
+  * @brief   	Header functions to control Xbee modul
+  *******************************************************************************************************************
+  * @par History:
+  *  @details V1.0.0 13.07.2016 Urban Conrad
+  *           - Initial version
+  *******************************************************************************************************************
+  */
+
+#ifndef XBEE_H_
+#define XBEE_H_
+
+//	I	N	C	L	U	D	E	S
+
+#include <stdio.h>
+#include <stdint.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <soc_cv_av/socal/socal.h>
+#include <soc_cv_av/socal/hps.h>
+
+#include "hps_0.h"
+#include "hwlib.h"
+
+//	D	E	F	I	N	E	S
+
+#define HW_REGS_BASE	ALT_STM_OFST		/*! Offset fuer Register Base im Speicher */
+#define HW_REGS_SPAN 	0x04000000			/*! Registerspanne im Speicher */
+#define HW_REGS_MASK 	HW_REGS_SPAN - 1	/*! Maske fuer Registerspanne im Speicher */
+
+//	F	U	N	K	T	I	O	N	E	N
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@auther		Kaptain, Sascha - B.Eng.
+ *
+ *	@brief		__inline__ uint8_t XBEE_FRAME_CHECKSUM(uint8_t* frameData, uint8_t lenghtOfDataInBytes)
+ *
+ *	@details	Diese Funktion berechnet die Checksumme für den XBee frame
+ *
+ *	@param		uint8_t* frameData	Daten des XBee Frames welche fuer die Brechenung genommen werden muessen
+ *	@param		uint8_t lenghtOfDataInBytes	Laenge der Daten welche fuer die Brechenung genommen werden muessen
+ *
+ *	@retval		0xXX	Checksumme
+ *				0xFF	Fehler
+ *
+ *******************************************************************************************************************/
+ 
+__inline__ uint8_t XBEE_FRAME_CHECKSUM(uint8_t* frameData, uint8_t lenghtOfDataInBytes);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		create_xbee_frame(uint16_t xbee_addr, uint8_t *xbee_frame, uint8_t daten[], uint16_t length)
+ *
+ *	@details	Diese Funktion erstellt den XBee Frame 
+ *
+ *	@param		uint16_t xbee_addr	16 bit XBee Adresse des Empfaengers
+ *	@param		uint8_t *xbee_frame	Pointer auf das arry welches gesendet wird
+ *	@param		uint8_t daten[]		Daten die gesendet werden sollen (Payload)
+ *	@param		uint16_t length		Laenge der Daten die gesendet werden sollen
+ *
+ *	@retval		0	Alles Okay
+ *				1	Fehler
+ *
+ *******************************************************************************************************************/
+
+uint8_t create_xbee_frame(uint16_t xbee_addr, uint8_t *xbee_frame, uint8_t daten[], uint16_t length);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		uint8_t xbee_tx(uint16_t xbee_addr, uint8_t daten[], uint16_t length)
+ *
+ *	@details	Mit dieser Funktion werden Daten mit XBee gesendet
+ *
+ *	@param		uint16_t xbee_addr	16 bit XBee Adresse des Empfaengers
+ *	@param		uint8_t daten[]		Daten die gesendet werden sollen (Payload)
+ *	@param		uint16_t length		Laenge der Daten die gesendet werden sollen
+ *
+ *	@retval		0	Alles Okay
+ *				1	Funktion create_xbee_frame hat einen Fehler erzeugt
+ *				2	open "/dev/mem" fehlgeschlagen
+ *				3	mmap() failed
+ *				4	munmap() failed
+ *
+ *******************************************************************************************************************/
+ 
+uint8_t xbee_tx(volatile uint32_t *base_addr, uint16_t xbee_addr, uint8_t daten[], uint16_t length);
+
+/**
+ *******************************************************************************************************************
+ *
+ *	@brief		int16_t xbee_rx(uint8_t rx_xbee_daten[])
+ *
+ *	@details	Funktion zum empfangen von Daten ueber XBee
+ *
+ *	@param		uint8_t rx_xbee_daten[]	Array in welches die empfangenen Daten gespeichert werden, 
+*										muss XX Byte gross sein
+ *
+ *	@retval		x	Anzahl der Bytes die aus dem UART-FIFO gelesen worden sind
+ *				-1	open "/dev/mem" fehlgeschlagen
+ *				-2	mmap() failed
+ *				-3	munmap() failed
+ *
+ *******************************************************************************************************************/
+ 
+int16_t xbee_rx(uint8_t rx_xbee_daten[]);
+
+#endif /* XBEE_H_ */

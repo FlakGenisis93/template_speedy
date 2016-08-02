@@ -289,6 +289,7 @@ void drive_curve_steps(volatile uint32_t *base_addr, int16_t angle, uint8_t spee
 //Diese Funktionen werden in der H Datei nicht angegeben und sollen auch nicht im Programm aufgerufen werden. Sie dienen lediglich fuer das Verstaendnis
 //der Funktionsweise und koennen zum Weiterbearbeiten benutzt werden.////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
 static __inline__ void curve(base){
 					SET_SPEED(base, 25); 				//transmit 						Geschwindigkeit:	25
 					SET_ANGLE(base, 90); 				//transmit						Winkel:				90
@@ -302,6 +303,7 @@ static __inline__ void send_driveback(base){
 					alt_write_word(base + 1,33368); //transmit						Strecke:			60cm
 					alt_write_word(base + 4,32769); //transmit						Befehl:		 		Fahren
 }
+*/
 
 //erkennung von negativen Zahlen und umwandlung in einerkopliment(auch in vhdl realisirbar, allerdings nur mit min 2 konvertierungen, ist also nicht besser...)
 void drive_test(volatile uint32_t *base_addr, uint8_t speed, int16_t distance){

@@ -1,10 +1,6 @@
-10:35:51 **** Incremental Build of configuration Debug for project xbee ****
+11:22:44 **** Incremental Build of configuration Debug for project xbee ****
 make all 
-'Building target: xbee'
-'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "xbee"  ./src/main.o ./src/xbee.o   
-'Finished building target: xbee'
-' '
+make: Nothing to be done for 'all'.
 
-10:35:51 Build Finished (took 559ms)
+11:22:44 Build Finished (took 404ms)
 

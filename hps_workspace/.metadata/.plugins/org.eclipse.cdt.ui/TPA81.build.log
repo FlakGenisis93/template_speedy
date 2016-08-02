@@ -1,7 +1,6 @@
-09:05:38 **** Incremental Build of configuration Debug for project TPA81 ****
+11:22:33 **** Incremental Build of configuration Debug for project TPA81 ****
 make all 
 make: Nothing to be done for 'all'.
-Command canceled
 
-09:05:39 Build Cancelled (took 1s.514ms)
+11:22:34 Build Finished (took 401ms)
 

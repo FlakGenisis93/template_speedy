@@ -1,34 +1,6 @@
-18:33:01 **** Incremental Build of configuration Debug for project itg3200 ****
+11:22:36 **** Incremental Build of configuration Debug for project itg3200 ****
 make all 
-'Building file: ../src/itg3200.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\itg3200\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/itg3200.d" -MT"src/itg3200.d" -o "src/itg3200.o" "../src/itg3200.c"
-../src/itg3200.c: In function 'read_gyro_z':
-../src/itg3200.c:118:2: warning: pointer targets in passing argument 3 of 'read_i2c' differ in signedness [-Wpointer-sign]
-  if(read_i2c(I2C_2, ADDR_ITG, z_data, 2) != 2)
-  ^
-In file included from ../src/itg3200.h:23:0,
-                 from ../src/itg3200.c:18:
-H:\Git\template_speedy\hps_workspace\itg3200\actuators/i2c.h:26:10: note: expected 'uint8_t *' but argument is of type 'int8_t *'
- uint32_t read_i2c(uint32_t i2c, uint8_t slave_adress, uint8_t data[], uint8_t length);
-          ^
-'Finished building: ../src/itg3200.c'
-' '
-'Building file: ../src/main.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\itg3200\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../actuators/i2c.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"H:\Git\template_speedy\hps_workspace\itg3200\actuators" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"actuators/i2c.d" -MT"actuators/i2c.d" -o "actuators/i2c.o" "../actuators/i2c.c"
-'Finished building: ../actuators/i2c.c'
-' '
-'Building target: itg3200'
-'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "itg3200"  ./src/itg3200.o ./src/main.o  ./actuators/i2c.o   
-'Finished building target: itg3200'
-' '
+make: Nothing to be done for 'all'.
 
-18:33:03 Build Finished (took 1s.445ms)
+11:22:37 Build Finished (took 406ms)
 

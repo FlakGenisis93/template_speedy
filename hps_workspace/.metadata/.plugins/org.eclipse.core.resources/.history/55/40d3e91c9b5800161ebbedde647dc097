@@ -1,0 +1,28 @@
+/*
+ * main.c
+ *
+ *  Created on: 06.07.2016
+ *      Author: Urban
+ */
+
+#include "xbee.h"
+
+int main(void){
+
+	int memmory;
+	void *virtual_base;
+	volatile uint32_t *hps_xbee = NULL;
+	uint8_t data[] = {0x48, 0x49}; 	//ASCI Zeichen in HEX fuer - Hi
+	uint16_t addresse = 0x0401;		//HEX Adresse des anderen XBee-Moduls	
+
+
+	//Senden per XBee
+	xbee_tx(addresse, data, sizeof(data));
+
+	//Empfangen per XBee
+	//xbee_rx();
+
+	return 0;
+
+
+}

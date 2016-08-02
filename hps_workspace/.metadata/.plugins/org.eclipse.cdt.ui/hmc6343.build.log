@@ -1,6 +1,6 @@
-18:32:59 **** Incremental Build of configuration Debug for project hmc6343 ****
+11:22:35 **** Incremental Build of configuration Debug for project hmc6343 ****
 make all 
 make: Nothing to be done for 'all'.
 
-18:33:00 Build Finished (took 389ms)
+11:22:36 Build Finished (took 407ms)
 
