@@ -83,12 +83,9 @@ uint8_t xbee_tx(uint16_t xbee_addr, uint8_t daten[], uint16_t length){
 	void *virtual_base;
 	volatile uint32_t *hps_xbee = NULL;
 	int fd;
-	uint8_t xbee_frame[length + 9];
+	uint8_t xbee_frame[109];
+	uint16_t length_payload;
 	uint32_t i;
-
-	//Erstellen des XBee Frames mit Fehlerabrage
-	if(create_xbee_frame(xbee_addr, xbee_frame, daten, length) == 1)
-		return 1;
 
 	//Oeffnen der Datei des Speichers mit Fehlerabrage
 	if( ( fd = open( "/dev/mem", ( O_RDWR | O_SYNC ) ) ) == -1 ) {
@@ -109,12 +106,29 @@ uint8_t xbee_tx(uint16_t xbee_addr, uint8_t daten[], uint16_t length){
 	//Erstellen einen Pointers auf XBee im Speicher
 	hps_xbee = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + FIFOED_AVALON_UART_BASE ) & (uint32_t)( HW_REGS_MASK ) );
 
-	//Schreiben an UART
-	for(i = 0; i < length + 9; i++){
 
-		alt_write_word(hps_xbee + 0x1, xbee_frame[i]);
+	do{
+
+		if(length > 100){
+			length_payload = 100;
+			length = length - 100;
+		} else {
+			length_payload = length;
+			length = 0;
+		}
+
+		//Erstellen des XBee Frames mit Fehlerabrage
+		if(create_xbee_frame(xbee_addr, xbee_frame, daten, length_payload) == 1)
+			return 1;
+
+		//Schreiben an UART
+		for(i = 0; i < length_payload + 9; i++){
+
+			alt_write_word(hps_xbee + 0x1, xbee_frame[i]);
 		
-	}
+		}
+
+	}while (length > 0);
 
 	//Memorryunmapping aufheben mti Fehlerabfrage
 	if( munmap( virtual_base, HW_REGS_SPAN ) != 0 ) {

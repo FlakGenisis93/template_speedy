@@ -1,20 +1,10 @@
-18:33:17 **** Incremental Build of configuration Debug for project xbee ****
+10:35:51 **** Incremental Build of configuration Debug for project xbee ****
 make all 
-'Building file: ../src/main.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/xbee.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -Dsoc_cv_av -MMD -MP -MF"src/xbee.d" -MT"src/xbee.d" -o "src/xbee.o" "../src/xbee.c"
-'Finished building: ../src/xbee.c'
-' '
 'Building target: xbee'
 'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
 arm-linux-gnueabihf-gcc  -o "xbee"  ./src/main.o ./src/xbee.o   
 'Finished building target: xbee'
 ' '
 
-18:33:18 Build Finished (took 1s.96ms)
+10:35:51 Build Finished (took 559ms)
 

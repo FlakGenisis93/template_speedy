@@ -1,22 +1,7 @@
-11:53:17 **** Incremental Build of configuration Debug for project template_speedy_de0_nano_soc_demo ****
+10:35:51 **** Incremental Build of configuration Debug for project xbee ****
 make all 
-'Building file: ../src/speedy.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -Dsoc_cv_av -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc_demo\actuators" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc_demo\src" -I"H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc_demo\sensors" -I"C:\altera\16.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/speedy.d" -MT"src/speedy.d" -o "src/speedy.o" "../src/speedy.c"
-../src/speedy.c: In function 'key_4_senden':
-../src/speedy.c:502:3: warning: passing argument 2 of 'doMeasurement' from incompatible pointer type [enabled by default]
-   laser = doMeasurement(base_addr_laser, &distance);
-   ^
-In file included from H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc_demo\sensors/laser_include.h:15:0,
-                 from ../src/speedy.h:21,
-                 from ../src/speedy.c:1:
-H:\Git\template_speedy\hps_workspace\template_speedy_de0_nano_soc_demo\sensors/laser.h:162:9: note: expected 'uint16_t *' but argument is of type 'uint16_t (*)[769]'
- uint8_t doMeasurement(volatile uint32_t *base_addr, uint16_t *distance);
-         ^
-'Finished building: ../src/speedy.c'
-' '
-'Building target: template_speedy_de0_nano_soc_demo'
+'Building target: xbee'
 'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "template_speedy_de0_nano_soc_demo"  ./src/main.o ./src/speedy.o  ./sensors/ADXL345.o ./sensors/hmc6343.o ./sensors/itg3200.o ./sensors/laser.o ./sensors/max11613.o ./sensors/srf08.o ./sensors/tpa81.o  ./actuators/i2c.o ./actuators/lcd.o ./actuators/motor_modul_mm.o ./actuators/xbee.o   
-'Finished building target: template_speedy_de0_nano_soc_demo'
+arm-linux-gnueabihf-gcc  -o "xbee"  ./src/main.o ./src/xbee.o   
+'Finished building target: xbee'
 ' '
