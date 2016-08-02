@@ -66,20 +66,13 @@ int main(void) {
 
 	write_data_lcd(text_1, sizeof(text_1));
 
-	usleep(700*1000);
-
 	do{
 
 		key = read_key_lcd();
 
 	}while(key != 0x0800);
 
-	key = 0;
-	clear_lcd();
-	set_courser_lcd(1, 1);
 	write_data_lcd(text_2, sizeof(text_2));
-
-	usleep(700*1000);
 
 	do{
 
@@ -103,12 +96,7 @@ int main(void) {
 
 	}while(key != 0x0800);
 
-	key = 0;
-	clear_lcd();
-	set_courser_lcd(1, 1);
 	write_data_lcd(text_3, sizeof(text_3));
-
-	usleep(700*1000);
 
 	while(read_key_lcd() != 0x0A00){
 
@@ -118,7 +106,7 @@ int main(void) {
 
 
 
-		usleep(100*1000);
+
 
 	};
 

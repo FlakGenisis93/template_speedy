@@ -7,25 +7,24 @@ int main(void) {
 
 	uint8_t text_1[] = {"     HPS Speedy     "
 				  	  	"\n"
-				  	  	" INIT: Ok  Press #  "
-						"\n"};
+				  	  	" INIT: Ok  Press #  "};
 
 	uint8_t text_2[] = {"\n"
 						" * + # = Terminate  "
 						"\n"
 						"      Press #       "};
 
-	//Anpassen wie benoetigt
-	uint8_t text_3[] = {"1 Fahre gerade      "
-						"2 Drehen rechts     "
-						"3 180 Grad Kurve    "
-						"4 Sende Laser       "};
+	uint8_t text_3[] = {"\n"
+						" * + # = Terminate  "
+						"\n"
+						"      Press #       "};
 
 	int memmory;			//file pointer fuer speicher
 	void *virtual_base;
 	volatile uint32_t *hps_laser = NULL;
 	volatile uint32_t *hps_saber = NULL;
-	volatile uint32_t *hps_xbee = NULL;
+
+
 
 	//Init Speedy Peripheral, no Laser and Drive
 	init = init_speedy();
@@ -52,21 +51,17 @@ int main(void) {
 
 	hps_laser = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + LASER_BASE ) & (uint32_t)( HW_REGS_MASK ) );
 	hps_saber = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + MOTOR_MODUL_BASE ) & (uint32_t)( HW_REGS_MASK ) );
-	hps_xbee = virtual_base + ( (uint32_t)( ALT_LWFPGASLVS_OFST + FIFOED_AVALON_UART_BASE ) & (uint32_t)( HW_REGS_MASK ) );
 
 	//Init memmory laser
 	initMemory(hps_laser);
 
 	//Write on LCD
 
-	hide_cursor_lcd();
 	clear_lcd();
 	blacklight_on_lcd();
-	set_courser_lcd(1, 1);
+	set_courser_lcd(0, 0);
 
 	write_data_lcd(text_1, sizeof(text_1));
-
-	usleep(700*1000);
 
 	do{
 
@@ -74,12 +69,7 @@ int main(void) {
 
 	}while(key != 0x0800);
 
-	key = 0;
-	clear_lcd();
-	set_courser_lcd(1, 1);
 	write_data_lcd(text_2, sizeof(text_2));
-
-	usleep(700*1000);
 
 	do{
 
@@ -103,12 +93,7 @@ int main(void) {
 
 	}while(key != 0x0800);
 
-	key = 0;
-	clear_lcd();
-	set_courser_lcd(1, 1);
 	write_data_lcd(text_3, sizeof(text_3));
-
-	usleep(700*1000);
 
 	while(read_key_lcd() != 0x0A00){
 
@@ -118,7 +103,7 @@ int main(void) {
 
 
 
-		usleep(100*1000);
+
 
 	};
 

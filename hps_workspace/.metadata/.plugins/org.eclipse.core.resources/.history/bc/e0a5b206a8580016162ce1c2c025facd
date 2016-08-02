@@ -118,7 +118,7 @@ int main(void) {
 
 
 
-		usleep(100*1000);
+
 
 	};
 
